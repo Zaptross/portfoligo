@@ -12,13 +12,15 @@ var (
 		Description: "Home page for my portfolio",
 		Slug:        "home",
 		Type:        TYPE_ROOT,
-		Content: g.Div(g.EB{
-			Children: []*g.HTMLElement{
-				g.H1(g.EB{
-					Text: "Welcome to my portfolio!",
-				}),
-				c.LinkRel("NoRhythm", "/project/no-rhythm"),
-			}},
-		),
+		Content: func() *g.HTMLElement {
+			return g.Div(g.EB{
+				Children: []*g.HTMLElement{
+					g.H1(g.EB{
+						Text: "Welcome to my portfolio!",
+					}),
+					c.LinkRel("NoRhythm", "/project/no-rhythm"),
+				}},
+			)
+		},
 	})
 )
