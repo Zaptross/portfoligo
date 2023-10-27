@@ -29,3 +29,15 @@ page := types.PageDetails{
 ```
 
 Will result in a page being generated at `dist/blog/my-first-post/index.html`.
+
+Notably, there exists a utility type `pages.TYPE_ROOT = "root"` which will result in a page being generated as the index of it's slug type, eg:
+
+```go
+page := types.PageDetails{
+    Type: pages.TYPE_ROOT,
+    Slug: "blog",
+    // ... etc.
+}
+```
+
+Will result in a page being generated at `dist/blog/index.html`.
