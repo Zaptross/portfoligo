@@ -39,3 +39,7 @@ func GetAllPagesByTypes() map[string][]types.PageDetails {
 		TYPE_PROJECT: GetAllPagesByType(TYPE_PROJECT),
 	}
 }
+
+func GetAllPages() []types.PageDetails {
+	return allPages
+}
