@@ -1,6 +1,9 @@
 package main
 
 import (
+	"fmt"
+	"strings"
+
 	g "github.com/zaptross/gorgeous"
 	c "github.com/zaptross/portfoligo/internal/components"
 	"github.com/zaptross/portfoligo/internal/pages"
@@ -21,10 +24,10 @@ func main() {
 		},
 	})
 
+	println("===  Rendering pages\t===")
 	for _, pages := range pages.GetAllPagesByTypes() {
 		for _, page := range pages {
-			println(page.Title)
-			println(page.GetRelativeURL())
+			println(fmt.Sprintf("%s%s@ %s", page.Title, strings.Repeat(" ", 2*8-len(page.Title)), page.GetRelativeURL()))
 			rendered := g.RenderStatic(
 				g.Document(
 					c.Head(page),
