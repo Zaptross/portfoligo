@@ -20,7 +20,8 @@ func main() {
 		Include:  true,
 		Selector: ":root",
 		Props: g.CSSProps{
-			"font-size": "22px",
+			"font-size": "20px",
+			"font-family": "'Lato', sans-serif",
 		},
 	})
 

@@ -40,6 +40,9 @@ func Meta(md types.PageDetails) []*g.HTMLElement {
 				"src":  "script.js",
 			},
 		}),
+		g.Style(g.EB{
+			Text: "@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');",
+		}),
 	}
 }
 
