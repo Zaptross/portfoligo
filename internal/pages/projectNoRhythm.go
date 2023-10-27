@@ -47,6 +47,7 @@ var (
 						Style: g.CSSProps{
 							"display":        "flex",
 							"flex-direction": "row",
+							"flex-wrap":      "wrap",
 							"width":          "100%",
 							"margin-bottom":  "0.25rem",
 						},
@@ -55,8 +56,7 @@ var (
 								Style: g.CSSProps{
 									"flex-grow":    "1",
 									"padding":      "0.25rem",
-									"aspect-ratio": "16/9",
-									"height":       "250px",
+									"height":       "240px",
 								},
 								Props: g.Props{
 									"src":         "https://widgets.gamejolt.com/package/v1?key=oViq6qjJ",
@@ -67,8 +67,7 @@ var (
 								Style: g.CSSProps{
 									"flex-grow":    "1",
 									"padding":      "0.25rem",
-									"aspect-ratio": "16/9",
-									"height":       "250px",
+									"height":       "240px",
 								},
 								Props: g.Props{
 									"src":         "https://widgets.gamejolt.com/package/v1?key=juTtiCT2",
