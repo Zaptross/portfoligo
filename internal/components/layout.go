@@ -1,6 +1,8 @@
 package components
 
 import (
+	"time"
+
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
 	p "github.com/zaptross/portfoligo/internal/provider"
@@ -87,6 +89,21 @@ func layoutPageHeader(page types.PageDetails) *g.HTMLElement {
 		},
 	})
 
+	return g.Div(g.EB{
+		ClassList: []string{pageLayoutHeaderClass},
+		Children: g.CE{
+			g.H1(g.EB{
+				ClassList: []string{titleClass},
+				Text:      page.Title,
+			}),
+			layoutPageDateTags(page),
+		},
+	})
+}
+
+func layoutPageDateTags(page types.PageDetails) *g.HTMLElement {
+	theme := p.ThemeProvider.GetTheme()
+
 	dateTagsContainerClass := "date-tags-container"
 	g.Class(&g.CSSClass{
 		Selector: "." + dateTagsContainerClass,
@@ -108,33 +125,45 @@ func layoutPageHeader(page types.PageDetails) *g.HTMLElement {
 		},
 	})
 
+	elements := g.CE{}
+	hasTags := page.Tags != nil && len(page.Tags) > 0
+	hasDate := page.Written != time.Time{}
+
+	if !hasDate && !hasTags {
+		return g.Empty()
+	}
+
+	if hasDate {
+		elements = append(elements,
+			g.H3(g.EB{
+				ClassList: []string{dateTagsClass},
+				Text:      page.Written.Format("2006-01-02"),
+			}),
+		)
+	}
+
+	if hasDate && hasTags {
+		elements = append(elements,
+			g.H3(g.EB{
+				ClassList: []string{dateTagsClass},
+				Text:      "—",
+			}),
+		)
+	}
+
+	if hasTags {
+		elements = append(elements,
+			lo.Map(page.Tags, func(tag string, _ int) *g.HTMLElement {
+				return g.H3(g.EB{
+					ClassList: []string{dateTagsClass},
+					Text:      tag,
+				})
+			})...,
+		)
+	}
+
 	return g.Div(g.EB{
-		ClassList: []string{pageLayoutHeaderClass},
-		Children: g.CE{
-			g.H1(g.EB{
-				ClassList: []string{titleClass},
-				Text:      page.Title,
-			}),
-			g.Div(g.EB{
-				ClassList: []string{dateTagsContainerClass},
-				Children: append(g.CE{
-					g.H3(g.EB{
-						ClassList: []string{dateTagsClass},
-						Text:      page.Written.Format("2006-01-02"),
-					}),
-					g.H3(g.EB{
-						ClassList: []string{dateTagsClass},
-						Text:      "—",
-					}),
-				},
-					lo.Map(page.Tags, func(tag string, _ int) *g.HTMLElement {
-						return g.H3(g.EB{
-							ClassList: []string{dateTagsClass},
-							Text:      tag,
-						})
-					})...,
-				),
-			}),
-		},
+		ClassList: []string{dateTagsContainerClass},
+		Children:  elements,
 	})
 }
