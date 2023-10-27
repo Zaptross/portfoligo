@@ -18,7 +18,6 @@ func Layout(page types.PageDetails) *g.HTMLElement {
 		Props: g.CSSProps{
 			// Decrease the sidebar width as the screen gets smaller
 			"width":  "max(50%, min(100%, calc(40vw + 270px)))",
-			"height": "100%",
 		},
 	})
 	g.Class(&g.CSSClass{

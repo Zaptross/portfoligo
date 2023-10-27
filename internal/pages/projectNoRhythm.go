@@ -39,7 +39,41 @@ var (
 					Children: g.CE{
 						g.Text("NoRhythm was published to "),
 						c.LinkExternal("GameJolt", "https://gamejolt.com/games/NoRhythm/443325"),
-						g.Text(", it can be played and downloaded or played in the browser from the links below!"),
+						g.Text(", it can be played in the browser or downloaded from the links below!"),
+					},
+				}),
+				g.Div(g.EB{
+					Style: g.CSSProps{
+						"display":        "flex",
+						"flex-direction": "row",
+						"width":          "100%",
+						"margin-bottom":  "0.25rem",
+					},
+					Children: g.CE{
+						g.CustomElement("iframe", true, g.EB{
+							Style: g.CSSProps{
+								"flex-grow":    "1",
+								"padding":      "0.25rem",
+								"aspect-ratio": "16/9",
+								"height":       "250px",
+							},
+							Props: g.Props{
+								"src":         "https://widgets.gamejolt.com/package/v1?key=oViq6qjJ",
+								"frameborder": "0",
+							},
+						}),
+						g.CustomElement("iframe", true, g.EB{
+							Style: g.CSSProps{
+								"flex-grow":    "1",
+								"padding":      "0.25rem",
+								"aspect-ratio": "16/9",
+								"height":       "250px",
+							},
+							Props: g.Props{
+								"src":         "https://widgets.gamejolt.com/package/v1?key=juTtiCT2",
+								"frameborder": "0",
+							},
+						}),
 					},
 				}),
 			}},
