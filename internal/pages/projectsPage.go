@@ -24,7 +24,7 @@ var (
 					}),
 					g.Div(g.EB{
 						Style: g.CSSProps{
-							"display": "flex",
+							"display":        "flex",
 							"flex-direction": "column",
 						},
 						Children: lo.Map(GetAllPagesByType(TYPE_PROJECT), func(page types.PageDetails, _ int) *g.HTMLElement {

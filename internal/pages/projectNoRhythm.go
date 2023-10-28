@@ -54,9 +54,9 @@ var (
 						Children: g.CE{
 							g.CustomElement("iframe", true, g.EB{
 								Style: g.CSSProps{
-									"flex-grow":    "1",
-									"padding":      "0.25rem",
-									"height":       "240px",
+									"flex-grow": "1",
+									"padding":   "0.25rem",
+									"height":    "240px",
 								},
 								Props: g.Props{
 									"src":         "https://widgets.gamejolt.com/package/v1?key=oViq6qjJ",
@@ -65,9 +65,9 @@ var (
 							}),
 							g.CustomElement("iframe", true, g.EB{
 								Style: g.CSSProps{
-									"flex-grow":    "1",
-									"padding":      "0.25rem",
-									"height":       "240px",
+									"flex-grow": "1",
+									"padding":   "0.25rem",
+									"height":    "240px",
 								},
 								Props: g.Props{
 									"src":         "https://widgets.gamejolt.com/package/v1?key=juTtiCT2",
