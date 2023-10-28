@@ -18,7 +18,7 @@ var (
 					g.H1(g.EB{
 						Text: "Welcome to my portfolio!",
 					}),
-					c.LinkRel("NoRhythm", "/project/no-rhythm"),
+					c.Link(g.Text("NoRhythm"), "/project/no-rhythm"),
 				}},
 			)
 		},

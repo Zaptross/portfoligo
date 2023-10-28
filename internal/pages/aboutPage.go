@@ -21,7 +21,7 @@ var (
 					c.P(g.EB{
 						Text: "I am a full stack polyglot developer.",
 					}),
-					c.LinkRel("NoRhythm", "/project/no-rhythm"),
+					c.Link(g.Text("NoRhythm"), "/project/no-rhythm"),
 				}},
 			)
 		},

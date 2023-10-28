@@ -1,17 +1,16 @@
 package components
 
 import (
+	"strings"
+
 	g "github.com/zaptross/gorgeous"
 	p "github.com/zaptross/portfoligo/internal/provider"
 )
 
-const (
-	linkClassName = "link"
-)
-
-func linkClasses() {
+func Link(inner *g.HTMLElement, url string) *g.HTMLElement {
 	theme := p.ThemeProvider.GetTheme()
 
+	linkClassName := "link"
 	g.Class(&g.CSSClass{
 		Selector: "." + linkClassName,
 		Props: g.CSSProps{
@@ -27,22 +26,6 @@ func linkClasses() {
 			"text-decoration": "none",
 		},
 	})
-}
-
-func LinkRel(text string, relative string) *g.HTMLElement {
-	linkClasses()
-
-	return g.A(g.EB{
-		ClassList: []string{linkClassName},
-		Text:      text,
-		Props: g.Props{
-			"href": relative,
-		},
-	})
-}
-
-func LinkExternal(text string, url string) *g.HTMLElement {
-	linkClasses()
 
 	externalClassName := "external-link"
 	g.Class(&g.CSSClass{
@@ -53,12 +36,20 @@ func LinkExternal(text string, url string) *g.HTMLElement {
 		},
 	})
 
+	classList := []string{linkClassName}
+	target := "_self"
+
+	if strings.HasPrefix(url, "http") {
+		classList = append(classList, externalClassName)
+		target = "_blank"
+	}
+
 	return g.A(g.EB{
-		ClassList: []string{linkClassName, externalClassName},
-		Text:      text,
+		ClassList: classList,
+		Children:  g.CE{inner},
 		Props: g.Props{
 			"href":   url,
-			"target": "_blank",
+			"target": target,
 		},
 	})
 }

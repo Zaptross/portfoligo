@@ -28,7 +28,7 @@ var (
 							"flex-direction": "column",
 						},
 						Children: lo.Map(GetAllPagesByType(TYPE_PROJECT), func(page types.PageDetails, _ int) *g.HTMLElement {
-							return c.LinkRel(page.Title, page.GetRelativeURL())
+							return c.Link(g.Text(page.Title), page.GetRelativeURL())
 						}),
 					}),
 				}},
