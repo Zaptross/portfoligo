@@ -7,15 +7,21 @@ import (
 	p "github.com/zaptross/portfoligo/internal/provider"
 )
 
-func Link(inner *g.HTMLElement, url string) *g.HTMLElement {
+func LinkIcon(inner *g.HTMLElement, url string) *g.HTMLElement { return link(inner, url,  "icon", false, false) }
+func Link(inner *g.HTMLElement, url string) *g.HTMLElement     { return link(inner, url, "", true, true) }
+func link(inner *g.HTMLElement, url string, differentiator string, showExternal bool, underline bool) *g.HTMLElement {
 	theme := p.ThemeProvider.GetTheme()
 
-	linkClassName := "link"
+	linkClassName := "link" + differentiator
+	textDeco := "none"
+	if underline {
+		textDeco = "underline"
+	}
 	g.Class(&g.CSSClass{
 		Selector: "." + linkClassName,
 		Props: g.CSSProps{
 			"color":           theme.Green,
-			"text-decoration": "underline",
+			"text-decoration": textDeco,
 		},
 	})
 
@@ -40,7 +46,9 @@ func Link(inner *g.HTMLElement, url string) *g.HTMLElement {
 	target := "_self"
 
 	if strings.HasPrefix(url, "http") {
-		classList = append(classList, externalClassName)
+		if showExternal {
+			classList = append(classList, externalClassName)
+		}
 		target = "_blank"
 	}
 

@@ -40,6 +40,12 @@ func Meta(md types.PageDetails) []*g.HTMLElement {
 				"src":  "script.js",
 			},
 		}),
+		g.Script(g.EB{
+			Props: g.Props{
+				"src":         "https://kit.fontawesome.com/653251a210.js",
+				"crossorigin": "anonymous",
+			},
+		}),
 		g.Style(g.EB{
 			Text: "@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');",
 		}),
