@@ -11,7 +11,7 @@ var (
 	_ = registerPage(types.PageDetails{
 		Title:       "Projects",
 		Description: "Projects I've worked on",
-		Slug:        "project",
+		Slug:        "projects",
 		Type:        TYPE_ROOT,
 		Content: func() *g.HTMLElement {
 			return g.Div(g.EB{

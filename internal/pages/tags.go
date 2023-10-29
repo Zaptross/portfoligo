@@ -3,7 +3,7 @@ package pages
 const (
 	// Type tags
 	TYPE_BLOG    = "blog"
-	TYPE_PROJECT = "project"
+	TYPE_PROJECT = "projects"
 	TYPE_ROOT    = "root"
 
 	// Content type tags
