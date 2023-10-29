@@ -7,6 +7,7 @@ import (
 	p "github.com/zaptross/portfoligo/internal/provider"
 )
 
+func LinkNav(inner *g.HTMLElement, url string) *g.HTMLElement  { return link(inner, url, "nav", false, false) }
 func LinkIcon(inner *g.HTMLElement, url string) *g.HTMLElement { return link(inner, url,  "icon", false, false) }
 func Link(inner *g.HTMLElement, url string) *g.HTMLElement     { return link(inner, url, "", true, true) }
 func link(inner *g.HTMLElement, url string, differentiator string, showExternal bool, underline bool) *g.HTMLElement {

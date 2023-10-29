@@ -1,6 +1,7 @@
 package components
 
 import (
+	"strings"
 	"time"
 
 	"github.com/samber/lo"
@@ -54,6 +55,7 @@ func Layout(page types.PageDetails) *g.HTMLElement {
 
 	return g.Body(g.EB{
 		Children: g.CE{
+			absoluteLinks(),
 			layoutPageHeader(page),
 			g.Div(g.EB{
 				ClassList: []string{contentClass},
@@ -164,5 +166,91 @@ func layoutPageDateTags(page types.PageDetails) *g.HTMLElement {
 	return g.Div(g.EB{
 		ClassList: []string{dateTagsContainerClass},
 		Children:  elements,
+	})
+}
+
+func absoluteLinks() *g.HTMLElement {
+	linksDivClass := "absolute-links"
+	g.Class(&g.CSSClass{
+		Selector: "." + linksDivClass,
+		Props: g.CSSProps{
+			"padding-top": "0.25rem",
+			"height":      "max(0px, calc(10vh - 10vw))",
+			"min-height":  "max(0px, calc(10vh - 10vw))",
+		},
+	})
+
+	faCSS := g.CSSProps{
+		"color":  p.ThemeProvider.GetTheme().Base1,
+		"margin": "0 0.25rem",
+	}
+	nameColorClass := "name-color"
+	g.Class(&g.CSSClass{
+		Selector: "." + nameColorClass,
+		Props:    faCSS,
+	})
+
+	g.Class(&g.CSSClass{
+		Include: true,
+		Selector: ".top-left > div > .linknav",
+		Props:    g.CSSProps{
+			"margin-right": "0.5rem",
+		},
+	})
+
+	return g.Div(g.EB{
+		ClassList: []string{linksDivClass},
+		Children: g.CE{
+			absoluteDiv(
+				[]string{"top", "left"},
+				g.CE{
+					Row(g.CE{
+						LinkIcon(FAS("home", faCSS), "/"),
+						g.H3(g.EB{
+							ClassList: []string{nameColorClass},
+							Text:      "Matthew Price",
+						}),
+					},
+					),
+					Row(g.CE{
+						LinkNav(g.Text("Projects"), "/projects"),
+						LinkNav(g.Text("Blog"), "/blog"),
+						LinkNav(g.Text("About"), "/about"),
+					}),
+				},
+			),
+			absoluteDiv(
+				[]string{"top", "right"},
+				g.CE{
+					Row(g.CE{
+						LinkIcon(FAS("rss", faCSS), "/rss"),
+						LinkIcon(FAB("github", faCSS), "https://github.com/zaptross"),
+						LinkIcon(FAB("linkedin", faCSS), "https://linkedin.com/in/mpdd"),
+					}),
+				},
+			),
+		},
+	})
+}
+
+func absoluteDiv(zeroing []string, children g.CE) *g.HTMLElement {
+	zeroingClassName := strings.Join(zeroing, "-")
+	cssProps := g.CSSProps{
+		"position": "absolute",
+		"margin":   "0.5rem",
+	}
+
+	for _, prop := range zeroing {
+		cssProps[prop] = "0"
+	}
+
+	g.Class(&g.CSSClass{
+		Selector: "." + zeroingClassName,
+		Props:    cssProps,
+	})
+
+	return g.Div(g.EB{
+		ClassList: []string{zeroingClassName},
+		Children:  children,
 	})
 }
