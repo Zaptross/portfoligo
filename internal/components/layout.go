@@ -223,7 +223,7 @@ func absoluteLinks() *g.HTMLElement {
 				[]string{"top", "right"},
 				g.CE{
 					Row(g.CE{
-						LinkIcon(FAS("rss", faCSS), "/rss"),
+						LinkIcon(FAS("rss", faCSS), "/public/rss.xml"),
 						LinkIcon(FAB("github", faCSS), "https://github.com/zaptross"),
 						LinkIcon(FAB("linkedin", faCSS), "https://linkedin.com/in/mpdd"),
 					}),

@@ -17,7 +17,7 @@ func main() {
 
 	// Render distribution files
 	createDistDirectories()
-	copyPublicToDist()
+	generateRSS()
 
 	g.Class(&g.CSSClass{
 		Include:  true,
