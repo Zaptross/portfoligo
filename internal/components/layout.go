@@ -1,6 +1,7 @@
 package components
 
 import (
+	"fmt"
 	"strings"
 	"time"
 
@@ -28,7 +29,9 @@ func Layout(page types.PageDetails) *g.HTMLElement {
 			// Increase padding as the screen gets smaller
 			"padding":          "min(1rem, max(0rem, calc(1rem - 1.65vw)))",
 			"background-color": theme.Base02,
-			"height":           "100%",
+			"border":           fmt.Sprintf("0.5rem solid %s", theme.Base02),
+			"border-radius":    "0.5rem",
+			"height":           "	100%",
 		},
 	})
 
@@ -63,8 +66,35 @@ func Layout(page types.PageDetails) *g.HTMLElement {
 					page.Content(),
 				},
 			}),
+			layoutPageFooter(),
 		},
 	})
+}
+
+func layoutPageFooter() *g.HTMLElement {
+	layoutPageFooterClass := "page-layout-footer"
+	g.Class(&g.CSSClass{
+		Selector: "." + layoutPageFooterClass,
+		Props: g.CSSProps{
+			"margin-top":    "1.5rem",
+			"margin-bottom": "0.5rem",
+		},
+	})
+	return Row(
+		g.CE{
+			P(g.EB{
+				ClassList: []string{layoutPageFooterClass},
+				Children: g.CE{
+					g.Text("Powered by "),
+					Link(g.Text("my code"), "https://github.com/zaptross/portfoligo"),
+					g.Text(", written in "),
+					Link(g.Text("Gorgeous"), "https://gorgeous.zaptross.com"),
+					g.Text(
+						fmt.Sprintf(" © %s Matthew Price", time.Now().Format("2006")),
+					),
+				},
+			}),
+		})
 }
 
 func layoutPageHeader(page types.PageDetails) *g.HTMLElement {
@@ -191,9 +221,9 @@ func absoluteLinks() *g.HTMLElement {
 	})
 
 	g.Class(&g.CSSClass{
-		Include: true,
+		Include:  true,
 		Selector: ".top-left > div > .linknav",
-		Props:    g.CSSProps{
+		Props: g.CSSProps{
 			"margin-right": "0.5rem",
 		},
 	})
@@ -204,13 +234,15 @@ func absoluteLinks() *g.HTMLElement {
 			absoluteDiv(
 				[]string{"top", "left"},
 				g.CE{
-					Row(g.CE{
-						LinkIcon(FAS("home", faCSS), "/"),
-						g.H3(g.EB{
-							ClassList: []string{nameColorClass},
-							Text:      "Matthew Price",
+					LinkNav(
+						Row(g.CE{
+							FAS("home", faCSS),
+							g.H3(g.EB{
+								ClassList: []string{nameColorClass},
+								Text:      "Matthew Price",
+							}),
 						}),
-					},
+						"/",
 					),
 					Row(g.CE{
 						LinkNav(g.Text("Projects"), "/projects"),

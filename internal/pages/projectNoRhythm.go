@@ -10,7 +10,7 @@ import (
 
 var (
 	_ = registerPage(types.PageDetails{
-		Title:       "No Rhythm",
+		Title:       "NoRhythm",
 		Description: "A rhythm game made for Ludum Dare 45.",
 		Slug:        "no-rhythm",
 		Type:        TYPE_PROJECT,
