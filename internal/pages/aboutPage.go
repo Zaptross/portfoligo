@@ -12,7 +12,7 @@ var (
 		Description: "About Me",
 		Slug:        "about",
 		Type:        TYPE_ROOT,
-		Content: func() *g.HTMLElement {
+		Content: func(_ types.PageDetails) *g.HTMLElement {
 			return g.Div(g.EB{
 				Children: []*g.HTMLElement{
 					g.H1(g.EB{

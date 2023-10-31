@@ -20,7 +20,7 @@ var (
 			TAG_LANG_CSHARP,
 			TAG_AVAILABLE,
 		},
-		Content: func() *g.HTMLElement {
+		Content: func(_ types.PageDetails) *g.HTMLElement {
 			return g.Div(g.EB{
 				Children: []*g.HTMLElement{
 					c.YoutubeEmbed("NoRhythm Trailer", "https://www.youtube-nocookie.com/embed/arLUT1Lep3s?si=AlY5vs9L0MEj7vsy"),

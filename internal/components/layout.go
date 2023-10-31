@@ -63,7 +63,7 @@ func Layout(page types.PageDetails) *g.HTMLElement {
 			g.Div(g.EB{
 				ClassList: []string{contentClass},
 				Children: g.CE{
-					page.Content(),
+					page.Content(page),
 				},
 			}),
 			layoutPageFooter(),

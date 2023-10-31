@@ -20,7 +20,7 @@ var (
 			TAG_LANG_CSHARP,
 			TAG_DESIGN,
 		},
-		Content: func() *g.HTMLElement {
+		Content: func(p types.PageDetails) *g.HTMLElement {
 			return g.Div(g.EB{
 				Children: []*g.HTMLElement{
 					c.P(g.EB{

@@ -14,7 +14,7 @@ type PageDetails struct {
 	Type        string
 	Tags        []string
 	Written     time.Time
-	Content     func() *g.HTMLElement
+	Content     func(PageDetails) *g.HTMLElement
 }
 
 func (p PageDetails) GetRelativeURL() string {
