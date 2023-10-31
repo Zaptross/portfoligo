@@ -18,6 +18,7 @@ func main() {
 	// Render distribution files
 	createDistDirectories()
 	generateRSS()
+	copyPublicToDist("")
 
 	g.Class(&g.CSSClass{
 		Include:  true,
@@ -39,7 +40,7 @@ func main() {
 	println("===  Rendering pages\t===")
 	for _, pages := range pages.GetAllPagesByTypes() {
 		for _, page := range pages {
-			spacing := int(math.Ceil(float64(longestName)/float64(displayTab)))*displayTab-len(page.Title)
+			spacing := int(math.Ceil(float64(longestName)/float64(displayTab)))*displayTab - len(page.Title)
 			println(fmt.Sprintf("%s%s-> %s", page.Title, strings.Repeat(" ", spacing), page.GetRelativeURL()))
 			rendered := g.RenderStatic(
 				g.Document(

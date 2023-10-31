@@ -30,23 +30,25 @@ func writeRenderedHTML(path string, rendered *g.RenderedHTML) {
 	}
 }
 
-func copyPublicToDist() {
-	files, err := os.ReadDir("public")
+func copyPublicToDist(recurse string) {
+	files, err := os.ReadDir("public" + recurse)
 	if err != nil {
 		panic(err)
 	}
 
 	for _, file := range files {
 		if file.IsDir() {
+			os.Mkdir("dist/public"+recurse+"/"+file.Name(), 0755)
+			copyPublicToDist(recurse + "/" + file.Name())
 			continue
 		}
 
-		fileContents, fcErr := os.ReadFile("public/" + file.Name())
+		fileContents, fcErr := os.ReadFile("public" + recurse + "/" + file.Name())
 
 		if fcErr != nil {
 			panic(fcErr)
 		}
 
-		os.WriteFile("dist/public/"+file.Name(), fileContents, 0644)
+		os.WriteFile("dist/public"+recurse+"/"+file.Name(), fileContents, 0644)
 	}
 }
