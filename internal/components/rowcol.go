@@ -4,7 +4,7 @@ import (
 	g "github.com/zaptross/gorgeous"
 )
 
-func Row(children g.CE) *g.HTMLElement {
+func Row(children g.CE, classList []string) *g.HTMLElement {
 	rowClassName := "row"
 	g.Class(&g.CSSClass{
 		Selector: "." + rowClassName,
@@ -15,12 +15,12 @@ func Row(children g.CE) *g.HTMLElement {
 	})
 
 	return g.Div(g.EB{
-		ClassList: []string{rowClassName},
+		ClassList: append([]string{rowClassName}, classList...),
 		Children:  children,
 	})
 }
 
-func Col(children g.CE) *g.HTMLElement {
+func Col(children g.CE, classList []string) *g.HTMLElement {
 	colClassName := "col"
 	g.Class(&g.CSSClass{
 		Selector: "." + colClassName,
@@ -31,7 +31,7 @@ func Col(children g.CE) *g.HTMLElement {
 	})
 
 	return g.Div(g.EB{
-		ClassList: []string{colClassName},
+		ClassList: append([]string{colClassName}, classList...),
 		Children:  children,
 	})
 }

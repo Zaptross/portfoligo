@@ -1,6 +1,7 @@
 {
   "liveServer.settings.root": "./cmd/dist",
   "cSpell.words": [
-    "portfoligo"
+    "portfoligo",
+    "zoomable"
   ]
 }

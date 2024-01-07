@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	registerClasses()
+	globalClasses()
 
 	// Render distribution files
 	createDistDirectories()

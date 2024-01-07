@@ -76,8 +76,12 @@ func layoutPageFooter() *g.HTMLElement {
 	g.Class(&g.CSSClass{
 		Selector: "." + layoutPageFooterClass,
 		Props: g.CSSProps{
-			"margin-top":    "1.5rem",
-			"margin-bottom": "0.5rem",
+			"margin-top":     "1.5rem",
+			"margin-bottom":  "0.5rem",
+			"padding":        "0 2rem",
+			"display":        "flex",
+			"flex-direction": "row",
+			"flex-wrap":      "wrap",
 		},
 	})
 	return Row(
@@ -94,7 +98,7 @@ func layoutPageFooter() *g.HTMLElement {
 					),
 				},
 			}),
-		})
+		}, nil)
 }
 
 func layoutPageHeader(page types.PageDetails) *g.HTMLElement {
@@ -211,13 +215,17 @@ func absoluteLinks() *g.HTMLElement {
 	})
 
 	faCSS := g.CSSProps{
-		"color":  p.ThemeProvider.GetTheme().Base1,
-		"margin": "0 0.25rem",
+		"color":       p.ThemeProvider.GetTheme().Base1,
+		"margin":      "0 0.25rem 0 0.25rem",
+		"padding-top": "0.25rem",
 	}
 	nameColorClass := "name-color"
 	g.Class(&g.CSSClass{
 		Selector: "." + nameColorClass,
-		Props:    faCSS,
+		Props: g.CSSProps{
+			"color":  p.ThemeProvider.GetTheme().Base1,
+			"margin": "0 0.25rem",
+		},
 	})
 
 	g.Class(&g.CSSClass{
@@ -241,14 +249,14 @@ func absoluteLinks() *g.HTMLElement {
 								ClassList: []string{nameColorClass},
 								Text:      "Matthew Price",
 							}),
-						}),
+						}, nil),
 						"/",
 					),
 					Row(g.CE{
 						LinkNav(g.Text("Projects"), "/projects"),
 						LinkNav(g.Text("Blog"), "/blog"),
 						LinkNav(g.Text("About"), "/about"),
-					}),
+					}, nil),
 				},
 			),
 			absoluteDiv(
@@ -258,7 +266,7 @@ func absoluteLinks() *g.HTMLElement {
 						LinkIcon(FAS("rss", faCSS), "/public/rss.xml"),
 						LinkIcon(FAB("github", faCSS), "https://github.com/zaptross"),
 						LinkIcon(FAB("linkedin", faCSS), "https://linkedin.com/in/mpdd"),
-					}),
+					}, nil),
 				},
 			),
 		},
