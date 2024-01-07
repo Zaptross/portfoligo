@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	_ = registerPage(types.PageDetails{
+	NoRhythm = registerPage(types.PageDetails{
 		Title:       "NoRhythm",
 		Description: "A rhythm game made for Ludum Dare 45.",
 		Slug:        "no-rhythm",
