@@ -224,6 +224,7 @@ func absoluteLinks() *g.HTMLElement {
 		"color":       p.ThemeProvider.GetTheme().Base1,
 		"margin":      "0 0.25rem 0 0.25rem",
 		"padding-top": "0.25rem",
+		"transition":  "color 0.25s ease-in-out",
 	}
 	nameColorClass := "name-color"
 	g.Class(&g.CSSClass{
@@ -241,6 +242,10 @@ func absoluteLinks() *g.HTMLElement {
 			"margin-right": "0.5rem",
 		},
 	})
+
+	addHoverColor(".fa-solid.fa-rss", "#F99000")
+	addHoverColor(".fa-brands.fa-github", "#6e5494")
+	addHoverColor(".fa-brands.fa-linkedin", "#0072B1")
 
 	return g.Div(g.EB{
 		ClassList: []string{linksDivClass},
@@ -299,5 +304,15 @@ func absoluteDiv(zeroing []string, children g.CE) *g.HTMLElement {
 	return g.Div(g.EB{
 		ClassList: []string{zeroingClassName},
 		Children:  children,
+	})
+}
+
+func addHoverColor(className string, color string) {
+	g.Class(&g.CSSClass{
+		Selector: className + ":hover",
+		Include:  true,
+		Props: g.CSSProps{
+			"color": color + " !important",
+		},
 	})
 }
