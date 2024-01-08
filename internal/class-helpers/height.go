@@ -7,7 +7,7 @@ import (
 )
 
 func H(height string) string {
-	cn := classNameSanitiser(fmt.Sprintf("h-%s", height))
+	cn := ClassNameSanitiser(fmt.Sprintf("h-%s", height))
 	g.Class(&g.CSSClass{
 		Selector: fmt.Sprintf(".%s", cn),
 		Props: g.CSSProps{
@@ -19,7 +19,7 @@ func H(height string) string {
 }
 
 func MxH(height string) string {
-	cn := classNameSanitiser(fmt.Sprintf("mxh-%s", height))
+	cn := ClassNameSanitiser(fmt.Sprintf("mxh-%s", height))
 	g.Class(&g.CSSClass{
 		Selector: fmt.Sprintf(".%s", cn),
 		Props: g.CSSProps{
@@ -31,7 +31,7 @@ func MxH(height string) string {
 }
 
 func MnH(height string) string {
-	cn := classNameSanitiser(fmt.Sprintf("mnh-%s", height))
+	cn := ClassNameSanitiser(fmt.Sprintf("mnh-%s", height))
 	g.Class(&g.CSSClass{
 		Selector: fmt.Sprintf(".%s", cn),
 		Props: g.CSSProps{

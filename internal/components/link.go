@@ -31,6 +31,7 @@ func link(inner *g.HTMLElement, url string, differentiator string, showExternal 
 		Props: g.CSSProps{
 			"color":           theme.Violet,
 			"text-decoration": "none",
+			"transition":      "color 0.25s ease-in-out",
 		},
 	})
 

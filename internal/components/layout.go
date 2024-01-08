@@ -84,6 +84,12 @@ func layoutPageFooter() *g.HTMLElement {
 			"flex-wrap":      "wrap",
 		},
 	})
+	g.Class(&g.CSSClass{
+		Selector: "." + layoutPageFooterClass + " > a",
+		Props: g.CSSProps{
+			"margin-left": "0.25rem",
+		},
+	})
 	return Row(
 		g.CE{
 			P(g.EB{
@@ -255,6 +261,7 @@ func absoluteLinks() *g.HTMLElement {
 					Row(g.CE{
 						LinkNav(g.Text("Projects"), "/projects"),
 						LinkNav(g.Text("Blog"), "/blog"),
+						LinkNav(g.Text("Search"), "/search"),
 						LinkNav(g.Text("About"), "/about"),
 					}, nil),
 				},

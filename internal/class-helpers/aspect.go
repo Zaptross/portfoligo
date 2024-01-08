@@ -7,7 +7,7 @@ import (
 )
 
 func Aspect(ratio string) string {
-	cn := classNameSanitiser(fmt.Sprintf("aspect-%s", ratio))
+	cn := ClassNameSanitiser(fmt.Sprintf("aspect-%s", ratio))
 	g.Class(&g.CSSClass{
 		Selector: fmt.Sprintf(".%s", cn),
 		Props: g.CSSProps{

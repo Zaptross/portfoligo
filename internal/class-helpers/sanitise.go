@@ -19,13 +19,16 @@ func (sr strReplacer) String() string {
 	return sr.str
 }
 
-func classNameSanitiser(className string) string {
+func ClassNameSanitiser(className string) string {
 	sr := strReplacer{className}
 	sr.replace("%", "pct")
 	sr.replace("/", "-")
 	sr.replace("(", "-")
 	sr.replace(")", "-")
 	sr.replace(",", "-")
+	sr.replace("#", "-")
+	sr.replace(".", "-")
+	sr.replace(" ", "_")
 
 	return sr.String()
 }

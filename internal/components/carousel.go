@@ -70,6 +70,16 @@ func Carousel(props CarouselProps) *g.HTMLElement {
 			"text-align":       "center",
 			"line-height":      "50px",
 			"font-size":        "30px",
+			"transition":       "color 0.25s ease-in-out",
+			"cursor":           "pointer",
+		},
+	})
+
+	g.Class(&g.CSSClass{
+		Selector: "." + carouselButtonClass + ":hover",
+		Include: true,
+		Props: g.CSSProps{
+			"color": "#fffc",
 		},
 	})
 

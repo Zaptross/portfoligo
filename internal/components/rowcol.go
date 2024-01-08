@@ -5,6 +5,13 @@ import (
 )
 
 func Row(children g.CE, classList []string) *g.HTMLElement {
+	return g.Div(g.EB{
+		ClassList: append([]string{RowClass()}, classList...),
+		Children:  children,
+	})
+}
+
+func RowClass() string {
 	rowClassName := "row"
 	g.Class(&g.CSSClass{
 		Selector: "." + rowClassName,
@@ -14,13 +21,17 @@ func Row(children g.CE, classList []string) *g.HTMLElement {
 		},
 	})
 
-	return g.Div(g.EB{
-		ClassList: append([]string{rowClassName}, classList...),
+	return rowClassName
+}
+
+func Col(children g.CE, classList []string) *g.HTMLElement {
+		return g.Div(g.EB{
+		ClassList: append([]string{ColClass()}, classList...),
 		Children:  children,
 	})
 }
 
-func Col(children g.CE, classList []string) *g.HTMLElement {
+func ColClass() string {
 	colClassName := "col"
 	g.Class(&g.CSSClass{
 		Selector: "." + colClassName,
@@ -30,8 +41,5 @@ func Col(children g.CE, classList []string) *g.HTMLElement {
 		},
 	})
 
-	return g.Div(g.EB{
-		ClassList: append([]string{colClassName}, classList...),
-		Children:  children,
-	})
+	return colClassName
 }

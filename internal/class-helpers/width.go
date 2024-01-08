@@ -7,7 +7,7 @@ import (
 )
 
 func W(width string) string {
-	cn := classNameSanitiser(fmt.Sprintf("w-%s", width))
+	cn := ClassNameSanitiser(fmt.Sprintf("w-%s", width))
 	g.Class(&g.CSSClass{
 		Selector: fmt.Sprintf(".%s", cn),
 		Props: g.CSSProps{
@@ -19,7 +19,7 @@ func W(width string) string {
 }
 
 func MxW(width string) string {
-	cn := classNameSanitiser(fmt.Sprintf("mxw-%s", width))
+	cn := ClassNameSanitiser(fmt.Sprintf("mxw-%s", width))
 	g.Class(&g.CSSClass{
 		Selector: fmt.Sprintf(".%s", cn),
 		Props: g.CSSProps{
@@ -31,7 +31,7 @@ func MxW(width string) string {
 }
 
 func MnW(width string) string {
-	cn := classNameSanitiser(fmt.Sprintf("mnw-%s", width))
+	cn := ClassNameSanitiser(fmt.Sprintf("mnw-%s", width))
 	g.Class(&g.CSSClass{
 		Selector: fmt.Sprintf(".%s", cn),
 		Props: g.CSSProps{

@@ -6,9 +6,9 @@ import (
 	g "github.com/zaptross/gorgeous"
 )
 
-type Justification string
+type Spacing string
 type Justifications struct {
-	Start, Center, End, SpaceBetween, SpaceAround, SpaceEvenly Justification
+	Start, Center, End, SpaceBetween, SpaceAround, SpaceEvenly Spacing
 }
 
 var Content = Justifications{
@@ -20,12 +20,24 @@ var Content = Justifications{
 	SpaceEvenly:  "space-evenly",
 }
 
-func JustifyContent(justification Justification) string {
-	cn := classNameSanitiser(fmt.Sprintf("jc-%s", justification))
+func JustifyContent(justification Spacing) string {
+	cn := ClassNameSanitiser(fmt.Sprintf("jc-%s", justification))
 	g.Class(&g.CSSClass{
 		Selector: fmt.Sprintf(".%s", cn),
 		Props: g.CSSProps{
 			"justify-content": string(justification),
+		},
+	})
+
+	return cn
+}
+
+func AlignContent(alignment Spacing) string {
+	cn := ClassNameSanitiser(fmt.Sprintf("ac-%s", alignment))
+	g.Class(&g.CSSClass{
+		Selector: fmt.Sprintf(".%s", cn),
+		Props: g.CSSProps{
+			"align-content": string(alignment),
 		},
 	})
 
