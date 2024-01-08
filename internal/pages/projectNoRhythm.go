@@ -11,7 +11,7 @@ import (
 var (
 	NoRhythm = registerPage(types.PageDetails{
 		Title:       "NoRhythm",
-		Description: "A rhythm game made for Ludum Dare 45.",
+		Description: "A rhythm game made for Ludum Dare 45, made from the theme \"Start with Nothing\".",
 		Slug:        "no-rhythm",
 		Type:        TYPE_PROJECT,
 		Written:     time.Date(2019, 11, 2, 0, 0, 0, 0, time.UTC),

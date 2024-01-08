@@ -12,7 +12,7 @@ import (
 var (
 	SlayYourDragons = registerPage(types.PageDetails{
 		Title:       "Slay Your Dragons",
-		Description: "An applied game for increasing frequency of positive studying behaviors.",
+		Description: "An applied game designed to increase the frequency of positive studying behaviors.",
 		Slug:        "slay-your-dragons",
 		Type:        TYPE_PROJECT,
 		Written:     time.Date(2019, 8, 20, 0, 0, 0, 0, time.UTC),
@@ -39,9 +39,9 @@ var (
 						c.Carousel(c.CarouselProps{
 							ClassList: []string{ch.W("clamp(200px,80vw,343px)")},
 							Children: g.CE{
-								c.ImageRel(p, "boss-screen-tutorial.png", nil),
-								c.ImageRel(p, "boss-screen-layout.png", nil),
-								c.ImageRel(p, "boss-setup-demo.gif", nil),
+								c.ImgProject(p, "boss-screen-tutorial.png", nil),
+								c.ImgProject(p, "boss-screen-layout.png", nil),
+								c.ImgProject(p, "boss-setup-demo.gif", nil),
 							},
 						}),
 					}, []string{"flex-wrap", ch.JustifyContent(ch.Content.Center)}),
