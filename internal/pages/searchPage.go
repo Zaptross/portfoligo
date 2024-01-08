@@ -1,42 +1,53 @@
 package pages
 
 import (
+	"sort"
+
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	c "github.com/zaptross/portfoligo/internal/components"
 	"github.com/zaptross/portfoligo/internal/types"
-	"sort"
 )
 
 var (
 	_ = registerPage(types.PageDetails{
-		Title:       "Projects",
-		Description: "Projects I've worked on",
-		Slug:        TYPE_PROJECT,
+		Title:       "Search",
+		Description: "Searching projects and blog posts.",
+		Slug:        "search",
 		Type:        TYPE_ROOT,
 		Content: func(_ types.PageDetails) *g.HTMLElement {
+			searchableParent := g.CreateRef("searchable-elements")
+			searchableElements := searchableParent.Get(g.Div(g.EB{
+				Children: getSearchableElements(),
+				ClassList: []string{ch.PadB("0.25rem"), ch.FlexCol(),ch.JustifyContent(ch.Content.SpaceBetween)},
+			}))
+			search, searchScript := c.Search(searchableParent, "searchable", []string{ ch.FlexGrow()})
+
 			return g.Div(g.EB{
 				ClassList: []string{ch.FlexCol(), ch.JustifyContent(ch.Content.SpaceBetween)},
-				Children: append(g.CE{
-					c.P(g.EB{
-						Text:      "Here are some of the projects I've worked on:",
-						ClassList: []string{ch.MarginL("0.5rem")},
-					}),
-				}, getProjectPreviews()...),
+				Children: g.CE{
+					search,
+					searchableElements,
+				},
+				Script: searchScript,
 			})
 		},
 	})
 )
 
-func getProjectPreviews() g.CE {
+func getSearchableElements() g.CE {
 	previews := []*g.HTMLElement{}
-	pages := GetAllPagesByType(TYPE_PROJECT)
+	pages := GetAllPages()
 
 	sort.Slice(pages, func(i, j int) bool {
 		return pages[i].Written.After(pages[j].Written)
 	})
 
 	for _, page := range pages {
+		if page.Type == TYPE_ROOT {
+			continue
+		}
+
 		pv := c.Preview(page)
 		pv.ClassList = append(pv.ClassList, ch.MarginB("0.5rem"))
 		previews = append(previews, pv)

@@ -10,27 +10,27 @@ import (
 
 var (
 	_ = registerPage(types.PageDetails{
-		Title:       "Projects",
-		Description: "Projects I've worked on",
-		Slug:        TYPE_PROJECT,
+		Title:       "Blog",
+		Description: "Blog posts I've written, about programming and other topics.",
+		Slug:        TYPE_BLOG,
 		Type:        TYPE_ROOT,
 		Content: func(_ types.PageDetails) *g.HTMLElement {
 			return g.Div(g.EB{
 				ClassList: []string{ch.FlexCol(), ch.JustifyContent(ch.Content.SpaceBetween)},
 				Children: append(g.CE{
 					c.P(g.EB{
-						Text:      "Here are some of the projects I've worked on:",
+						Text:      "Here is a list of blog posts I've written:",
 						ClassList: []string{ch.MarginL("0.5rem")},
 					}),
-				}, getProjectPreviews()...),
+				}, getBlogPreviews()...),
 			})
 		},
 	})
 )
 
-func getProjectPreviews() g.CE {
+func getBlogPreviews() g.CE {
 	previews := []*g.HTMLElement{}
-	pages := GetAllPagesByType(TYPE_PROJECT)
+	pages := GetAllPagesByType(TYPE_BLOG)
 
 	sort.Slice(pages, func(i, j int) bool {
 		return pages[i].Written.After(pages[j].Written)
