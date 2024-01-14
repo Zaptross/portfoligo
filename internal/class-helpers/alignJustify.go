@@ -10,6 +10,9 @@ type Spacing string
 type Justifications struct {
 	Start, Center, End, SpaceBetween, SpaceAround, SpaceEvenly Spacing
 }
+type Alignments struct {
+	Start, Center, End, Stretch, Baseline, FlexEnd, FlexStart Spacing
+}
 
 var Content = Justifications{
 	Start:        "start",
@@ -18,6 +21,15 @@ var Content = Justifications{
 	SpaceBetween: "space-between",
 	SpaceAround:  "space-around",
 	SpaceEvenly:  "space-evenly",
+}
+var Align = Alignments{
+	Start:     "start",
+	Center:    "center",
+	End:       "end",
+	Stretch:   "stretch",
+	Baseline:  "baseline",
+	FlexEnd:   "flex-end",
+	FlexStart: "flex-start",
 }
 
 func JustifyContent(justification Spacing) string {
@@ -38,6 +50,17 @@ func AlignContent(alignment Spacing) string {
 		Selector: fmt.Sprintf(".%s", cn),
 		Props: g.CSSProps{
 			"align-content": string(alignment),
+		},
+	})
+
+	return cn
+}
+func AlignItems(alignment Spacing) string {
+	cn := ClassNameSanitiser(fmt.Sprintf("ac-%s", alignment))
+	g.Class(&g.CSSClass{
+		Selector: fmt.Sprintf(".%s", cn),
+		Props: g.CSSProps{
+			"align-items": string(alignment),
 		},
 	})
 
