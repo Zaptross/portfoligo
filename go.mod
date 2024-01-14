@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/samber/lo v1.38.1
-	github.com/zaptross/gorgeous v0.0.0-20231115125022-16ac51552fef
+	github.com/zaptross/gorgeous v0.0.0-20240111225020-dc7d671cb221
 )
 
 require github.com/kr/pretty v0.3.1 // indirect
