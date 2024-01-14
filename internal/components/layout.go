@@ -8,6 +8,7 @@ import (
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
 	p "github.com/zaptross/portfoligo/internal/provider"
+	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
@@ -76,7 +77,6 @@ func layoutPageFooter() *g.HTMLElement {
 	g.Class(&g.CSSClass{
 		Selector: "." + layoutPageFooterClass,
 		Props: g.CSSProps{
-			"margin-top":     "1.5rem",
 			"margin-bottom":  "0.5rem",
 			"padding":        "0 2rem",
 			"display":        "flex",
@@ -90,21 +90,25 @@ func layoutPageFooter() *g.HTMLElement {
 			"margin-left": "0.25rem",
 		},
 	})
-	return Row(
+	return Col(
 		g.CE{
-			P(g.EB{
-				ClassList: []string{layoutPageFooterClass},
-				Children: g.CE{
-					g.Text("Powered by "),
-					Link(g.Text("my code"), "https://github.com/zaptross/portfoligo"),
-					g.Text(", written in "),
-					Link(g.Text("Gorgeous"), "https://gorgeous.zaptross.com"),
-					g.Text(
-						fmt.Sprintf(" © %s Matthew Price", time.Now().Format("2006")),
-					),
-				},
-			}),
-		}, nil)
+			BackToTop(),
+			Row(
+				g.CE{
+					P(g.EB{
+						ClassList: []string{layoutPageFooterClass},
+						Children: g.CE{
+							g.Text("Powered by "),
+							Link(g.Text("my code"), "https://github.com/zaptross/portfoligo"),
+							g.Text(", written in "),
+							Link(g.Text("Gorgeous"), "https://gorgeous.zaptross.com"),
+							g.Text(
+								fmt.Sprintf(" © %s Matthew Price", time.Now().Format("2006")),
+							),
+						},
+					}),
+				}, nil),
+		}, []string{ch.MarginT("1.5rem")})
 }
 
 func layoutPageHeader(page types.PageDetails) *g.HTMLElement {
@@ -163,6 +167,14 @@ func layoutPageDateTags(page types.PageDetails) *g.HTMLElement {
 			"color":       theme.Base1,
 			"margin-top":  "0.25rem",
 			"margin-left": "0.25rem",
+			"transition":  "color 0.25s ease-in-out",
+		},
+	})
+	g.Class(&g.CSSClass{
+		Include:  true,
+		Selector: "." + dateTagsClass + ":hover",
+		Props: g.CSSProps{
+			"color": theme.Violet,
 		},
 	})
 
@@ -195,10 +207,10 @@ func layoutPageDateTags(page types.PageDetails) *g.HTMLElement {
 	if hasTags {
 		elements = append(elements,
 			lo.Map(page.Tags, func(tag string, _ int) *g.HTMLElement {
-				return g.H3(g.EB{
+				return LinkNav(g.H3(g.EB{
 					ClassList: []string{dateTagsClass},
 					Text:      tag,
-				})
+				}), "/search/?q="+tag)
 			})...,
 		)
 	}
