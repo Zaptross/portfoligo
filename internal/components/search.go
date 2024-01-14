@@ -16,14 +16,6 @@ func Search(collectionParent *g.Reference, dataProperty string, classList []stri
 	t := p.ThemeProvider.GetTheme()
 	searchRef := g.CreateRef("search-input")
 
-	g.Class(&g.CSSClass{
-		Selector: ".hidden",
-		Include:  true,
-		Props: g.CSSProps{
-			"display": "none",
-		},
-	})
-
 	searchInputClass := "search-input"
 	g.Class(&g.CSSClass{
 		Selector: "." + searchInputClass,
@@ -64,6 +56,9 @@ func Search(collectionParent *g.Reference, dataProperty string, classList []stri
 
 func setupSearch(collectionParent *g.Reference, dataProperty string, searchInput *g.Reference) g.JavaScript {
 	g.Service("search", g.JavaScript(searchScript))
+
+	// import the hidden class
+	ch.Hidden()
 
 	return g.JavaScript(fmt.Sprintf(`
 		configureSearch(%s,"%s",%s)
