@@ -7,10 +7,11 @@ import (
 
 	"github.com/gorilla/feeds"
 	"github.com/zaptross/portfoligo/internal/pages"
+	"github.com/zaptross/portfoligo/internal/types"
 )
 
 func generateRSS() {
-	pages := append(pages.GetAllPagesByType(pages.TYPE_BLOG), pages.GetAllPagesByType(pages.TYPE_PROJECT)...)
+	pages := append(pages.GetAllPagesByType(types.TYPE_BLOG), pages.GetAllPagesByType(types.TYPE_PROJECT)...)
 	sort.SliceStable(pages, func(i, j int) bool {
 		return pages[i].Written.After(pages[j].Written)
 	})

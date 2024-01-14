@@ -12,8 +12,8 @@ var (
 	_ = registerPage(types.PageDetails{
 		Title:       "Blog",
 		Description: "Blog posts I've written, about programming and other topics.",
-		Slug:        TYPE_BLOG,
-		Type:        TYPE_ROOT,
+		Slug:        types.TYPE_BLOG,
+		Type:        types.TYPE_ROOT,
 		Content: func(_ types.PageDetails) *g.HTMLElement {
 			return g.Div(g.EB{
 				ClassList: []string{ch.FlexCol(), ch.JustifyContent(ch.Content.SpaceBetween)},
@@ -30,7 +30,7 @@ var (
 
 func getBlogPreviews() g.CE {
 	previews := []*g.HTMLElement{}
-	pages := GetAllPagesByType(TYPE_BLOG)
+	pages := GetAllPagesByType(types.TYPE_BLOG)
 
 	sort.Slice(pages, func(i, j int) bool {
 		return pages[i].Written.After(pages[j].Written)

@@ -14,14 +14,14 @@ var (
 		Title:       "Search",
 		Description: "Searching projects and blog posts.",
 		Slug:        "search",
-		Type:        TYPE_ROOT,
+		Type:        types.TYPE_ROOT,
 		Content: func(_ types.PageDetails) *g.HTMLElement {
 			searchableParent := g.CreateRef("searchable-elements")
 			searchableElements := searchableParent.Get(g.Div(g.EB{
-				Children: getSearchableElements(),
-				ClassList: []string{ch.PadB("0.25rem"), ch.FlexCol(),ch.JustifyContent(ch.Content.SpaceBetween)},
+				Children:  getSearchableElements(),
+				ClassList: []string{ch.PadB("0.25rem"), ch.FlexCol(), ch.JustifyContent(ch.Content.SpaceBetween)},
 			}))
-			search, searchScript := c.Search(searchableParent, "searchable", []string{ ch.FlexGrow()})
+			search, searchScript := c.Search(searchableParent, "searchable", []string{ch.FlexGrow()})
 
 			return g.Div(g.EB{
 				ClassList: []string{ch.FlexCol(), ch.JustifyContent(ch.Content.SpaceBetween)},
@@ -44,7 +44,7 @@ func getSearchableElements() g.CE {
 	})
 
 	for _, page := range pages {
-		if page.Type == TYPE_ROOT {
+		if page.Type == types.TYPE_ROOT {
 			continue
 		}
 

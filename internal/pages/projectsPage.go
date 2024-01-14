@@ -12,8 +12,8 @@ var (
 	_ = registerPage(types.PageDetails{
 		Title:       "Projects",
 		Description: "Projects I've worked on",
-		Slug:        TYPE_PROJECT,
-		Type:        TYPE_ROOT,
+		Slug:        types.TYPE_PROJECT,
+		Type:        types.TYPE_ROOT,
 		Content: func(_ types.PageDetails) *g.HTMLElement {
 			return g.Div(g.EB{
 				ClassList: []string{ch.FlexCol(), ch.JustifyContent(ch.Content.SpaceBetween)},
@@ -30,7 +30,7 @@ var (
 
 func getProjectPreviews() g.CE {
 	previews := []*g.HTMLElement{}
-	pages := GetAllPagesByType(TYPE_PROJECT)
+	pages := GetAllPagesByType(types.TYPE_PROJECT)
 
 	sort.Slice(pages, func(i, j int) bool {
 		return pages[i].Written.After(pages[j].Written)

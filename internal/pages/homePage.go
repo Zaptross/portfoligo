@@ -14,7 +14,7 @@ var (
 		Title:       "Home",
 		Description: "Home page for my portfolio",
 		Slug:        "home",
-		Type:        TYPE_ROOT,
+		Type:        types.TYPE_ROOT,
 		Content: func(_ types.PageDetails) *g.HTMLElement {
 			t := p.ThemeProvider.GetTheme()
 			return g.Div(g.EB{

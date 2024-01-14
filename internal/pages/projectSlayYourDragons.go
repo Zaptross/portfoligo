@@ -14,12 +14,13 @@ var (
 		Title:       "Slay Your Dragons",
 		Description: "An applied game designed to increase the frequency of positive studying behaviors.",
 		Slug:        "slay-your-dragons",
-		Type:        TYPE_PROJECT,
+		Type:        types.TYPE_PROJECT,
 		Written:     time.Date(2019, 8, 20, 0, 0, 0, 0, time.UTC),
 		Tags: []string{
-			TAG_GAME,
-			TAG_LANG_CSHARP,
-			TAG_DESIGN,
+			types.TAG_GAME,
+			types.TAG_DESIGN,
+			types.TAG_LANG_CSHARP,
+			types.TAG_TOOL_UNITY,
 		},
 		Content: func(p types.PageDetails) *g.HTMLElement {
 			return g.Div(g.EB{

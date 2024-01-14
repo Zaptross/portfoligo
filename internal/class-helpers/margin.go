@@ -60,3 +60,13 @@ func MarginB(m string) string {
 
 	return className
 }
+
+func MarginZA() string {
+	return Margin("0 auto")
+}
+func MarginAZ() string {
+	return Margin("auto 0")
+}
+func MarginAA() string {
+	return Margin("auto")
+}

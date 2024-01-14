@@ -13,12 +13,13 @@ var (
 		Title:       "NoRhythm",
 		Description: "A rhythm game made for Ludum Dare 45, made from the theme \"Start with Nothing\".",
 		Slug:        "no-rhythm",
-		Type:        TYPE_PROJECT,
+		Type:        types.TYPE_PROJECT,
 		Written:     time.Date(2019, 11, 2, 0, 0, 0, 0, time.UTC),
 		Tags: []string{
-			TAG_GAME,
-			TAG_LANG_CSHARP,
-			TAG_AVAILABLE,
+			types.TAG_GAME,
+			types.TAG_TOOL_UNITY,
+			types.TAG_LANG_CSHARP,
+			types.TAG_AVAILABLE,
 		},
 		Content: func(_ types.PageDetails) *g.HTMLElement {
 			return g.Div(g.EB{

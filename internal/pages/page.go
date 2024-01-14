@@ -34,9 +34,9 @@ func GetAllPagesByType(t string) []types.PageDetails {
 
 func GetAllPagesByTypes() map[string][]types.PageDetails {
 	return map[string][]types.PageDetails{
-		TYPE_ROOT:    GetAllPagesByType(TYPE_ROOT),
-		TYPE_BLOG:    GetAllPagesByType(TYPE_BLOG),
-		TYPE_PROJECT: GetAllPagesByType(TYPE_PROJECT),
+		types.TYPE_ROOT:    GetAllPagesByType(types.TYPE_ROOT),
+		types.TYPE_BLOG:    GetAllPagesByType(types.TYPE_BLOG),
+		types.TYPE_PROJECT: GetAllPagesByType(types.TYPE_PROJECT),
 	}
 }
 

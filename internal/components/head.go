@@ -1,6 +1,9 @@
 package components
 
 import (
+	"fmt"
+	"os"
+
 	g "github.com/zaptross/gorgeous"
 	"github.com/zaptross/portfoligo/internal/types"
 )
@@ -53,12 +56,29 @@ func Meta(md types.PageDetails) []*g.HTMLElement {
 }
 
 func OpenGraph(md types.PageDetails) g.CE {
-	return g.CE{
+	// TODO - update to correct domain
+	domain := "https://portfolio.zaptross.com"
+	ogElements := g.CE{
 		openGraphMeta("og:title", md.Title),
 		openGraphMeta("description", md.Description),
 		openGraphMeta("og:description", md.Description),
-		// openGraphMeta("og:image", "https://dystrophygame.com/og-image.png"),
+		openGraphMeta("og:type", "website"),
+		openGraphMeta("og:url", fmt.Sprintf("%s%s", domain, md.GetRelativeURL())),
 	}
+
+	relativeImagePath := fmt.Sprintf("/public/preview/%s.png", md.Slug)
+  _, err := os.Stat(fmt.Sprintf(".%s", relativeImagePath))
+
+	if (err == nil) {
+		ogElements = append(
+			ogElements, 
+			openGraphMeta("og:image", fmt.Sprintf("%s%s", domain, relativeImagePath)),
+			openGraphMeta("og:image:width", "300"),
+			openGraphMeta("og:image:height", "200"),
+		)
+	}
+
+	return ogElements
 }
 
 func openGraphMeta(name, content string) *g.HTMLElement {
