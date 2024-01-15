@@ -21,15 +21,24 @@ func Preview(page types.PageDetails) *g.HTMLElement {
 			"transition":       "transform 0.3s ease-in-out",
 		},
 	})
+	mediaAspect := "(max-aspect-ratio: 7/9)"
+	g.Media(mediaAspect, "."+previewClass, g.CSSProps{
+		"flex-direction": "column",
+	})
 
 	cardImageClass := "preview-card-image"
 	g.Class(&g.CSSClass{
 		Selector: "." + cardImageClass,
 		Props: g.CSSProps{
 			"aspect-ratio":  "3/2",
-			"padding-right": "1rem",
-			"width":         "clamp(100px, 15vw, 300px)",
+			"padding-right": "clamp(0.25rem, 1vw, 1rem)",
+			"object-fit":    "cover",
 		},
+	})
+	g.Media(mediaAspect, "."+cardImageClass, g.CSSProps{
+		"height":        "clamp(100px, 15vw, 300px)",
+		"margin-bottom": "0.5rem",
+		"padding-right": "0",
 	})
 
 	g.Class(&g.CSSClass{
@@ -58,6 +67,11 @@ func Preview(page types.PageDetails) *g.HTMLElement {
 		},
 	})
 
+	mediaColumnClassTarget := "." + previewClass + " > div"
+	g.Media(mediaAspect, mediaColumnClassTarget, g.CSSProps{
+		"padding": "0 0.5rem",
+	})
+
 	link := LinkNav(g.Div(g.EB{
 		ClassList: []string{RowClass(), previewClass},
 		Children: []*g.HTMLElement{
@@ -75,7 +89,7 @@ func Preview(page types.PageDetails) *g.HTMLElement {
 					Text:      page.Description,
 					ClassList: []string{},
 				}),
-			}, []string{ch.Margin("auto 0")}),
+			}, []string{ch.Margin("auto 0"), ch.PadR("clamp(0.25rem, 1vw, 0.5rem)")}),
 		},
 	}), page.GetRelativeURL())
 
