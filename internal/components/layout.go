@@ -130,7 +130,7 @@ func layoutPageHeader(page types.PageDetails) *g.HTMLElement {
 		Selector: "." + titleClass,
 		Props: g.CSSProps{
 			"color":         theme.Base2,
-			"margin-bottom": "0rem",
+			"margin-bottom": "0.5rem",
 		},
 	})
 
