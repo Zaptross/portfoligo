@@ -7,8 +7,8 @@ import (
 
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
-	p "github.com/zaptross/portfoligo/internal/provider"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
+	p "github.com/zaptross/portfoligo/internal/provider"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
@@ -233,6 +233,7 @@ func absoluteLinks() *g.HTMLElement {
 	})
 
 	faCSS := g.CSSProps{
+		"width":       "1.15rem",
 		"color":       p.ThemeProvider.GetTheme().Base1,
 		"margin":      "0 0.25rem 0 0.25rem",
 		"padding-top": "0.25rem",
