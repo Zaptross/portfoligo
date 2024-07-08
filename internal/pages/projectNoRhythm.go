@@ -16,6 +16,7 @@ var (
 		Type:        types.TYPE_PROJECT,
 		Written:     time.Date(2019, 11, 2, 0, 0, 0, 0, time.UTC),
 		Tags: []string{
+			types.TAG_STUDENT,
 			types.TAG_GAME,
 			types.TAG_TOOL_UNITY,
 			types.TAG_LANG_CSHARP,
