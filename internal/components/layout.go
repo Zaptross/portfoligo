@@ -8,7 +8,7 @@ import (
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	atoms "github.com/zaptross/portfoligo/internal/components/atoms"
+	"github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/theme"
 	"github.com/zaptross/portfoligo/internal/types"
 )
@@ -101,9 +101,9 @@ func layoutPageFooter() *g.HTMLElement {
 						ClassList: []string{layoutPageFooterClass},
 						Children: g.CE{
 							g.Text("Powered by "),
-							Link(g.Text("my code"), "https://github.com/zaptross/portfoligo"),
+							atoms.Link(g.Text("my code"), "https://github.com/zaptross/portfoligo"),
 							g.Text(", written in "),
-							Link(g.Text("Gorgeous"), "https://gorgeous.zaptross.com"),
+							atoms.Link(g.Text("Gorgeous"), "https://gorgeous.zaptross.com"),
 							g.Text(
 								fmt.Sprintf(" © %s Matthew Price", time.Now().Format("2006")),
 							),
@@ -209,7 +209,7 @@ func layoutPageDateTags(page types.PageDetails) *g.HTMLElement {
 	if hasTags {
 		elements = append(elements,
 			lo.Map(page.Tags, func(tag string, _ int) *g.HTMLElement {
-				return LinkNav(g.H3(g.EB{
+				return atoms.LinkNav(g.H3(g.EB{
 					ClassList: []string{dateTagsClass},
 					Text:      tag,
 				}), "/search/?q="+tag)
@@ -270,7 +270,7 @@ func absoluteLinks() *g.HTMLElement {
 			absoluteDiv(
 				[]string{"top", "left"},
 				g.CE{
-					LinkNav(
+					atoms.LinkNav(
 						Row(g.CE{
 							FAS("home", faCSS),
 							g.H3(g.EB{
@@ -281,10 +281,10 @@ func absoluteLinks() *g.HTMLElement {
 						"/",
 					),
 					Row(g.CE{
-						LinkNav(g.Text("Projects"), "/projects"),
-						LinkNav(g.Text("Blog"), "/blog"),
-						LinkNav(g.Text("Search"), "/search"),
-						LinkNav(g.Text("About"), "/about"),
+						atoms.LinkNav(g.Text("Projects"), "/projects"),
+						atoms.LinkNav(g.Text("Blog"), "/blog"),
+						atoms.LinkNav(g.Text("Search"), "/search"),
+						atoms.LinkNav(g.Text("About"), "/about"),
 					}, nil),
 				},
 			),
@@ -293,9 +293,9 @@ func absoluteLinks() *g.HTMLElement {
 				g.CE{
 					Row(g.CE{
 						atoms.ThemeSelector(),
-						LinkIcon(FAS("rss", faCSS), "/public/rss.xml"),
-						LinkIcon(FAB("github", faCSS), "https://github.com/zaptross"),
-						LinkIcon(FAB("linkedin", faCSS), "https://linkedin.com/in/mpdd"),
+						atoms.LinkIcon(FAS("rss", faCSS), "/public/rss.xml"),
+						atoms.LinkIcon(FAB("github", faCSS), "https://github.com/zaptross"),
+						atoms.LinkIcon(FAB("linkedin", faCSS), "https://linkedin.com/in/mpdd"),
 					}, nil),
 				},
 			),

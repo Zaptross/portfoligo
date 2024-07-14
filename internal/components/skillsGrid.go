@@ -4,6 +4,7 @@ import (
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
+	"github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/theme"
 )
 
@@ -110,7 +111,7 @@ func SkillsGrid(pr SkillsGridProps) *g.HTMLElement {
 				colClass = iconColorClass
 			}
 
-			return LinkNav(
+			return atoms.LinkNav(
 				Col(
 					g.CE{
 						iconFn(icon, g.CSSProps{"font-size": "2rem"}),

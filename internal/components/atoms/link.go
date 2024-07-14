@@ -1,4 +1,4 @@
-package components
+package atoms
 
 import (
 	"strings"
@@ -14,6 +14,9 @@ func LinkIcon(inner *g.HTMLElement, url string) *g.HTMLElement {
 	return link(inner, url, "icon", false, false)
 }
 func Link(inner *g.HTMLElement, url string) *g.HTMLElement { return link(inner, url, "", true, true) }
+func linkHash(inner *g.HTMLElement, url string) *g.HTMLElement {
+	return link(inner, url, "hash", true, false)
+}
 func link(inner *g.HTMLElement, url string, differentiator string, showExternal bool, underline bool) *g.HTMLElement {
 	t := theme.UseTheme()
 

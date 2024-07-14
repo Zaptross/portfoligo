@@ -4,6 +4,7 @@ import (
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	c "github.com/zaptross/portfoligo/internal/components"
+	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/theme"
 	"github.com/zaptross/portfoligo/internal/types"
 )
@@ -106,7 +107,7 @@ var (
 						ClassList: []string{ch.MarginL("1rem")},
 					}),
 					c.Row(g.CE{
-						c.LinkIcon(
+						a.LinkIcon(
 							c.FAB("linkedin", g.CSSProps{"font-size": "2rem"}),
 							"https://www.linkedin.com/in/mpdd/",
 						),

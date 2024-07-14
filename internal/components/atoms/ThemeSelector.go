@@ -1,4 +1,4 @@
-package themeselector
+package atoms
 
 import (
 	"fmt"

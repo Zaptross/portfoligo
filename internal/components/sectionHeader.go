@@ -5,6 +5,7 @@ import (
 
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
+	"github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/theme"
 )
 
@@ -46,7 +47,7 @@ func SectionHeader(pr SectionHeaderProps) *g.HTMLElement {
 		pr.Color = t.Colors.Text.Heading
 	}
 
-	return Hashlink(g.CE{
+	return atoms.Hashlink(g.CE{
 		Row(g.CE{
 			pr.Header(g.EB{
 				Children: g.CE{

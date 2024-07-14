@@ -1,4 +1,4 @@
-package components
+package atoms
 
 import (
 	_ "embed"
@@ -24,5 +24,5 @@ func Hashlink(children g.CE, hash string, classList []string) *g.HTMLElement {
 }
 
 func GotoHashlink(child *g.HTMLElement, hash string) *g.HTMLElement {
-	return link(child, "#"+hash, "hash", true, false)
+	return linkHash(child, "#"+hash)
 }
