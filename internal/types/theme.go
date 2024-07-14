@@ -1,9 +1,11 @@
 package types
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Theme struct {
-	space    int
+	selector string
 	Colors   Colors
 	Fonts    Fonts
 	Weights  FontWeights
@@ -14,7 +16,10 @@ type Theme struct {
 
 type Colors struct {
 	Text       TextColors
+	Icons      TextColors
 	Background BackgroundColors
+	Pallette   Pallette
+	Filters    Pallette
 	Error      string
 	Warning    string
 	Info       string
@@ -24,6 +29,7 @@ type Colors struct {
 type TextColors struct {
 	Primary   string
 	Secondary string
+	Contrast  string
 	Link      string
 	Heading   string
 	Hover     string
@@ -33,6 +39,8 @@ type BackgroundColors struct {
 	Primary   string
 	Secondary string
 	Accent    string
+	Button    string
+	Hover     string
 }
 
 type Fonts struct {
@@ -51,6 +59,11 @@ type Borders struct {
 	None  string
 	Thin  string
 	Thick string
+	Style BorderStyle
+}
+
+type BorderStyle struct {
+	Default string
 }
 
 type Radii struct {
@@ -68,9 +81,46 @@ type ZIndices struct {
 }
 
 func (t *Theme) Spacing(i int) string {
-	return fmt.Sprintf("%dpx", i*t.space)
+	return fmt.Sprintf("%dpx", i*4)
 }
 
 func (t *Theme) FontSize(i int) string {
 	return fmt.Sprintf("%dpx", i)
+}
+
+func (t *Theme) Selector() string {
+	return t.selector
+}
+
+func (t Theme) Setup(selector string) Theme {
+	t.selector = selector
+	return t
+}
+
+var BaseTheme = Theme{
+	Borders: Borders{
+		None:  "none",
+		Thin:  "1px",
+		Thick: "2px",
+		Style: BorderStyle{
+			Default: "solid",
+		},
+	},
+	Radii: Radii{
+		None:    "0",
+		Small:   "4px",
+		Default: "8px",
+		Large:   "16px",
+	},
+	ZIndices: ZIndices{
+		Auto:    "auto",
+		Overlay: "100",
+		Drawers: "200",
+		Modals:  "300",
+	},
+	Weights: FontWeights{
+		Body:    "400",
+		Heading: "600",
+		Bold:    "700",
+	},
 }
