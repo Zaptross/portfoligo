@@ -1,7 +1,11 @@
 {
   "liveServer.settings.root": "./cmd/dist",
   "cSpell.words": [
+    "freecad",
+    "kicad",
+    "photoshop",
     "portfoligo",
+    "unrealengine",
     "zoomable"
   ]
 }

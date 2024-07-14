@@ -29,7 +29,7 @@ func Layout(page types.PageDetails) *g.HTMLElement {
 		Selector: "." + contentClass + " > *",
 		Props: g.CSSProps{
 			// Increase padding as the screen gets smaller
-			"padding":          "min(1rem, max(0rem, calc(1rem - 1.65vw)))",
+			"padding":          fmt.Sprintf("max(min(1rem, max(0rem, calc(1rem - 1.65vw))), %s)", t.Spacing(2)),
 			"background-color": t.Colors.Background.Primary,
 			"border":           fmt.Sprintf("0.5rem solid %s", t.Colors.Background.Primary),
 			"border-radius":    "0.5rem",

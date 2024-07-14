@@ -5,6 +5,7 @@ import (
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	c "github.com/zaptross/portfoligo/internal/components"
+	"github.com/zaptross/portfoligo/internal/pages/projects"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
@@ -35,7 +36,7 @@ var (
 						Text:      "Here are a few of my favourites projects and posts:",
 						ClassList: []string{ch.Margin("0.5rem 0 0.5rem 0.5rem")},
 					}),
-					c.Col(lo.Map([]types.PageDetails{NoRhythm, SlayYourDragons}, func(page types.PageDetails, _ int) *g.HTMLElement {
+					c.Col(lo.Map([]types.PageDetails{projects.NoRhythm, projects.SlayYourDragons}, func(page types.PageDetails, _ int) *g.HTMLElement {
 						pv := c.Preview(page)
 						pv.ClassList = append(pv.ClassList, ch.MarginB("0.5rem"))
 						return pv
