@@ -4,12 +4,13 @@ import (
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	p "github.com/zaptross/portfoligo/internal/provider"
+	"github.com/zaptross/portfoligo/internal/theme"
 )
 
 type SkillMapping struct {
 	Icon   string
 	IconFn func(string, g.CSSProps) *g.HTMLElement
+	Filter bool
 }
 
 type SkillsGridProps struct {
@@ -25,7 +26,7 @@ func SkillsGrid(pr SkillsGridProps) *g.HTMLElement {
 		pr.MapIcons = map[string]SkillMapping{}
 	}
 
-	t := p.ThemeProvider.GetTheme()
+	t := theme.UseTheme()
 	skillGridClass := "skills-grid"
 	g.Class(&g.CSSClass{
 		Selector: "." + skillGridClass,
@@ -39,13 +40,53 @@ func SkillsGrid(pr SkillsGridProps) *g.HTMLElement {
 		},
 	})
 
-	fontColorClass := ch.FontColor(t.Base1)
+	fontColorClass := "sg-font-color"
+	g.Class(&g.CSSClass{
+		Selector: "a > ." + fontColorClass,
+		Props: g.CSSProps{
+			"transition": "none",
+			"color":      t.Colors.Text.Primary,
+		},
+	})
 	g.Class(&g.CSSClass{
 		Selector: "a:hover > ." + fontColorClass,
 		Props: g.CSSProps{
-			"transition": "color 0.25s ease-in-out transform 0.25s ease-in-out",
-			"color":      t.Violet,
-			"transform":  "scale(1.05)",
+			"color":     t.Colors.Text.Hover,
+			"transform": "scale(1.05)",
+		},
+	})
+
+	iconColorClass := "sg-icon-color"
+	g.Class(&g.CSSClass{
+		Selector: "a > ." + iconColorClass + " > *",
+		Props: g.CSSProps{
+			"transition": "none",
+		},
+	})
+	g.Class(&g.CSSClass{
+		Selector: "a > ." + iconColorClass + " > img",
+		Props: g.CSSProps{
+			"filter": t.Colors.Icons.Primary,
+		},
+	})
+	g.Class(&g.CSSClass{
+		Selector: "a:hover > ." + iconColorClass,
+		Props: g.CSSProps{
+			"transform": "scale(1.05)",
+		},
+	})
+	g.Class(&g.CSSClass{
+		Selector: "a:hover > ." + iconColorClass + " > img",
+		Props: g.CSSProps{
+			"filter": t.Colors.Icons.Hover,
+		},
+	})
+
+	textClass := ch.FontColor(t.Colors.Text.Primary)
+	g.Class(&g.CSSClass{
+		Selector: "a:hover > * > ." + textClass,
+		Props: g.CSSProps{
+			"color": t.Colors.Text.Hover,
 		},
 	})
 
@@ -54,21 +95,28 @@ func SkillsGrid(pr SkillsGridProps) *g.HTMLElement {
 		Children: lo.Map(pr.Skills, func(skill string, _ int) *g.HTMLElement {
 			icon := skill
 			iconFn := FAB
+			needsFilter := false
 			if mapping, ok := pr.MapIcons[skill]; ok {
 				iconFn = mapping.IconFn
+				needsFilter = mapping.Filter
 
 				if mapping.Icon != "" {
 					icon = mapping.Icon
 				}
 			}
 
+			colClass := fontColorClass
+			if needsFilter {
+				colClass = iconColorClass
+			}
+
 			return LinkNav(
 				Col(
 					g.CE{
 						iconFn(icon, g.CSSProps{"font-size": "2rem"}),
-						g.Text(skill),
+						g.Span(g.EB{Text: skill, ClassList: []string{textClass}}),
 					},
-					[]string{fontColorClass, ch.AlignItems(ch.Align.Center)},
+					[]string{colClass, ch.AlignItems(ch.Align.Center)},
 				), "/search/?q="+skill)
 		}),
 	})

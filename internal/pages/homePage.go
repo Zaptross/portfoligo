@@ -5,7 +5,6 @@ import (
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	c "github.com/zaptross/portfoligo/internal/components"
-	p "github.com/zaptross/portfoligo/internal/provider"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
@@ -16,13 +15,13 @@ var (
 		Slug:        "home",
 		Type:        types.TYPE_ROOT,
 		Content: func(_ types.PageDetails) *g.HTMLElement {
-			t := p.ThemeProvider.GetTheme()
 			return g.Div(g.EB{
 				ClassList: []string{ch.FlexCol(), ch.JustifyContent(ch.Content.SpaceBetween)},
 				Children: []*g.HTMLElement{
-					g.H1(g.EB{
-						Text:      "Welcome to my portfolio!",
-						ClassList: []string{ch.FontColor(t.Green), ch.Margin("0.5rem auto")},
+					c.SectionHeader(c.SectionHeaderProps{
+						TagKey: "welcome",
+						Header: g.H2,
+						Text:   "Welcome to my portfolio!",
 					}),
 					c.P(g.EB{
 						Text:      "🚧 This site is under construction. 🏗️",

@@ -14,6 +14,7 @@ import (
 
 func main() {
 	globalClasses()
+	setupThemes()
 
 	// Render distribution files
 	createDistDirectories()

@@ -5,7 +5,7 @@ import (
 
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	p "github.com/zaptross/portfoligo/internal/provider"
+	"github.com/zaptross/portfoligo/internal/theme"
 )
 
 type SectionHeaderProps struct {
@@ -17,7 +17,7 @@ type SectionHeaderProps struct {
 }
 
 func SectionHeader(pr SectionHeaderProps) *g.HTMLElement {
-	t := p.ThemeProvider.GetTheme()
+	t := theme.UseTheme()
 	borderClass := "section-header-border-background"
 	g.Class(&g.CSSClass{
 		Selector: "." + borderClass,
@@ -25,8 +25,8 @@ func SectionHeader(pr SectionHeaderProps) *g.HTMLElement {
 			"padding-left":  "1rem",
 			"margin-right":  "1rem",
 			"margin-top":    "0.5rem",
-			"background":    t.Base03,
-			"border":        "0.5rem solid " + t.Base03,
+			"background":    t.Colors.Background.Secondary,
+			"border":        "0.5rem solid " + t.Colors.Background.Secondary,
 			"border-radius": "1rem",
 			"transition":    "box-shadow 0.25s ease-in-out",
 			"pointer":       "cursor",
@@ -41,6 +41,10 @@ func SectionHeader(pr SectionHeaderProps) *g.HTMLElement {
 			"cursor":          "copy !important",
 		},
 	})
+
+	if pr.Color == "" {
+		pr.Color = t.Colors.Text.Heading
+	}
 
 	return Hashlink(g.CE{
 		Row(g.CE{

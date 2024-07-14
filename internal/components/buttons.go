@@ -3,7 +3,7 @@ package components
 import (
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	p "github.com/zaptross/portfoligo/internal/provider"
+	"github.com/zaptross/portfoligo/internal/theme"
 )
 
 const backToTopScript = `
@@ -24,19 +24,19 @@ function checkShowBackToTop() {
 
 func BackToTop() *g.HTMLElement {
 	g.Service("backToTop", g.JavaScript(backToTopScript))
-	t := p.ThemeProvider.GetTheme()
+	t := theme.UseTheme()
 	className := "back-to-top-button"
 	g.Class(&g.CSSClass{
 		Selector: "." + className,
 		Props: g.CSSProps{
-			"background-color": t.Blue,
+			"background-color": t.Colors.Background.Button,
 			"padding":          "0.5rem",
 			"font-size":        "0.8rem",
-			"font-color":       t.Base03,
+			"color":            t.Colors.Text.Contrast,
 			"width":            "max-content",
 			"margin":           "0 auto",
 			"border-radius":    "0.5rem",
-			"border":           "0.1rem solid " + t.Blue,
+			"border":           "0.1rem solid " + t.Colors.Background.Button,
 			"cursor":           "pointer",
 			"transition":       "background-color 0.25s ease-in-out",
 		},
@@ -44,8 +44,8 @@ func BackToTop() *g.HTMLElement {
 	g.Class(&g.CSSClass{
 		Selector: "." + className + ":hover",
 		Props: g.CSSProps{
-			"background-color": t.Cyan,
-			"border-color":     t.Cyan,
+			"background-color": t.Colors.Background.Hover,
+			"border-color":     t.Colors.Background.Hover,
 		},
 	})
 

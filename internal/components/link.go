@@ -4,14 +4,18 @@ import (
 	"strings"
 
 	g "github.com/zaptross/gorgeous"
-	p "github.com/zaptross/portfoligo/internal/provider"
+	"github.com/zaptross/portfoligo/internal/theme"
 )
 
-func LinkNav(inner *g.HTMLElement, url string) *g.HTMLElement  { return link(inner, url, "nav", false, false) }
-func LinkIcon(inner *g.HTMLElement, url string) *g.HTMLElement { return link(inner, url,  "icon", false, false) }
-func Link(inner *g.HTMLElement, url string) *g.HTMLElement     { return link(inner, url, "", true, true) }
+func LinkNav(inner *g.HTMLElement, url string) *g.HTMLElement {
+	return link(inner, url, "nav", false, false)
+}
+func LinkIcon(inner *g.HTMLElement, url string) *g.HTMLElement {
+	return link(inner, url, "icon", false, false)
+}
+func Link(inner *g.HTMLElement, url string) *g.HTMLElement { return link(inner, url, "", true, true) }
 func link(inner *g.HTMLElement, url string, differentiator string, showExternal bool, underline bool) *g.HTMLElement {
-	theme := p.ThemeProvider.GetTheme()
+	t := theme.UseTheme()
 
 	linkClassName := "link" + differentiator
 	textDeco := "none"
@@ -21,7 +25,7 @@ func link(inner *g.HTMLElement, url string, differentiator string, showExternal 
 	g.Class(&g.CSSClass{
 		Selector: "." + linkClassName,
 		Props: g.CSSProps{
-			"color":           theme.Green,
+			"color":           t.Colors.Text.Link,
 			"text-decoration": textDeco,
 		},
 	})
@@ -29,7 +33,7 @@ func link(inner *g.HTMLElement, url string, differentiator string, showExternal 
 	g.Class(&g.CSSClass{
 		Selector: "a:hover",
 		Props: g.CSSProps{
-			"color":           theme.Violet,
+			"color":           t.Colors.Text.Hover,
 			"text-decoration": "none",
 			"transition":      "color 0.25s ease-in-out",
 		},

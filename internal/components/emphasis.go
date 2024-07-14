@@ -2,11 +2,11 @@ package components
 
 import (
 	g "github.com/zaptross/gorgeous"
-	p "github.com/zaptross/portfoligo/internal/provider"
+	"github.com/zaptross/portfoligo/internal/theme"
 )
 
 func Emphasis(text string) *g.HTMLElement {
-	theme := p.ThemeProvider.GetTheme()
+	t := theme.UseTheme()
 
 	className := "emphasis"
 
@@ -14,7 +14,7 @@ func Emphasis(text string) *g.HTMLElement {
 		Selector: "." + className,
 		Props: g.CSSProps{
 			"font-weight": "bold",
-			"color":       theme.Green,
+			"color":       t.Colors.Text.Link,
 		},
 	})
 

@@ -6,14 +6,14 @@ import (
 
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	p "github.com/zaptross/portfoligo/internal/provider"
+	"github.com/zaptross/portfoligo/internal/theme"
 )
 
 //go:embed search.js
 var searchScript string
 
 func Search(collectionParent *g.Reference, dataProperty string, classList []string) (*g.HTMLElement, g.JavaScript) {
-	t := p.ThemeProvider.GetTheme()
+	t := theme.UseTheme()
 	searchRef := g.CreateRef("search-input")
 
 	searchInputClass := "search-input"
@@ -22,10 +22,10 @@ func Search(collectionParent *g.Reference, dataProperty string, classList []stri
 		Props: g.CSSProps{
 			"margin-left":      "1rem",
 			"padding-left":     "0.5rem",
-			"background-color": t.Base02,
-			"border":           fmt.Sprintf("solid thin %s", t.Base03),
+			"background-color": t.Colors.Background.Primary,
+			"border":           fmt.Sprintf("solid thin %s", t.Colors.Background.Secondary),
 			"border-radius":    "0.5rem",
-			"color":            t.Base1,
+			"color":            t.Colors.Text.Secondary,
 			"font-size":        "16px",
 			"flex-grow":        "1",
 		},
@@ -34,8 +34,8 @@ func Search(collectionParent *g.Reference, dataProperty string, classList []stri
 		Selector: "input[type=text]." + searchInputClass + ":focus",
 		Include:  true,
 		Props: g.CSSProps{
-			"border-color":  t.Cyan,
-			"outline-color": t.Cyan,
+			"border-color":  t.Colors.Background.Hover,
+			"outline-color": t.Colors.Background.Hover,
 		},
 	})
 

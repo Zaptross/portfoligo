@@ -8,6 +8,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
+	"github.com/zaptross/portfoligo/internal/theme"
 )
 
 type CarouselProps struct {
@@ -19,6 +20,8 @@ type CarouselProps struct {
 var carouselService string
 
 func Carousel(props CarouselProps) *g.HTMLElement {
+	t := theme.UseTheme()
+
 	carouselClass := "carousel"
 	g.Class(&g.CSSClass{
 		Selector: "." + carouselClass,
@@ -66,7 +69,7 @@ func Carousel(props CarouselProps) *g.HTMLElement {
 			"width":            "5%",
 			"background-color": "#0000",
 			"border-color":     "#0000",
-			"color":            "#fff7",
+			"color":            t.Colors.Text.Secondary,
 			"text-align":       "center",
 			"line-height":      "50px",
 			"font-size":        "30px",
@@ -77,9 +80,9 @@ func Carousel(props CarouselProps) *g.HTMLElement {
 
 	g.Class(&g.CSSClass{
 		Selector: "." + carouselButtonClass + ":hover",
-		Include: true,
+		Include:  true,
 		Props: g.CSSProps{
-			"color": "#fffc",
+			"color": t.Colors.Text.Primary,
 		},
 	})
 

@@ -6,7 +6,7 @@ import (
 	"os"
 
 	g "github.com/zaptross/gorgeous"
-	prv "github.com/zaptross/portfoligo/internal/provider"
+	"github.com/zaptross/portfoligo/internal/theme"
 )
 
 type CodeblockProps struct {
@@ -21,15 +21,15 @@ func Codeblock(props CodeblockProps) *g.HTMLElement {
 		panic("Codeblock must have a language and code or a file path")
 	}
 
-	theme := prv.ThemeProvider.GetTheme()
+	t := theme.UseTheme()
 
 	g.Class(&g.CSSClass{
 		Selector: ".codeblock",
 		Props: g.CSSProps{
-			"background-color": theme.Base02 + " !important",
+			"background-color": t.Colors.Background.Primary + " !important",
 			"height":           "100%",
 			"border":           "1px solid",
-			"border-color":     theme.Green,
+			"border-color":     t.Colors.Background.Secondary,
 			"padding":          "0.5rem",
 			"font-family":      "monospace !important",
 		},
@@ -46,7 +46,7 @@ func Codeblock(props CodeblockProps) *g.HTMLElement {
 		Selector: "code",
 		Include:  true,
 		Props: g.CSSProps{
-			"color":       theme.Base1 + " !important",
+			"color":       t.Colors.Text.Secondary + " !important",
 			"background":  "none !important",
 			"text-shadow": "none !important",
 		},

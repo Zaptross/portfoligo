@@ -6,18 +6,18 @@ import (
 
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	p "github.com/zaptross/portfoligo/internal/provider"
+	"github.com/zaptross/portfoligo/internal/theme"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
 func Preview(page types.PageDetails) *g.HTMLElement {
-	themeProvider := p.ThemeProvider.GetTheme()
+	t := theme.UseTheme()
 	previewClass := "preview-card"
 	g.Class(&g.CSSClass{
 		Selector: "." + previewClass,
 		Props: g.CSSProps{
-			"background-color": themeProvider.Base02,
-			"box-shadow":       "1px 8px 0.5rem " + themeProvider.Base03,
+			"background-color": t.Colors.Background.Primary,
+			"box-shadow":       "1px 8px 0.5rem " + t.Colors.Background.Secondary,
 			"transition":       "transform 0.3s ease-in-out",
 		},
 	})
@@ -52,7 +52,7 @@ func Preview(page types.PageDetails) *g.HTMLElement {
 	g.Class(&g.CSSClass{
 		Selector: "." + tagsClass,
 		Props: g.CSSProps{
-			"color":     themeProvider.Base01,
+			"color":     t.Colors.Text.Secondary,
 			"font-size": "0.8rem",
 			"margin":    "0",
 		},

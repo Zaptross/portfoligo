@@ -8,12 +8,13 @@ import (
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	p "github.com/zaptross/portfoligo/internal/provider"
+	atoms "github.com/zaptross/portfoligo/internal/components/atoms"
+	"github.com/zaptross/portfoligo/internal/theme"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
 func Layout(page types.PageDetails) *g.HTMLElement {
-	theme := p.ThemeProvider.GetTheme()
+	t := theme.UseTheme()
 
 	contentClass := "content-main"
 	g.Class(&g.CSSClass{
@@ -29,8 +30,8 @@ func Layout(page types.PageDetails) *g.HTMLElement {
 		Props: g.CSSProps{
 			// Increase padding as the screen gets smaller
 			"padding":          "min(1rem, max(0rem, calc(1rem - 1.65vw)))",
-			"background-color": theme.Base02,
-			"border":           fmt.Sprintf("0.5rem solid %s", theme.Base02),
+			"background-color": t.Colors.Background.Primary,
+			"border":           fmt.Sprintf("0.5rem solid %s", t.Colors.Background.Primary),
 			"border-radius":    "0.5rem",
 			"height":           "	100%",
 		},
@@ -40,7 +41,7 @@ func Layout(page types.PageDetails) *g.HTMLElement {
 		Include:  true,
 		Selector: "html, body",
 		Props: g.CSSProps{
-			"background-color": theme.Base03,
+			"background-color": t.Colors.Background.Secondary,
 			"height":           "100%",
 			"width":            "100%",
 			"display":          "flex",
@@ -58,6 +59,7 @@ func Layout(page types.PageDetails) *g.HTMLElement {
 	})
 
 	return g.Body(g.EB{
+		ClassList: []string{"solarized-dark"},
 		Children: g.CE{
 			absoluteLinks(),
 			layoutPageHeader(page),
@@ -112,7 +114,7 @@ func layoutPageFooter() *g.HTMLElement {
 }
 
 func layoutPageHeader(page types.PageDetails) *g.HTMLElement {
-	theme := p.ThemeProvider.GetTheme()
+	t := theme.UseTheme()
 
 	pageLayoutHeaderClass := "page-layout-header"
 	g.Class(&g.CSSClass{
@@ -129,7 +131,7 @@ func layoutPageHeader(page types.PageDetails) *g.HTMLElement {
 	g.Class(&g.CSSClass{
 		Selector: "." + titleClass,
 		Props: g.CSSProps{
-			"color":         theme.Base2,
+			"color":         t.Colors.Text.Primary,
 			"margin-bottom": "0.5rem",
 		},
 	})
@@ -147,7 +149,7 @@ func layoutPageHeader(page types.PageDetails) *g.HTMLElement {
 }
 
 func layoutPageDateTags(page types.PageDetails) *g.HTMLElement {
-	theme := p.ThemeProvider.GetTheme()
+	t := theme.UseTheme()
 
 	dateTagsContainerClass := "date-tags-container"
 	g.Class(&g.CSSClass{
@@ -164,7 +166,7 @@ func layoutPageDateTags(page types.PageDetails) *g.HTMLElement {
 	g.Class(&g.CSSClass{
 		Selector: "." + dateTagsClass,
 		Props: g.CSSProps{
-			"color":       theme.Base1,
+			"color":       t.Colors.Text.Secondary,
 			"margin-top":  "0.25rem",
 			"margin-left": "0.25rem",
 			"transition":  "color 0.25s ease-in-out",
@@ -174,7 +176,7 @@ func layoutPageDateTags(page types.PageDetails) *g.HTMLElement {
 		Include:  true,
 		Selector: "." + dateTagsClass + ":hover",
 		Props: g.CSSProps{
-			"color": theme.Violet,
+			"color": t.Colors.Text.Hover,
 		},
 	})
 
@@ -222,6 +224,7 @@ func layoutPageDateTags(page types.PageDetails) *g.HTMLElement {
 }
 
 func absoluteLinks() *g.HTMLElement {
+	t := theme.UseTheme()
 	linksDivClass := "absolute-links"
 	g.Class(&g.CSSClass{
 		Selector: "." + linksDivClass,
@@ -234,7 +237,7 @@ func absoluteLinks() *g.HTMLElement {
 
 	faCSS := g.CSSProps{
 		"width":       "1.15rem",
-		"color":       p.ThemeProvider.GetTheme().Base1,
+		"color":       t.Colors.Text.Secondary,
 		"margin":      "0 0.25rem 0 0.25rem",
 		"padding-top": "0.25rem",
 		"transition":  "color 0.25s ease-in-out",
@@ -243,7 +246,7 @@ func absoluteLinks() *g.HTMLElement {
 	g.Class(&g.CSSClass{
 		Selector: "." + nameColorClass,
 		Props: g.CSSProps{
-			"color":  p.ThemeProvider.GetTheme().Base1,
+			"color":  t.Colors.Text.Secondary,
 			"margin": "0 0.25rem",
 		},
 	})
@@ -256,6 +259,7 @@ func absoluteLinks() *g.HTMLElement {
 		},
 	})
 
+	// These colors are brand specific
 	addHoverColor(".fa-solid.fa-rss", "#F99000")
 	addHoverColor(".fa-brands.fa-github", "#6e5494")
 	addHoverColor(".fa-brands.fa-linkedin", "#0072B1")
@@ -288,6 +292,7 @@ func absoluteLinks() *g.HTMLElement {
 				[]string{"top", "right"},
 				g.CE{
 					Row(g.CE{
+						atoms.ThemeSelector(),
 						LinkIcon(FAS("rss", faCSS), "/public/rss.xml"),
 						LinkIcon(FAB("github", faCSS), "https://github.com/zaptross"),
 						LinkIcon(FAB("linkedin", faCSS), "https://linkedin.com/in/mpdd"),

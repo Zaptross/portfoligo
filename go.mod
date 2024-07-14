@@ -7,7 +7,10 @@ require (
 	github.com/zaptross/gorgeous v0.0.0-20240111225020-dc7d671cb221
 )
 
-require github.com/kr/pretty v0.3.1 // indirect
+require (
+	github.com/crazy3lf/colorconv v1.2.0 // indirect
+	github.com/kr/pretty v0.3.1 // indirect
+)
 
 require (
 	github.com/google/uuid v1.3.0 // indirect

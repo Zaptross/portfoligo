@@ -2,18 +2,18 @@ package components
 
 import (
 	g "github.com/zaptross/gorgeous"
-	p "github.com/zaptross/portfoligo/internal/provider"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
+	"github.com/zaptross/portfoligo/internal/theme"
 )
 
 func P(eb g.EB) *g.HTMLElement {
-	theme := p.ThemeProvider.GetTheme()
+	t := theme.UseTheme()
 
 	className := "basic-p"
 	g.Class(&g.CSSClass{
 		Selector: "." + className,
 		Props: g.CSSProps{
-			"color": theme.Base2,
+			"color": t.Colors.Text.Primary,
 		},
 	})
 
@@ -36,7 +36,7 @@ func AuthorQuote(text string, author string, color string, classList []string) *
 		ClassList: append(classList, className),
 		Children: g.CE{
 			P(g.EB{Text: text, ClassList: []string{ch.MarginL("1rem")}}),
-			g.Em(g.EB{Text:"— " + author, ClassList: []string{ch.MarginL("1rem"),ch.FontColor(color)}}),
+			g.Em(g.EB{Text: "— " + author, ClassList: []string{ch.MarginL("1rem"), ch.FontColor(color)}}),
 		},
 	})
 }
