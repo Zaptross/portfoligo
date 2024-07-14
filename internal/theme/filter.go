@@ -44,16 +44,6 @@ func GetFiltersForHex(hex string, tolerance float64) string {
 	return getNewColor(hex, tolerance)
 }
 
-func filtersToCSS(filters Filters) string {
-	return fmt.Sprintf(
-		"invert(%f%%) sepia(%f%%) saturate(%f%%) hue-rotate(%fdeg)",
-		filters.Invert*100,
-		filters.Sepia*100,
-		filters.Saturate,
-		filters.HueRotate,
-	)
-}
-
 func invertBlack(i float64) [3]float64 {
 	return [3]float64{i * 255, i * 255, i * 255}
 }
