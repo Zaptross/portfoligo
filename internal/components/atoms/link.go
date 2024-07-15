@@ -14,6 +14,9 @@ func LinkIcon(inner *g.HTMLElement, url string) *g.HTMLElement {
 	return link(inner, url, "icon", false, false)
 }
 func Link(inner *g.HTMLElement, url string) *g.HTMLElement { return link(inner, url, "", true, true) }
+func TextLink(text string, url string) *g.HTMLElement {
+	return link(g.Text(text), url, "", true, true)
+}
 func linkHash(inner *g.HTMLElement, url string) *g.HTMLElement {
 	return link(inner, url, "hash", true, false)
 }
