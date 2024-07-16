@@ -5,6 +5,7 @@ import (
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	c "github.com/zaptross/portfoligo/internal/components"
+	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/pages/projects"
 	"github.com/zaptross/portfoligo/internal/types"
 )
@@ -24,15 +25,15 @@ var (
 						Header: g.H2,
 						Text:   "Welcome to my portfolio!",
 					}),
-					c.P(g.EB{
+					a.P(g.EB{
 						Text:      "🚧 This site is under construction. 🏗️",
 						ClassList: []string{ch.Margin("0.5rem auto")},
 					}),
-					c.P(g.EB{
+					a.P(g.EB{
 						Text:      "I am a full-stack polyglot software engineer with a passion for learning new skills, and this is a collection of my projects and blog posts.",
 						ClassList: []string{ch.Margin("0.5rem")},
 					}),
-					c.P(g.EB{
+					a.P(g.EB{
 						Text:      "Here are a few of my favourites projects and posts:",
 						ClassList: []string{ch.Margin("0.5rem 0 0.5rem 0.5rem")},
 					}),

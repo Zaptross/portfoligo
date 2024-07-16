@@ -6,7 +6,7 @@ import (
 
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	"github.com/zaptross/portfoligo/internal/components/atoms"
+	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/theme"
 	"github.com/zaptross/portfoligo/internal/types"
 )
@@ -73,7 +73,7 @@ func Preview(page types.PageDetails) *g.HTMLElement {
 		"padding": "0 0.5rem",
 	})
 
-	link := atoms.LinkNav(g.Div(g.EB{
+	link := a.LinkNav(g.Div(g.EB{
 		ClassList: []string{RowClass(), previewClass},
 		Children: []*g.HTMLElement{
 			ImageRel(fmt.Sprintf("/preview/%s.png", page.Slug), []string{cardImageClass}),
@@ -86,7 +86,7 @@ func Preview(page types.PageDetails) *g.HTMLElement {
 					Text:      fmt.Sprintf("%s - %s", page.Written.Format("2006-01-02"), strings.Join(page.Tags, ", ")),
 					ClassList: []string{tagsClass},
 				}),
-				P(g.EB{
+				a.P(g.EB{
 					Text:      page.Description,
 					ClassList: []string{},
 				}),

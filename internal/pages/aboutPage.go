@@ -26,11 +26,11 @@ var (
 						Header:    g.H1,
 						ClassList: []string{ch.MarginL("1rem")},
 					}),
-					c.P(g.EB{
+					a.P(g.EB{
 						Text:      "I am a full-stack polyglot software engineer with a passion for learning new skills and technologies.",
 						ClassList: []string{ch.Margin("0.25rem 1rem")},
 					}),
-					c.P(g.EB{
+					a.P(g.EB{
 						Text:      "In my spare time I love to play videogames and boardgames, develop fun ideas and projects, and work on hobbyist electronics projects.",
 						ClassList: []string{ch.Margin("0.25rem 1rem")},
 					}),
@@ -40,7 +40,7 @@ var (
 						Header:    g.H2,
 						ClassList: []string{ch.MarginL("1rem")},
 					}),
-					c.P(g.EB{
+					a.P(g.EB{
 						Text:      "I have experience with a wide range of languages and tools, including:",
 						ClassList: []string{ch.MarginL("1rem")},
 					}),
@@ -59,7 +59,7 @@ var (
 							(types.TAG_GAME + " " + types.TAG_DESIGN): {IconFn: c.FAS, Icon: "gamepad"},
 						},
 					}),
-					c.P(g.EB{
+					a.P(g.EB{
 						Text:      "And hobbyist experience with:",
 						ClassList: []string{ch.MarginL("1rem")},
 					}),
@@ -78,19 +78,19 @@ var (
 						Header:    g.H2,
 						ClassList: []string{ch.MarginL("1rem")},
 					}),
-					c.AuthorQuote(
+					a.AuthorQuote(
 						"Matt displays the intelligence, creativity and ingenuity of a seasoned veteran, despite [being in] his first formal role in software engineering. His passion and determination to do [things] the right way shines in all that he does. That skill and style is exceeded only by his humanity. Pricey is simply one of the most kind, compassionate and generous humans I have ever known - an example to others and one that others thus try to live to. It was an honour to exist beside him in our team. If you have the fortune to get his attention, I strongly recommend him!",
 						"Damian, AppSec Lead at Swyftx",
 						t.Colors.Pallette.Green,
 						[]string{},
 					),
-					c.AuthorQuote(
+					a.AuthorQuote(
 						"Matthew has demonstrated exceptional skills as a team player, working well with others to complete assigned projects to a high quality. Matthew would be a tremendous asset for your company and has my highest recommendation.",
 						"Robert, Sessional Academic at QUT",
 						t.Colors.Pallette.Cyan,
 						[]string{},
 					),
-					c.AuthorQuote(
+					a.AuthorQuote(
 						"Matt has always worked above expectations as a part of our team [and] has always been one of the most pleasant individuals I've had under my employ.",
 						"Dale, Store Manager at Dominos",
 						t.Colors.Pallette.Blue,
@@ -102,7 +102,7 @@ var (
 						Header:    g.H2,
 						ClassList: []string{ch.MarginL("1rem")},
 					}),
-					c.P(g.EB{
+					a.P(g.EB{
 						Text:      "If you'd like to get in touch, my preferred method of contact is via the linkedin button below, or in the top right.",
 						ClassList: []string{ch.MarginL("1rem")},
 					}),

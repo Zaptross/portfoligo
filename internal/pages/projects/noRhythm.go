@@ -26,7 +26,7 @@ var NoRhythm = types.PageDetails{
 		return g.Div(g.EB{
 			Children: []*g.HTMLElement{
 				c.YoutubeEmbed("NoRhythm Trailer", "https://www.youtube-nocookie.com/embed/arLUT1Lep3s?si=AlY5vs9L0MEj7vsy"),
-				c.P(g.EB{
+				a.P(g.EB{
 					Children: g.CE{
 						c.Emphasis("NoRhythm"),
 						g.Text(" is an arcade rhythm game designed and created in three days by a team of two for "),
@@ -35,10 +35,10 @@ var NoRhythm = types.PageDetails{
 						g.Text("driven by the musical talents of my teammate. NoRhythm was created in the Unity game engine with a total of 67 hours of cumulative work from both team members."),
 					},
 				}),
-				c.P(g.EB{
+				a.P(g.EB{
 					Text: "My roles in the project were producer, programmer, game designer, and UI designer. I developed and implemented all user interface and gameplay elements, created level design tools for my teammate, and created marketing materials for publishing.",
 				}),
-				c.P(g.EB{
+				a.P(g.EB{
 					Children: g.CE{
 						g.Text("NoRhythm was published to "),
 						a.Link(g.Text("GameJolt"), "https://gamejolt.com/games/NoRhythm/443325"),

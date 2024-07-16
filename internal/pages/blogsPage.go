@@ -1,11 +1,13 @@
 package pages
 
 import (
+	"sort"
+
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	c "github.com/zaptross/portfoligo/internal/components"
+	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/types"
-	"sort"
 )
 
 var (
@@ -18,7 +20,7 @@ var (
 			return g.Div(g.EB{
 				ClassList: []string{ch.FlexCol(), ch.JustifyContent(ch.Content.SpaceBetween)},
 				Children: append(g.CE{
-					c.P(g.EB{
+					a.P(g.EB{
 						Text:      "Here is a list of blog posts I've written:",
 						ClassList: []string{ch.MarginL("0.5rem")},
 					}),

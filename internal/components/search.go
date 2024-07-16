@@ -6,6 +6,7 @@ import (
 
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
+	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/theme"
 )
 
@@ -42,7 +43,7 @@ func Search(collectionParent *g.Reference, dataProperty string, classList []stri
 	return g.Div(g.EB{
 		ClassList: append([]string{ch.FlexRow(), ch.JustifyContent(ch.Content.Center)}, classList...),
 		Children: g.CE{
-			P(g.EB{Text: "Search:", ClassList: []string{ch.Margin("auto 0")}}),
+			a.P(g.EB{Text: "Search:", ClassList: []string{ch.Margin("auto 0")}}),
 			searchRef.Get(g.Input(g.EB{
 				ClassList: []string{searchInputClass},
 				Props: g.Props{

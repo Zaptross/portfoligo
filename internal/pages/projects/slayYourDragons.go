@@ -6,6 +6,7 @@ import (
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	c "github.com/zaptross/portfoligo/internal/components"
+	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
@@ -27,13 +28,13 @@ var SlayYourDragons = types.PageDetails{
 			Children: []*g.HTMLElement{
 				c.Row(g.CE{
 					c.Col(g.CE{
-						c.P(g.EB{
+						a.P(g.EB{
 							Children: g.CE{
 								c.Emphasis("Slay Your Dragons"),
 								g.Text(" is an applied game where you, a daring adventurer, seek out to slay the dragons which plague your homelands. You set up your assignments or projects as boss monsters in the world and as you work towards them, you fight and slay them in the gamified world."),
 							},
 						}),
-						c.P(g.EB{Text: "This applied game was designed and built in a team of three to motivate young adults to start projects earlier. Within the team I undertook the role of programmer, and contributed to both the game and menu designs. I implemented the game logic for creating a boss, battling a boss, and purchasing items in the game's store with in-game currency."}),
+						a.P(g.EB{Text: "This applied game was designed and built in a team of three to motivate young adults to start projects earlier. Within the team I undertook the role of programmer, and contributed to both the game and menu designs. I implemented the game logic for creating a boss, battling a boss, and purchasing items in the game's store with in-game currency."}),
 					}, nil),
 				}, nil),
 				c.Row(g.CE{

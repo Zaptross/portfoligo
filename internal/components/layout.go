@@ -8,7 +8,7 @@ import (
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	"github.com/zaptross/portfoligo/internal/components/atoms"
+	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/theme"
 	"github.com/zaptross/portfoligo/internal/types"
 )
@@ -97,13 +97,13 @@ func layoutPageFooter() *g.HTMLElement {
 			BackToTop(),
 			Row(
 				g.CE{
-					P(g.EB{
+					a.P(g.EB{
 						ClassList: []string{layoutPageFooterClass},
 						Children: g.CE{
 							g.Text("Powered by "),
-							atoms.Link(g.Text("my code"), "https://github.com/zaptross/portfoligo"),
+							a.Link(g.Text("my code"), "https://github.com/zaptross/portfoligo"),
 							g.Text(", written in "),
-							atoms.Link(g.Text("Gorgeous"), "https://gorgeous.zaptross.com"),
+							a.Link(g.Text("Gorgeous"), "https://gorgeous.zaptross.com"),
 							g.Text(
 								fmt.Sprintf(" © %s Matthew Price", time.Now().Format("2006")),
 							),
@@ -209,7 +209,7 @@ func layoutPageDateTags(page types.PageDetails) *g.HTMLElement {
 	if hasTags {
 		elements = append(elements,
 			lo.Map(page.Tags, func(tag string, _ int) *g.HTMLElement {
-				return atoms.LinkNav(g.H3(g.EB{
+				return a.LinkNav(g.H3(g.EB{
 					ClassList: []string{dateTagsClass},
 					Text:      tag,
 				}), "/search/?q="+tag)
@@ -270,7 +270,7 @@ func absoluteLinks() *g.HTMLElement {
 			absoluteDiv(
 				[]string{"top", "left"},
 				g.CE{
-					atoms.LinkNav(
+					a.LinkNav(
 						Row(g.CE{
 							FAS("home", faCSS),
 							g.H3(g.EB{
@@ -281,10 +281,10 @@ func absoluteLinks() *g.HTMLElement {
 						"/",
 					),
 					Row(g.CE{
-						atoms.LinkNav(g.Text("Projects"), "/projects"),
-						atoms.LinkNav(g.Text("Blog"), "/blog"),
-						atoms.LinkNav(g.Text("Search"), "/search"),
-						atoms.LinkNav(g.Text("About"), "/about"),
+						a.LinkNav(g.Text("Projects"), "/projects"),
+						a.LinkNav(g.Text("Blog"), "/blog"),
+						a.LinkNav(g.Text("Search"), "/search"),
+						a.LinkNav(g.Text("About"), "/about"),
 					}, nil),
 				},
 			),
@@ -292,10 +292,10 @@ func absoluteLinks() *g.HTMLElement {
 				[]string{"top", "right"},
 				g.CE{
 					Row(g.CE{
-						atoms.ThemeSelector(),
-						atoms.LinkIcon(FAS("rss", faCSS), "/public/rss.xml"),
-						atoms.LinkIcon(FAB("github", faCSS), "https://github.com/zaptross"),
-						atoms.LinkIcon(FAB("linkedin", faCSS), "https://linkedin.com/in/mpdd"),
+						a.ThemeSelector(),
+						a.LinkIcon(FAS("rss", faCSS), "/public/rss.xml"),
+						a.LinkIcon(FAB("github", faCSS), "https://github.com/zaptross"),
+						a.LinkIcon(FAB("linkedin", faCSS), "https://linkedin.com/in/mpdd"),
 					}, nil),
 				},
 			),
