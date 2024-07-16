@@ -21,7 +21,7 @@ var (
 				Children:  getSearchableElements(),
 				ClassList: []string{ch.PadB("0.25rem"), ch.FlexCol(), ch.JustifyContent(ch.Content.SpaceBetween)},
 			}))
-			search, searchScript := c.Search(searchableParent, "searchable", []string{ch.FlexGrow()})
+			search, searchScript := c.Search(searchableParent, "searchable", []string{ch.FlexGrow(1)})
 
 			return g.Div(g.EB{
 				ClassList: []string{ch.FlexCol(), ch.JustifyContent(ch.Content.SpaceBetween)},

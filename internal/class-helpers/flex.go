@@ -1,15 +1,30 @@
 package classhelpers
 
 import (
+	"fmt"
+
 	g "github.com/zaptross/gorgeous"
 )
 
-func Flex() string {
+func DisplayFlex() string {
 	className := "flex"
 	g.Class(&g.CSSClass{
 		Selector: "." + className,
 		Props: g.CSSProps{
 			"display": "flex",
+		},
+	})
+
+	return className
+}
+
+func Flex(i int) string {
+	digit := fmt.Sprintf("%d", i)
+	className := "flex-" + digit
+	g.Class(&g.CSSClass{
+		Selector: "." + className,
+		Props: g.CSSProps{
+			"flex": digit,
 		},
 	})
 
@@ -42,12 +57,13 @@ func FlexCol() string {
 	return className
 }
 
-func FlexGrow() string {
-	className := "flex-grow"
+func FlexGrow(i int) string {
+	digit := fmt.Sprintf("%d", i)
+	className := "flex-grow-" + digit
 	g.Class(&g.CSSClass{
 		Selector: "." + className,
 		Props: g.CSSProps{
-			"flex-grow": "1",
+			"flex-grow": digit,
 		},
 	})
 

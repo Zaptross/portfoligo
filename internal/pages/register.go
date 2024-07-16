@@ -11,3 +11,4 @@ var _ = registerPage(blogs.ExperienceForIndustry)
 // Projects
 var _ = registerPage(projects.NoRhythm)
 var _ = registerPage(projects.SlayYourDragons)
+var _ = registerPage(projects.PlayerLikeMechAi)
