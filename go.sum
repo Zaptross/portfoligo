@@ -14,10 +14,6 @@ github.com/rogpeppe/go-internal v1.9.0 h1:73kH8U+JUqXU8lRuOHeVHaa/SZPifC7BkcraZV
 github.com/rogpeppe/go-internal v1.9.0/go.mod h1:WtVeX8xhTBvf0smdhujwtBcq4Qrzq/fJaraNFVN+nFs=
 github.com/samber/lo v1.38.1 h1:j2XEAqXKb09Am4ebOg31SpvzUTTs6EN3VfgeLUhPdXM=
 github.com/samber/lo v1.38.1/go.mod h1:+m/ZKRl6ClXCE2Lgf3MsQlWfh4bn1bz6CXEOxnEXnEA=
-github.com/zaptross/gorgeous v0.0.0-20230705133244-791473dbe6a1 h1:Yiw5oAsU8C8h+Wx2zR+rPhJdAzUa3ALlvyhD3eIV9v8=
-github.com/zaptross/gorgeous v0.0.0-20230705133244-791473dbe6a1/go.mod h1:Ozbs04ozO3H+278tJ8LZFwMtIm5MCzNCqBTmGwE2HjE=
-github.com/zaptross/gorgeous v0.0.0-20231115125022-16ac51552fef h1:qmig6rhGMerePK+rroa94ClAYblCc6mcs8xieoCbEd0=
-github.com/zaptross/gorgeous v0.0.0-20231115125022-16ac51552fef/go.mod h1:Ozbs04ozO3H+278tJ8LZFwMtIm5MCzNCqBTmGwE2HjE=
 github.com/zaptross/gorgeous v0.0.0-20240111225020-dc7d671cb221 h1:JoY47Dlk65TMzd0M2q3Mbt7wa2InH5K1CaQSm8uruL8=
 github.com/zaptross/gorgeous v0.0.0-20240111225020-dc7d671cb221/go.mod h1:Ozbs04ozO3H+278tJ8LZFwMtIm5MCzNCqBTmGwE2HjE=
 golang.org/x/exp v0.0.0-20220303212507-bbda1eaf7a17 h1:3MTrJm4PyNL9NBqvYDSj3DHl46qQakyfqfWo4jgfaEM=
