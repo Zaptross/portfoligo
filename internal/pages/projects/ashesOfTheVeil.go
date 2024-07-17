@@ -9,6 +9,7 @@ import (
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	o "github.com/zaptross/portfoligo/internal/components/organisms"
+	"github.com/zaptross/portfoligo/internal/generated/files"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
@@ -36,12 +37,12 @@ var AshesOfTheVeil = types.PageDetails{
 						m.CaptionedImage(m.CaptionedImageProps{
 							Page:    p,
 							Caption: "Project Management Spreadsheet",
-							Src:     "project-management-sheet.png",
+							Src:     files.AshesOfTheVeil.ProjectManagementSheet,
 						}),
 						m.CaptionedImage(m.CaptionedImageProps{
 							Page:    p,
 							Caption: "Quality Assurance Spreadsheet",
-							Src:     "quality-assurance-sheet.png",
+							Src:     files.AshesOfTheVeil.QualityAssuranceSheet,
 						}),
 					}, []string{ch.MxW("45%"), ch.Flex(2)}),
 					c.Col(g.CE{
@@ -73,9 +74,9 @@ var AshesOfTheVeil = types.PageDetails{
 				o.Carousel(o.CarouselProps{
 					ClassList: []string{ch.Aspect("16/9")},
 					Children: g.CE{
-						m.ProjectImage(p, "note.png", nil),
-						m.ProjectImage(p, "red-lens-demo.png", nil),
-						m.ProjectImage(p, "blue-lens-demo.png", nil),
+						m.ProjectImage(p, files.AshesOfTheVeil.Note, nil),
+						m.ProjectImage(p, files.AshesOfTheVeil.RedLensDemo, nil),
+						m.ProjectImage(p, files.AshesOfTheVeil.BlueLensDemo, nil),
 					},
 				}),
 			}},

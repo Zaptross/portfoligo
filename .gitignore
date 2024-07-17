@@ -3,3 +3,5 @@ dist/
 
 # ignore debug directory
 debug/
+
+internal/generated/

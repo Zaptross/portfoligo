@@ -18,3 +18,5 @@ github.com/zaptross/gorgeous v0.0.0-20240111225020-dc7d671cb221 h1:JoY47Dlk65TMz
 github.com/zaptross/gorgeous v0.0.0-20240111225020-dc7d671cb221/go.mod h1:Ozbs04ozO3H+278tJ8LZFwMtIm5MCzNCqBTmGwE2HjE=
 golang.org/x/exp v0.0.0-20220303212507-bbda1eaf7a17 h1:3MTrJm4PyNL9NBqvYDSj3DHl46qQakyfqfWo4jgfaEM=
 golang.org/x/exp v0.0.0-20220303212507-bbda1eaf7a17/go.mod h1:lgLbSvA5ygNOMpwM/9anMpWVlVJ7Z+cHWq/eFuinpGE=
+golang.org/x/text v0.16.0 h1:a94ExnEXNtEwYLGJSIUxnWoxoRz/ZcCsV63ROupILh4=
+golang.org/x/text v0.16.0/go.mod h1:GhwF1Be+LQoKShO3cGOHzqOgRrGaYc9AvblQOmPVHnI=

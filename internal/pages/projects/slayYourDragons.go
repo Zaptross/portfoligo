@@ -9,6 +9,7 @@ import (
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	o "github.com/zaptross/portfoligo/internal/components/organisms"
+	"github.com/zaptross/portfoligo/internal/generated/files"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
@@ -42,9 +43,9 @@ var SlayYourDragons = types.PageDetails{
 				o.Carousel(o.CarouselProps{
 					ClassList: []string{ch.W("clamp(200px,80vw,343px)")},
 					Children: g.CE{
-						m.ProjectImage(p, "boss-screen-tutorial.png", nil),
-						m.ProjectImage(p, "boss-screen-layout.png", nil),
-						m.ProjectImage(p, "boss-setup-demo.gif", nil),
+						m.ProjectImage(p, files.SlayYourDragons.BossScreenTutorial, nil),
+						m.ProjectImage(p, files.SlayYourDragons.BossScreenLayout, nil),
+						m.ProjectImage(p, files.SlayYourDragons.BossSetupDemo, nil),
 					},
 				}),
 			}},

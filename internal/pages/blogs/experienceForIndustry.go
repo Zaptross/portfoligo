@@ -8,6 +8,7 @@ import (
 	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
+	"github.com/zaptross/portfoligo/internal/generated/files"
 	"github.com/zaptross/portfoligo/internal/theme"
 	"github.com/zaptross/portfoligo/internal/types"
 )
@@ -92,7 +93,7 @@ var ExperienceForIndustry = types.PageDetails{
 						g.Div(g.EB{
 							ClassList: []string{headerClass},
 							Children: g.CE{
-								fnc.RefLink(m.ProjectImage(p, "employment-growth-2019.png", []string{ch.W("100%")}), deptJobs),
+								fnc.RefLink(m.ProjectImage(p, files.ExperienceForIndustry.EmploymentGrowth2019, []string{ch.W("100%")}), deptJobs),
 							},
 						}),
 						c.SectionHeader(c.SectionHeaderProps{

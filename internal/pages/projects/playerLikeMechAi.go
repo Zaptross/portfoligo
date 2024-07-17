@@ -8,6 +8,7 @@ import (
 	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
+	"github.com/zaptross/portfoligo/internal/generated/files"
 	"github.com/zaptross/portfoligo/internal/theme"
 	"github.com/zaptross/portfoligo/internal/types"
 )
@@ -41,14 +42,14 @@ var PlayerLikeMechAi = types.PageDetails{
 
 		return g.Div(g.EB{
 			Children: []*g.HTMLElement{
-				m.ProjectImage(p, "mech-ai.gif", []string{ch.W("100%")}),
+				m.ProjectImage(p, files.PlayerLikeMechAi.MechAi, []string{ch.W("100%")}),
 				a.P(g.EB{
 					Text: "This project was a university assignment I completed wherein I had to design and implement a decision tree for a game AI to emulate a player" +
 						" in a mech battling game.",
 				}),
 				c.Row(g.CE{
 					c.Col(g.CE{
-						m.ProjectImage(p, "behaviour-tree.png", nil),
+						m.ProjectImage(p, files.PlayerLikeMechAi.BehaviourTree, nil),
 					}, []string{ch.FlexGrow(1), ch.MxW("45%")}),
 					c.Col(g.CE{
 						a.P(g.EB{
