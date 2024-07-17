@@ -5,6 +5,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/samber/lo"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
@@ -12,6 +13,17 @@ import (
 var desiredDirectories = []string{
 	"blog",
 	"projects",
+}
+
+func filesMain() {
+	setupDirectories()
+
+	fps := getPublicFilesInSegments()
+	groups := groupBySubpath(fps)
+	lo.ForEach(groups, func(group [][]string, _ int) {
+		writeGroupToFile(group)
+		println("Generated file for", group[0][1])
+	})
 }
 
 func setupDirectories() {
