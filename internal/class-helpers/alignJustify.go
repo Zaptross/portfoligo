@@ -66,3 +66,15 @@ func AlignItems(alignment Spacing) string {
 
 	return cn
 }
+
+func TextAlign(alignment Spacing) string {
+	cn := ClassNameSanitiser(fmt.Sprintf("ta-%s", alignment))
+	g.Class(&g.CSSClass{
+		Selector: "." + cn,
+		Props: g.CSSProps{
+			"text-align": string(alignment),
+		},
+	})
+
+	return cn
+}
