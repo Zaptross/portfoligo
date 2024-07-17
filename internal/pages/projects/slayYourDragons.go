@@ -7,6 +7,7 @@ import (
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
+	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
@@ -41,9 +42,9 @@ var SlayYourDragons = types.PageDetails{
 					c.Carousel(c.CarouselProps{
 						ClassList: []string{ch.W("clamp(200px,80vw,343px)")},
 						Children: g.CE{
-							c.ImgProject(p, "boss-screen-tutorial.png", nil),
-							c.ImgProject(p, "boss-screen-layout.png", nil),
-							c.ImgProject(p, "boss-setup-demo.gif", nil),
+							m.ProjectImage(p, "boss-screen-tutorial.png", nil),
+							m.ProjectImage(p, "boss-screen-layout.png", nil),
+							m.ProjectImage(p, "boss-setup-demo.gif", nil),
 						},
 					}),
 				}, []string{"flex-wrap", ch.JustifyContent(ch.Content.Center)}),

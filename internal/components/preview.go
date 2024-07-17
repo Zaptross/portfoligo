@@ -76,7 +76,7 @@ func Preview(page types.PageDetails) *g.HTMLElement {
 	link := a.LinkNav(g.Div(g.EB{
 		ClassList: []string{RowClass(), previewClass},
 		Children: []*g.HTMLElement{
-			ImageRel(fmt.Sprintf("/preview/%s.png", page.Slug), []string{cardImageClass}),
+			a.ImageRel(fmt.Sprintf("/preview/%s.png", page.Slug), []string{cardImageClass}),
 			Col(g.CE{
 				g.H2(g.EB{
 					Text:      page.Title,

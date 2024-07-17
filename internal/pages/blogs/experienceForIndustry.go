@@ -92,7 +92,7 @@ var ExperienceForIndustry = types.PageDetails{
 						g.Div(g.EB{
 							ClassList: []string{headerClass},
 							Children: g.CE{
-								fnc.RefLink(c.ImgProject(p, "employment-growth-2019.png", []string{ch.W("100%")}), deptJobs),
+								fnc.RefLink(m.ProjectImage(p, "employment-growth-2019.png", []string{ch.W("100%")}), deptJobs),
 							},
 						}),
 						c.SectionHeader(c.SectionHeaderProps{
