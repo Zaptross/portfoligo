@@ -1,4 +1,4 @@
-package components
+package atoms
 
 import (
 	g "github.com/zaptross/gorgeous"
@@ -6,7 +6,7 @@ import (
 
 func faIcon(iconSet string, icon string, css g.CSSProps) *g.HTMLElement {
 	return g.I(g.EB{
-		Style: 	 css,
+		Style:     css,
 		ClassList: []string{"fa-" + iconSet, "fa-" + icon},
 	})
 }

@@ -10,6 +10,7 @@ import (
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	c "github.com/zaptross/portfoligo/internal/components"
+	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/theme"
 )
 
@@ -118,7 +119,7 @@ func Carousel(props CarouselProps) *g.HTMLElement {
 		buttons = append(buttons, ref.Get(g.Button(g.EB{
 			ClassList: []string{carouselButtonClass, btnClass},
 			Children: g.CE{
-				c.FAS("chevron-"+direction, nil),
+				a.FAS("chevron-"+direction, nil),
 			},
 		})))
 	})

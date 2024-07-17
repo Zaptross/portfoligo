@@ -272,7 +272,7 @@ func absoluteLinks() *g.HTMLElement {
 				g.CE{
 					a.LinkNav(
 						Row(g.CE{
-							FAS("home", faCSS),
+							a.FAS("home", faCSS),
 							g.H3(g.EB{
 								ClassList: []string{nameColorClass},
 								Text:      "Matthew Price",
@@ -293,9 +293,9 @@ func absoluteLinks() *g.HTMLElement {
 				g.CE{
 					Row(g.CE{
 						a.ThemeSelector(),
-						a.LinkIcon(FAS("rss", faCSS), "/public/rss.xml"),
-						a.LinkIcon(FAB("github", faCSS), "https://github.com/zaptross"),
-						a.LinkIcon(FAB("linkedin", faCSS), "https://linkedin.com/in/mpdd"),
+						a.LinkIcon(a.FAS("rss", faCSS), "/public/rss.xml"),
+						a.LinkIcon(a.FAB("github", faCSS), "https://github.com/zaptross"),
+						a.LinkIcon(a.FAB("linkedin", faCSS), "https://linkedin.com/in/mpdd"),
 					}, nil),
 				},
 			),

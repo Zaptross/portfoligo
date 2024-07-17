@@ -5,7 +5,7 @@ import (
 
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	"github.com/zaptross/portfoligo/internal/components/atoms"
+	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/theme"
 )
 
@@ -47,11 +47,11 @@ func SectionHeader(pr SectionHeaderProps) *g.HTMLElement {
 		pr.Color = t.Colors.Text.Heading
 	}
 
-	return atoms.Hashlink(g.CE{
+	return a.Hashlink(g.CE{
 		Row(g.CE{
 			pr.Header(g.EB{
 				Children: g.CE{
-					FAS("hashtag", g.CSSProps{"padding-right": "0.5rem"}),
+					a.FAS("hashtag", g.CSSProps{"padding-right": "0.5rem"}),
 					g.Text(pr.Text),
 				},
 				OnClick: onClick(pr.TagKey),

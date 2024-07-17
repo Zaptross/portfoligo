@@ -1,4 +1,4 @@
-package components
+package atoms
 
 import (
 	"fmt"

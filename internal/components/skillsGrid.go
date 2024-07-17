@@ -4,7 +4,7 @@ import (
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	"github.com/zaptross/portfoligo/internal/components/atoms"
+	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/theme"
 )
 
@@ -95,7 +95,7 @@ func SkillsGrid(pr SkillsGridProps) *g.HTMLElement {
 		ClassList: []string{skillGridClass},
 		Children: lo.Map(pr.Skills, func(skill string, _ int) *g.HTMLElement {
 			icon := skill
-			iconFn := FAB
+			iconFn := a.FAB
 			needsFilter := false
 			if mapping, ok := pr.MapIcons[skill]; ok {
 				iconFn = mapping.IconFn
@@ -111,7 +111,7 @@ func SkillsGrid(pr SkillsGridProps) *g.HTMLElement {
 				colClass = iconColorClass
 			}
 
-			return atoms.LinkNav(
+			return a.LinkNav(
 				Col(
 					g.CE{
 						iconFn(icon, g.CSSProps{"font-size": "2rem"}),

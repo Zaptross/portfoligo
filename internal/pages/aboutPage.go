@@ -51,12 +51,12 @@ var (
 							types.TAG_TOOL_FIGMA, types.TAG_TOOL_UNITY, types.TAG_TOOL_UNREAL, types.TAG_GAME + " " + types.TAG_DESIGN,
 						},
 						MapIcons: map[string]c.SkillMapping{
-							types.TAG_TOOL_KUBE:                       {IconFn: c.SimpleIcon, Filter: true},
-							types.TAG_LANG_TS:                         {IconFn: c.SimpleIcon, Filter: true},
-							types.TAG_LANG_CSHARP:                     {IconFn: c.SimpleIcon, Filter: true},
-							types.TAG_TOOL_UNREAL:                     {IconFn: c.SimpleIcon, Filter: true},
-							types.TAG_TOOL_DOTNET:                     {IconFn: c.SimpleIcon, Filter: true},
-							(types.TAG_GAME + " " + types.TAG_DESIGN): {IconFn: c.FAS, Icon: "gamepad"},
+							types.TAG_TOOL_KUBE:                       {IconFn: a.SimpleIcon, Filter: true},
+							types.TAG_LANG_TS:                         {IconFn: a.SimpleIcon, Filter: true},
+							types.TAG_LANG_CSHARP:                     {IconFn: a.SimpleIcon, Filter: true},
+							types.TAG_TOOL_UNREAL:                     {IconFn: a.SimpleIcon, Filter: true},
+							types.TAG_TOOL_DOTNET:                     {IconFn: a.SimpleIcon, Filter: true},
+							(types.TAG_GAME + " " + types.TAG_DESIGN): {IconFn: a.FAS, Icon: "gamepad"},
 						},
 					}),
 					a.P(g.EB{
@@ -66,10 +66,10 @@ var (
 					c.SkillsGrid(c.SkillsGridProps{
 						Skills: []string{types.TAG_ELECTRONICS, types.TAG_TOOL_KICAD, types.TAG_TOOL_FREECAD, types.TAG_TOOL_PHOTOSHOP},
 						MapIcons: map[string]c.SkillMapping{
-							types.TAG_ELECTRONICS:    {IconFn: c.FAS, Icon: "microchip"},
-							types.TAG_TOOL_KICAD:     {IconFn: c.SimpleIcon, Filter: true},
-							types.TAG_TOOL_FREECAD:   {IconFn: c.FAS, Icon: "cog"},
-							types.TAG_TOOL_PHOTOSHOP: {IconFn: c.SimpleIcon, Filter: true, Icon: "adobephotoshop"},
+							types.TAG_ELECTRONICS:    {IconFn: a.FAS, Icon: "microchip"},
+							types.TAG_TOOL_KICAD:     {IconFn: a.SimpleIcon, Filter: true},
+							types.TAG_TOOL_FREECAD:   {IconFn: a.FAS, Icon: "cog"},
+							types.TAG_TOOL_PHOTOSHOP: {IconFn: a.SimpleIcon, Filter: true, Icon: "adobephotoshop"},
 						},
 					}),
 					c.SectionHeader(c.SectionHeaderProps{
@@ -108,7 +108,7 @@ var (
 					}),
 					c.Row(g.CE{
 						a.LinkIcon(
-							c.FAB("linkedin", g.CSSProps{"font-size": "2rem"}),
+							a.FAB("linkedin", g.CSSProps{"font-size": "2rem"}),
 							"https://www.linkedin.com/in/mpdd/",
 						),
 					}, []string{ch.MarginZA()}),

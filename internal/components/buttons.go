@@ -3,6 +3,7 @@ package components
 import (
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
+	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/theme"
 )
 
@@ -53,7 +54,7 @@ func BackToTop() *g.HTMLElement {
 	return g.Button(g.EB{
 		Children: g.CE{
 			g.Text("Back to top"),
-			FAS("turn-up", g.CSSProps{"margin-left": "0.3rem"}),
+			a.FAS("turn-up", g.CSSProps{"margin-left": "0.3rem"}),
 		},
 		Id:        "back-to-top-button",
 		OnClick:   g.JavaScript(`window.scroll({ top: 0, left: 0, behavior: "smooth" });`),
