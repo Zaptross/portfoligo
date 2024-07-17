@@ -8,6 +8,7 @@ import (
 	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
+	o "github.com/zaptross/portfoligo/internal/components/organisms"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
@@ -38,16 +39,14 @@ var SlayYourDragons = types.PageDetails{
 						a.P(g.EB{Text: "This applied game was designed and built in a team of three to motivate young adults to start projects earlier. Within the team I undertook the role of programmer, and contributed to both the game and menu designs. I implemented the game logic for creating a boss, battling a boss, and purchasing items in the game's store with in-game currency."}),
 					}, nil),
 				}, nil),
-				c.Row(g.CE{
-					c.Carousel(c.CarouselProps{
-						ClassList: []string{ch.W("clamp(200px,80vw,343px)")},
-						Children: g.CE{
-							m.ProjectImage(p, "boss-screen-tutorial.png", nil),
-							m.ProjectImage(p, "boss-screen-layout.png", nil),
-							m.ProjectImage(p, "boss-setup-demo.gif", nil),
-						},
-					}),
-				}, []string{"flex-wrap", ch.JustifyContent(ch.Content.Center)}),
+				o.Carousel(o.CarouselProps{
+					ClassList: []string{ch.W("clamp(200px,80vw,343px)")},
+					Children: g.CE{
+						m.ProjectImage(p, "boss-screen-tutorial.png", nil),
+						m.ProjectImage(p, "boss-screen-layout.png", nil),
+						m.ProjectImage(p, "boss-setup-demo.gif", nil),
+					},
+				}),
 			}},
 		)
 	},

@@ -1,4 +1,4 @@
-package components
+package organisms
 
 import (
 	_ "embed"
@@ -8,6 +8,8 @@ import (
 	"github.com/google/uuid"
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
+	ch "github.com/zaptross/portfoligo/internal/class-helpers"
+	c "github.com/zaptross/portfoligo/internal/components"
 	"github.com/zaptross/portfoligo/internal/theme"
 )
 
@@ -116,7 +118,7 @@ func Carousel(props CarouselProps) *g.HTMLElement {
 		buttons = append(buttons, ref.Get(g.Button(g.EB{
 			ClassList: []string{carouselButtonClass, btnClass},
 			Children: g.CE{
-				FAS("chevron-"+direction, nil),
+				c.FAS("chevron-"+direction, nil),
 			},
 		})))
 	})
@@ -130,25 +132,28 @@ func Carousel(props CarouselProps) *g.HTMLElement {
 
 	carouselInnerRef := g.CreateRef("carousel-inner-" + uuid.NewString())
 
-	out := g.Div(g.EB{
-		ClassList: []string{"row"},
-		Children: g.CE{
-			buttons[0],
+	return c.Row(
+		g.CE{
 			g.Div(g.EB{
-				ClassList: append([]string{carouselClass}, props.ClassList...),
+				ClassList: []string{"row"},
 				Children: g.CE{
-					carouselInnerRef.Get(g.Div(g.EB{
-						ClassList: []string{carouselInnerClass},
-						Children:  props.Children,
-					})),
+					buttons[0],
+					g.Div(g.EB{
+						ClassList: append([]string{carouselClass}, props.ClassList...),
+						Children: g.CE{
+							carouselInnerRef.Get(g.Div(g.EB{
+								ClassList: []string{carouselInnerClass},
+								Children:  props.Children,
+							})),
+						},
+					}),
+					buttons[1],
 				},
+				Script: configureCarousel(carouselInnerRef, buttonRefs),
 			}),
-			buttons[1],
 		},
-		Script: configureCarousel(carouselInnerRef, buttonRefs),
-	})
-
-	return out
+		[]string{"flex-wrap", ch.JustifyContent(ch.Content.Center)},
+	)
 }
 
 func configureCarousel(inner *g.Reference, buttons []*g.Reference) g.JavaScript {

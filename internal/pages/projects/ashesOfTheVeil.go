@@ -8,6 +8,7 @@ import (
 	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
+	o "github.com/zaptross/portfoligo/internal/components/organisms"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
@@ -69,18 +70,14 @@ var AshesOfTheVeil = types.PageDetails{
 						g.Text("."),
 					},
 				}),
-				c.Row(
-					g.CE{
-						c.Carousel(c.CarouselProps{
-							ClassList: []string{ch.Aspect("16/9")},
-							Children: g.CE{
-								m.ProjectImage(p, "note.png", nil),
-								m.ProjectImage(p, "red-lens-demo.png", nil),
-								m.ProjectImage(p, "blue-lens-demo.png", nil),
-							},
-						}),
+				o.Carousel(o.CarouselProps{
+					ClassList: []string{ch.Aspect("16/9")},
+					Children: g.CE{
+						m.ProjectImage(p, "note.png", nil),
+						m.ProjectImage(p, "red-lens-demo.png", nil),
+						m.ProjectImage(p, "blue-lens-demo.png", nil),
 					},
-					[]string{"flex-wrap", ch.JustifyContent(ch.Content.Center)}),
+				}),
 			}},
 		)
 	},
