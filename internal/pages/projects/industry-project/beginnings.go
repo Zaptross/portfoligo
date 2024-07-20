@@ -17,7 +17,7 @@ var Beginnings = types.PageDetails{
 	Description: "The first week of working on the industry project, spent learning Unreal Engine and planning.",
 	Slug:        "industry-project-beginnings",
 	Type:        types.TYPE_PROJECT,
-	Written:     time.Date(2019, 8, 19, 0, 0, 0, 0, time.UTC),
+	Written:     time.Date(2019, 9, 23, 0, 0, 0, 0, time.UTC),
 	Tags: []string{
 		types.TAG_STUDENT,
 		types.TAG_TOOL_UNREAL,
