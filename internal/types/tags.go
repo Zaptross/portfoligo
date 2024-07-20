@@ -39,4 +39,7 @@ const (
 
 	// Meta tags
 	TAG_AVAILABLE = "available"
+
+	// Series tags
+	SERIES_INDUSTRY_PROJECT = "industry-project"
 )

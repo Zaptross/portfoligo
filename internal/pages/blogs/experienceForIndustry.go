@@ -23,6 +23,7 @@ var ExperienceForIndustry = types.PageDetails{
 		types.TAG_STUDENT,
 		types.TYPE_BLOG,
 		types.TAG_WEB,
+		types.SERIES_INDUSTRY_PROJECT,
 	},
 	Content: func(p types.PageDetails) *g.HTMLElement {
 		t := theme.UseTheme()
