@@ -19,11 +19,11 @@ var ExperienceForIndustry = types.PageDetails{
 	Slug:        "experience-for-industry",
 	Type:        types.TYPE_BLOG,
 	Written:     time.Date(2019, 8, 23, 0, 0, 0, 0, time.UTC),
+	Series:      types.SERIES_INDUSTRY_PROJECT,
 	Tags: []string{
 		types.TAG_STUDENT,
 		types.TYPE_BLOG,
 		types.TAG_WEB,
-		types.SERIES_INDUSTRY_PROJECT,
 	},
 	Content: func(p types.PageDetails) *g.HTMLElement {
 		t := theme.UseTheme()

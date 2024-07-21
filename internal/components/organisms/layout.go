@@ -1,4 +1,4 @@
-package components
+package organisms
 
 import (
 	"fmt"
@@ -8,12 +8,13 @@ import (
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
+	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/theme"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
-func Layout(page types.PageDetails) *g.HTMLElement {
+func Layout(page types.PageDetails, allPages []types.PageDetails) *g.HTMLElement {
 	t := theme.UseTheme()
 
 	contentClass := "content-main"
@@ -58,6 +59,12 @@ func Layout(page types.PageDetails) *g.HTMLElement {
 		},
 	})
 
+	content := page.Content(page)
+
+	if page.Series != "" {
+		content.Children = append(content.Children, SeriesNav(page, allPages))
+	}
+
 	return g.Body(g.EB{
 		ClassList: []string{"solarized-dark"},
 		Children: g.CE{
@@ -66,7 +73,7 @@ func Layout(page types.PageDetails) *g.HTMLElement {
 			g.Div(g.EB{
 				ClassList: []string{contentClass},
 				Children: g.CE{
-					page.Content(page),
+					content,
 				},
 			}),
 			layoutPageFooter(),
@@ -92,10 +99,10 @@ func layoutPageFooter() *g.HTMLElement {
 			"margin-left": "0.25rem",
 		},
 	})
-	return Col(
+	return c.Col(
 		g.CE{
-			BackToTop(),
-			Row(
+			c.BackToTop(),
+			c.Row(
 				g.CE{
 					a.P(g.EB{
 						ClassList: []string{layoutPageFooterClass},
@@ -181,7 +188,7 @@ func layoutPageDateTags(page types.PageDetails) *g.HTMLElement {
 	})
 
 	elements := g.CE{}
-	hasTags := page.Tags != nil && len(page.Tags) > 0
+	hasTags := page.GetTags() != nil && len(page.GetTags()) > 0
 	hasDate := page.Written != time.Time{}
 
 	if !hasDate && !hasTags {
@@ -208,7 +215,7 @@ func layoutPageDateTags(page types.PageDetails) *g.HTMLElement {
 
 	if hasTags {
 		elements = append(elements,
-			lo.Map(page.Tags, func(tag string, _ int) *g.HTMLElement {
+			lo.Map(page.GetTags(), func(tag string, _ int) *g.HTMLElement {
 				return a.LinkNav(g.H3(g.EB{
 					ClassList: []string{dateTagsClass},
 					Text:      tag,
@@ -271,7 +278,7 @@ func absoluteLinks() *g.HTMLElement {
 				[]string{"top", "left"},
 				g.CE{
 					a.LinkNav(
-						Row(g.CE{
+						c.Row(g.CE{
 							a.FAS("home", faCSS),
 							g.H3(g.EB{
 								ClassList: []string{nameColorClass},
@@ -280,7 +287,7 @@ func absoluteLinks() *g.HTMLElement {
 						}, nil),
 						"/",
 					),
-					Row(g.CE{
+					c.Row(g.CE{
 						a.LinkNav(g.Text("Projects"), "/projects"),
 						a.LinkNav(g.Text("Blog"), "/blog"),
 						a.LinkNav(g.Text("Search"), "/search"),
@@ -291,7 +298,7 @@ func absoluteLinks() *g.HTMLElement {
 			absoluteDiv(
 				[]string{"top", "right"},
 				g.CE{
-					Row(g.CE{
+					c.Row(g.CE{
 						a.ThemeSelector(),
 						a.LinkIcon(a.FAS("rss", faCSS), "/public/rss.xml"),
 						a.LinkIcon(a.FAB("github", faCSS), "https://github.com/zaptross"),

@@ -83,7 +83,7 @@ func Preview(page types.PageDetails) *g.HTMLElement {
 					ClassList: []string{titleClass},
 				}),
 				g.P(g.EB{
-					Text:      fmt.Sprintf("%s - %s", page.Written.Format("2006-01-02"), strings.Join(page.Tags, ", ")),
+					Text:      fmt.Sprintf("%s - %s", page.Written.Format("2006-01-02"), strings.Join(page.GetTags(), ", ")),
 					ClassList: []string{tagsClass},
 				}),
 				a.P(g.EB{
@@ -102,7 +102,7 @@ func Preview(page types.PageDetails) *g.HTMLElement {
 		page.Written.Format("2006-01-02"),
 		page.Title,
 		page.Description},
-		page.Tags...), " ")
+		page.GetTags()...), " ")
 
 	return link
 }

@@ -13,6 +13,7 @@ type PageDetails struct {
 	Slug        string
 	Type        string
 	Tags        []string
+	Series      string
 	Written     time.Time
 	Content     func(PageDetails) *g.HTMLElement
 }
@@ -27,4 +28,11 @@ func (p PageDetails) GetRelativeURL() string {
 	}
 
 	return fmt.Sprintf("/%s/%s", p.Type, p.Slug)
+}
+
+func (p PageDetails) GetTags() []string {
+	if p.Series != "" {
+		return append(p.Tags, p.Series)
+	}
+	return p.Tags
 }

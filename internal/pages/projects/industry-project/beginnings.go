@@ -18,12 +18,12 @@ var Beginnings = types.PageDetails{
 	Slug:        "industry-project-beginnings",
 	Type:        types.TYPE_PROJECT,
 	Written:     time.Date(2019, 9, 23, 0, 0, 0, 0, time.UTC),
+	Series:      types.SERIES_INDUSTRY_PROJECT,
 	Tags: []string{
 		types.TAG_STUDENT,
 		types.TAG_TOOL_UNREAL,
 		types.TAG_WEB,
 		types.TAG_DESIGN,
-		types.SERIES_INDUSTRY_PROJECT,
 	},
 	Content: func(p types.PageDetails) *g.HTMLElement {
 		return g.Div(g.EB{
