@@ -6,6 +6,12 @@
 			"label": "build static html",
 			"command": "cd ./cmd/; go run ./",
 			"group": "build",
+		},
+		{
+			"type": "shell",
+			"label": "generate-code",
+			"command": "cd ./gen/; go run ./",
+			"group": "build",
 		}
 	]
 }
