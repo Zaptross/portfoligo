@@ -1,0 +1,55 @@
+{
+	// Place your portfoligo workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"new page (portfoligo)": {
+		"scope": "go",
+		"prefix": "newpage",
+		"body": [
+				"package projects",
+				"",
+				"import (",
+				"    \"time\"",
+				"",
+				"    g \"github.com/zaptross/gorgeous\"",
+				"    c \"github.com/zaptross/portfoligo/internal/components\"",
+				"    a \"github.com/zaptross/portfoligo/internal/components/atoms\"",
+				"    m \"github.com/zaptross/portfoligo/internal/components/molecules\"",
+				"    o \"github.com/zaptross/portfoligo/internal/components/organisms\"",
+				"    \"github.com/zaptross/portfoligo/internal/types\"",
+				"    \"github.com/zaptross/portfoligo/internal/types\"",
+				")",
+				"",
+				"var $1 = types.PageDetails{",
+				"    Title:       \"$2\",",
+				"    Description: \"$3\",",
+				"    Slug:        \"${1/\\([A-Z]\\)/-\\L\\1/g}\",",
+				"    Type:        types.TYPE_PROJECT,",
+				"    Written:     time.Date(2019, $5, $6, 0, 0, 0, 0, time.UTC),",
+				"    Tags: []string{",
+				"        types.TAG_$4",
+				"    },",
+				"    Content: func(p types.PageDetails) *g.HTMLElement {",
+				"        return g.Div(g.EB{",
+				"            Children: []*g.HTMLElement{",
+				"            }},",
+				"        )",
+				"    },",
+				"}",
+		],
+		"description": "Log output to console"
+	}
+}
