@@ -14,6 +14,7 @@ const (
 	TAG_SOFTWARE    = "software"
 	TAG_STUDENT     = "student"
 	TAG_WEB         = "web"
+	TAG_WRITING     = "writing"
 
 	// Langs
 	TAG_LANG_CSHARP = "csharp"
