@@ -14,6 +14,7 @@ func AuthorQuote(text string, author string, color string, classList []string) *
 		Props: g.CSSProps{
 			"font-style":  "italic",
 			"border-left": "solid thick " + color,
+			"margin":      t.Spacing(5),
 		},
 	})
 
@@ -21,7 +22,7 @@ func AuthorQuote(text string, author string, color string, classList []string) *
 		ClassList: append(classList, className),
 		Children: g.CE{
 			P(g.EB{Text: text, ClassList: []string{ch.MarginL(t.Spacing(5))}}),
-			g.Em(g.EB{Text: "— " + author, ClassList: []string{t.Spacing(5), ch.FontColor(color)}}),
+			g.Em(g.EB{Text: "— " + author, ClassList: []string{ch.MarginL(t.Spacing(4)), ch.FontColor(color)}}),
 		},
 	})
 }

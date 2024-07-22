@@ -52,6 +52,7 @@ func ClickZoom(element *g.HTMLElement, classList []string) *g.HTMLElement {
 		const removeClickZoom = () => document.querySelectorAll("." + clickZoomClass).forEach(e => {
 			e.classList.remove(clickZoomClass);
 			e.parentElement.style.height = "";
+			e.parentElement.style.width = "";
 		})
 		thisElement.addEventListener("click", () => {
 			const hasClickZoom = thisElement.classList.contains(clickZoomClass)
@@ -59,6 +60,7 @@ func ClickZoom(element *g.HTMLElement, classList []string) *g.HTMLElement {
 				removeClickZoom()
 			} else {
 				thisElement.parentElement.style.height = thisElement.parentElement.clientHeight + "px"
+				thisElement.parentElement.style.width = thisElement.parentElement.clientWidth + "px"
 				thisElement.classList.add(clickZoomClass)
 			}
 		});

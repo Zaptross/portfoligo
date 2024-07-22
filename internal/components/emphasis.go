@@ -13,8 +13,9 @@ func Emphasis(text string) *g.HTMLElement {
 	g.Class(&g.CSSClass{
 		Selector: "." + className,
 		Props: g.CSSProps{
-			"font-weight": "bold",
-			"color":       t.Colors.Text.Link,
+			"font-weight":  t.Weights.Bold,
+			"color":        t.Colors.Text.Link,
+			"margin-right": t.Spacing(1),
 		},
 	})
 
