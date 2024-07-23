@@ -6,7 +6,6 @@ import (
 	g "github.com/zaptross/gorgeous"
 	"github.com/zaptross/portfoligo/generated/files"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	"github.com/zaptross/portfoligo/internal/types"
@@ -53,7 +52,7 @@ var Beginnings = types.PageDetails{
 					},
 				}),
 				a.P(g.EB{Text: "This gif demonstrates the state of the UI elements of the project at the end of the week. So far, the UI is opening and closing, " + "laid out roughly according to the design, and the dropdown and buttons are functional."}),
-				c.SectionHeader(c.SectionHeaderProps{
+				m.SectionHeader(m.SectionHeaderProps{
 					Text:   "Learning Unreal",
 					TagKey: "learning-unreal",
 					Header: g.H4,
@@ -113,7 +112,7 @@ var Beginnings = types.PageDetails{
 						Text:      "I then began to experiment with scene objects and blueprints, deciding to make an object interact with the world in unintuitive ways.",
 					}),
 				}, nil),
-				c.SectionHeader(c.SectionHeaderProps{
+				m.SectionHeader(m.SectionHeaderProps{
 					TagKey: "prototyping-ui",
 					Text:   "Building the Prototype UI",
 					Header: g.H4,
@@ -150,7 +149,7 @@ var Beginnings = types.PageDetails{
 						ContainerClasses: []string{ch.Flex(1)},
 					}),
 				}, nil),
-				c.SectionHeader(c.SectionHeaderProps{
+				m.SectionHeader(m.SectionHeaderProps{
 					TagKey: "screenshot",
 					Text:   "Taking the Screenshot",
 					Header: g.H4,

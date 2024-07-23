@@ -6,7 +6,6 @@ import (
 	g "github.com/zaptross/gorgeous"
 	"github.com/zaptross/portfoligo/generated/files"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	"github.com/zaptross/portfoligo/internal/theme"
@@ -97,7 +96,7 @@ var ExperienceForIndustry = types.PageDetails{
 								fnc.RefLink(m.ProjectImage(p, files.ExperienceForIndustry.EmploymentGrowth2019, []string{ch.W("100%")}), deptJobs),
 							},
 						}),
-						c.SectionHeader(c.SectionHeaderProps{
+						m.SectionHeader(m.SectionHeaderProps{
 							TagKey:    "experience",
 							Text:      "The Experience",
 							Header:    g.H3,
@@ -120,7 +119,7 @@ var ExperienceForIndustry = types.PageDetails{
 				}, nil),
 				a.Row(g.CE{
 					a.Col(g.CE{
-						c.SectionHeader(c.SectionHeaderProps{
+						m.SectionHeader(m.SectionHeaderProps{
 							TagKey: "industry",
 							Text:   "The Industry",
 							Header: g.H3,
@@ -159,7 +158,7 @@ var ExperienceForIndustry = types.PageDetails{
 				}, nil),
 				a.Row(g.CE{
 					a.Col(g.CE{
-						c.SectionHeader(c.SectionHeaderProps{
+						m.SectionHeader(m.SectionHeaderProps{
 							TagKey: "project",
 							Text:   "The Project",
 							Header: g.H3,
@@ -196,7 +195,7 @@ var ExperienceForIndustry = types.PageDetails{
 				}, nil),
 				a.Row(g.CE{
 					a.Col(append(g.CE{
-						c.SectionHeader(c.SectionHeaderProps{
+						m.SectionHeader(m.SectionHeaderProps{
 							TagKey: "references",
 							Text:   "References",
 							Header: g.H3,

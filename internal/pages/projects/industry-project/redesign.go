@@ -6,7 +6,6 @@ import (
 	g "github.com/zaptross/gorgeous"
 	"github.com/zaptross/portfoligo/generated/files"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	"github.com/zaptross/portfoligo/internal/types"
@@ -62,7 +61,7 @@ var Redesign = types.PageDetails{
 						},
 					}),
 				}, nil),
-				c.SectionHeader(c.SectionHeaderProps{
+				m.SectionHeader(m.SectionHeaderProps{
 					Text:   "Sentiment Radio-Buttons",
 					TagKey: "sentiment",
 					Header: g.H4,
@@ -89,7 +88,7 @@ var Redesign = types.PageDetails{
 					Caption: "Checkboxes in Action",
 					Src:     files.IndustryProjectRedesign.UnrealCheckboxes,
 				}),
-				c.SectionHeader(c.SectionHeaderProps{
+				m.SectionHeader(m.SectionHeaderProps{
 					TagKey: "screenshot",
 					Text:   "Getting the Screenshot Working",
 					Header: g.H4,
@@ -123,7 +122,7 @@ var Redesign = types.PageDetails{
 					Caption: "Screenshot Displaying in UI",
 					Src:     files.IndustryProjectRedesign.UnrealScreenshotInUi,
 				}),
-				c.SectionHeader(c.SectionHeaderProps{
+				m.SectionHeader(m.SectionHeaderProps{
 					TagKey: "c-plus-plus",
 					Text:   "C++ and PC Info",
 					Header: g.H4,
@@ -148,7 +147,7 @@ var Redesign = types.PageDetails{
 					Src:     files.IndustryProjectRedesign.UnrealAllUiImplemented,
 					Caption: "All UI Implemented",
 				}),
-				c.SectionHeader(c.SectionHeaderProps{
+				m.SectionHeader(m.SectionHeaderProps{
 					TagKey: "c-plus-plus-api",
 					Text:   "C++ and API Research",
 					Header: g.H4,
@@ -190,7 +189,7 @@ var Redesign = types.PageDetails{
 						" code I found that I continued to run into build errors, leading to the realisation that writing this all in C++ manually would be " +
 						"time-inefficient and continue to hold back development.",
 				}),
-				c.SectionHeader(c.SectionHeaderProps{
+				m.SectionHeader(m.SectionHeaderProps{
 					TagKey: "redesign",
 					Text:   "Redesign: Server",
 					Header: g.H4,
@@ -240,7 +239,7 @@ var Redesign = types.PageDetails{
 							" and generate summaries from within the game client before posting, where now the server will bear this load."),
 					},
 				}),
-				c.SectionHeader(c.SectionHeaderProps{
+				m.SectionHeader(m.SectionHeaderProps{
 					TagKey: "next-time",
 					Text:   "For Next Week",
 					Header: g.H4,

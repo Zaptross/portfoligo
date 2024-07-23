@@ -5,6 +5,7 @@ import (
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
+	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	"github.com/zaptross/portfoligo/internal/theme"
 	"github.com/zaptross/portfoligo/internal/types"
 )
@@ -20,7 +21,7 @@ var (
 			return g.Div(g.EB{
 				ClassList: []string{ch.FlexCol(), ch.JustifyContent(ch.Content.SpaceBetween)},
 				Children: []*g.HTMLElement{
-					c.SectionHeader(c.SectionHeaderProps{
+					m.SectionHeader(m.SectionHeaderProps{
 						TagKey:    "about",
 						Text:      "Hi 👋, I'm Matt.",
 						Header:    g.H1,
@@ -34,7 +35,7 @@ var (
 						Text:      "In my spare time I love to play videogames and boardgames, develop fun ideas and projects, and work on hobbyist electronics projects.",
 						ClassList: []string{ch.Margin("0.25rem 1rem")},
 					}),
-					c.SectionHeader(c.SectionHeaderProps{
+					m.SectionHeader(m.SectionHeaderProps{
 						TagKey:    "skills",
 						Text:      "Skills",
 						Header:    g.H2,
@@ -72,7 +73,7 @@ var (
 							types.TAG_TOOL_PHOTOSHOP: {IconFn: a.SimpleIcon, Filter: true, Icon: "adobephotoshop"},
 						},
 					}),
-					c.SectionHeader(c.SectionHeaderProps{
+					m.SectionHeader(m.SectionHeaderProps{
 						TagKey:    "kind-words",
 						Text:      "Kind Words People Have Said About Me",
 						Header:    g.H2,
@@ -96,7 +97,7 @@ var (
 						t.Colors.Pallette.Blue,
 						[]string{},
 					),
-					c.SectionHeader(c.SectionHeaderProps{
+					m.SectionHeader(m.SectionHeaderProps{
 						TagKey:    "contact",
 						Text:      "Getting in Touch",
 						Header:    g.H2,

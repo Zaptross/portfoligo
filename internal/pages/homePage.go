@@ -6,6 +6,7 @@ import (
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
+	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	"github.com/zaptross/portfoligo/internal/pages/projects"
 	"github.com/zaptross/portfoligo/internal/types"
 )
@@ -20,7 +21,7 @@ var (
 			return g.Div(g.EB{
 				ClassList: []string{ch.FlexCol(), ch.JustifyContent(ch.Content.SpaceBetween)},
 				Children: []*g.HTMLElement{
-					c.SectionHeader(c.SectionHeaderProps{
+					m.SectionHeader(m.SectionHeaderProps{
 						TagKey: "welcome",
 						Header: g.H2,
 						Text:   "Welcome to my portfolio!",
