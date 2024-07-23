@@ -76,7 +76,7 @@ var AtAnyCost = types.PageDetails{
 								g.Text(" TTRPG system."),
 							},
 						}),
-						a.AuthorQuote(
+						a.AuthorQuoteText(
 							"In the year 13812, mega-corporations have long divided the solar system up amongst each other. In this corporate government "+
 								"landscape tensions are running high as inter-corporate vies for power strangle competition in the face of dwindling new resources. When a new "+
 								"solar system is discovered a power vacuum was created, drawing the attention of these mega-corporations to it. Whether it be via the means of "+

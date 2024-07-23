@@ -79,19 +79,19 @@ var (
 						Header:    g.H2,
 						ClassList: []string{ch.MarginL("1rem")},
 					}),
-					a.AuthorQuote(
+					a.AuthorQuoteText(
 						"Matt displays the intelligence, creativity and ingenuity of a seasoned veteran, despite [being in] his first formal role in software engineering. His passion and determination to do [things] the right way shines in all that he does. That skill and style is exceeded only by his humanity. Pricey is simply one of the most kind, compassionate and generous humans I have ever known - an example to others and one that others thus try to live to. It was an honour to exist beside him in our team. If you have the fortune to get his attention, I strongly recommend him!",
 						"Damian, AppSec Lead at Swyftx",
 						t.Colors.Pallette.Green,
 						[]string{},
 					),
-					a.AuthorQuote(
+					a.AuthorQuoteText(
 						"Matthew has demonstrated exceptional skills as a team player, working well with others to complete assigned projects to a high quality. Matthew would be a tremendous asset for your company and has my highest recommendation.",
 						"Robert, Sessional Academic at QUT",
 						t.Colors.Pallette.Cyan,
 						[]string{},
 					),
-					a.AuthorQuote(
+					a.AuthorQuoteText(
 						"Matt has always worked above expectations as a part of our team [and] has always been one of the most pleasant individuals I've had under my employ.",
 						"Dale, Store Manager at Dominos",
 						t.Colors.Pallette.Blue,
