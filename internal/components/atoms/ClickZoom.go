@@ -24,6 +24,7 @@ func ClickZoom(element *g.HTMLElement, classList []string) *g.HTMLElement {
 			"display":          "flex",
 			"place-items":      "center",
 			"place-content":    "center",
+			"cursor":           ch.Cursors.ZoomOut + " !important",
 		},
 	})
 	g.Class(&g.CSSClass{
@@ -70,7 +71,7 @@ func ClickZoom(element *g.HTMLElement, classList []string) *g.HTMLElement {
 			}
 		});
 	`, cz)),
-		ClassList: tern(classList != nil, classList, []string{ch.H("100%"), ch.W("100%")}),
+		ClassList: tern(classList != nil, classList, []string{ch.H("100%"), ch.W("100%"), ch.Cursor(ch.Cursors.ZoomIn)}),
 		Children: []*g.HTMLElement{
 			element,
 		},
