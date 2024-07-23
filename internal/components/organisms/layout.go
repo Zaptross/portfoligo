@@ -8,8 +8,8 @@ import (
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
+	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	"github.com/zaptross/portfoligo/internal/theme"
 	"github.com/zaptross/portfoligo/internal/types"
 )
@@ -101,7 +101,7 @@ func layoutPageFooter() *g.HTMLElement {
 	})
 	return a.Col(
 		g.CE{
-			c.BackToTop(),
+			m.BackToTop(),
 			a.Row(
 				g.CE{
 					a.P(g.EB{

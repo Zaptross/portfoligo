@@ -1,4 +1,4 @@
-package components
+package molecules
 
 import (
 	g "github.com/zaptross/gorgeous"
