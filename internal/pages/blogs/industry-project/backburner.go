@@ -15,7 +15,7 @@ var Backburner = types.PageDetails{
 	Title:       "Industry Project: Backburner",
 	Description: "Week five of working on the industry project implementing Redis, AWS S3, and more.",
 	Slug:        "industry-project-backburner",
-	Type:        types.TYPE_PROJECT,
+	Type:        types.TYPE_BLOG,
 	Written:     time.Date(2019, 10, 21, 0, 0, 0, 0, time.UTC),
 	Series:      types.SERIES_INDUSTRY_PROJECT,
 	Tags: []string{

@@ -15,7 +15,7 @@ var Server = types.PageDetails{
 	Title:       "Industry Project: Server",
 	Description: "The fourth week of working on the industry project, spent integrating with Github and Redis.",
 	Slug:        "industry-project-server",
-	Type:        types.TYPE_PROJECT,
+	Type:        types.TYPE_BLOG,
 	Written:     time.Date(2019, 10, 14, 0, 0, 0, 0, time.UTC),
 	Series:      types.SERIES_INDUSTRY_PROJECT,
 	Tags: []string{

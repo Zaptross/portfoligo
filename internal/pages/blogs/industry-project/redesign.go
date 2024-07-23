@@ -15,7 +15,7 @@ var Redesign = types.PageDetails{
 	Title:       "Industry Project: Redesign",
 	Description: "The second week of working on the industry project, spent debugging the screenshot and redesigning.",
 	Slug:        "industry-project-redesign",
-	Type:        types.TYPE_PROJECT,
+	Type:        types.TYPE_BLOG,
 	Written:     time.Date(2019, 10, 9, 0, 0, 0, 0, time.UTC),
 	Series:      types.SERIES_INDUSTRY_PROJECT,
 	Tags: []string{
