@@ -29,8 +29,8 @@ var SlayYourDragons = types.PageDetails{
 	Content: func(p types.PageDetails) *g.HTMLElement {
 		return g.Div(g.EB{
 			Children: []*g.HTMLElement{
-				c.Row(g.CE{
-					c.Col(g.CE{
+				a.Row(g.CE{
+					a.Col(g.CE{
 						a.P(g.EB{
 							Children: g.CE{
 								c.Emphasis("Slay Your Dragons"),

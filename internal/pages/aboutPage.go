@@ -106,7 +106,7 @@ var (
 						Text:      "If you'd like to get in touch, my preferred method of contact is via the linkedin button below, or in the top right.",
 						ClassList: []string{ch.MarginL("1rem")},
 					}),
-					c.Row(g.CE{
+					a.Row(g.CE{
 						a.LinkIcon(
 							a.FAB("linkedin", g.CSSProps{"font-size": "2rem"}),
 							"https://www.linkedin.com/in/mpdd/",

@@ -29,8 +29,8 @@ var AtAnyCost = types.PageDetails{
 
 		return g.Div(g.EB{
 			Children: []*g.HTMLElement{
-				c.Row(g.CE{
-					c.Col(g.CE{
+				a.Row(g.CE{
+					a.Col(g.CE{
 						m.CaptionedImage(m.CaptionedImageProps{
 							Caption: "At Any Cost",
 							Page:    p,
@@ -41,7 +41,7 @@ var AtAnyCost = types.PageDetails{
 							Page:    p,
 							Src:     files.AtAnyCost.EmpyreanBullion,
 						}),
-						c.Row(g.CE{
+						a.Row(g.CE{
 							m.CaptionedImage(m.CaptionedImageProps{
 								Caption:          "Attribution",
 								Page:             p,
@@ -67,7 +67,7 @@ var AtAnyCost = types.PageDetails{
 							}),
 						}, []string{ch.Margin(t.Spacing(2))}),
 					}, []string{ch.Flex(1)}),
-					c.Col(g.CE{
+					a.Col(g.CE{
 						a.P(g.EB{
 							Children: g.CE{
 								c.Emphasis("At Any Cost"),
@@ -122,8 +122,8 @@ var AtAnyCost = types.PageDetails{
 						}),
 					}, []string{ch.Flex(1)}),
 				}, nil),
-				c.Col(g.CE{
-					c.Row(g.CE{
+				a.Col(g.CE{
+					a.Row(g.CE{
 						m.CaptionedImage(m.CaptionedImageProps{
 							Page:    p,
 							Caption: "Inner Sol System",
@@ -135,7 +135,7 @@ var AtAnyCost = types.PageDetails{
 							Src:     files.AtAnyCost.SolSystem2,
 						}),
 					}, nil),
-					c.Row(g.CE{
+					a.Row(g.CE{
 						m.CaptionedImage(m.CaptionedImageProps{
 							Page:    p,
 							Caption: "Inner Tyche System",

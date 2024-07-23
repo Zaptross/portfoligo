@@ -32,8 +32,8 @@ var AshesOfTheVeil = types.PageDetails{
 				c.YoutubeEmbed("Ashes of the Veil Trailer", "https://www.youtube-nocookie.com/embed/9jO1RffzHp4"),
 				a.P(g.EB{Text: p.Description}),
 				a.P(g.EB{Text: "During the course of development, I undertook the roles of technical lead, quality assurance tester, and producer."}),
-				c.Row(g.CE{
-					c.Col(g.CE{
+				a.Row(g.CE{
+					a.Col(g.CE{
 						m.CaptionedImage(m.CaptionedImageProps{
 							Page:    p,
 							Caption: "Project Management Spreadsheet",
@@ -45,7 +45,7 @@ var AshesOfTheVeil = types.PageDetails{
 							Src:     files.AshesOfTheVeil.QualityAssuranceSheet,
 						}),
 					}, []string{ch.MxW("45%"), ch.Flex(2)}),
-					c.Col(g.CE{
+					a.Col(g.CE{
 						a.P(g.EB{
 							Text: "As the producer, I created and managed our project tracking spreadsheet, organised meetings with the other team members, and" +
 								" presented our final piece to the course co-ordinator and a panel of local game developers.",

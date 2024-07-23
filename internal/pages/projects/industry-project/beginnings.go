@@ -65,7 +65,7 @@ var Beginnings = types.PageDetails{
 						g.Text(", which guided me through all the elements of the editor."),
 					},
 				}),
-				c.Row(g.CE{
+				a.Row(g.CE{
 					m.CaptionedImage(m.CaptionedImageProps{
 						Page:             p,
 						Caption:          "Pulsing Darkness",
@@ -95,7 +95,7 @@ var Beginnings = types.PageDetails{
 						ch.MxH("fit-content"),
 					},
 				}),
-				c.Row(g.CE{
+				a.Row(g.CE{
 					m.CaptionedImage(m.CaptionedImageProps{
 						Page:             p,
 						Caption:          "Bouncy Chair",
@@ -122,7 +122,7 @@ var Beginnings = types.PageDetails{
 					Text: "The next step for the week was beginning the prototyping process for the UI elements of the project, as per my initial mock-ups. This " +
 						"process expanded upon my rough understanding of the Unreal Engine's Blueprints, and by the end of the process I felt very comfortable programming visually.",
 				}),
-				c.Row(g.CE{
+				a.Row(g.CE{
 					m.CaptionedImage(m.CaptionedImageProps{
 						Page:             p,
 						Src:              files.IndustryProjectBeginnings.ProtoLayout1,
@@ -136,7 +136,7 @@ var Beginnings = types.PageDetails{
 						ContainerClasses: []string{ch.Flex(1)},
 					}),
 				}, nil),
-				c.Row(g.CE{
+				a.Row(g.CE{
 					m.CaptionedImage(m.CaptionedImageProps{
 						Page:             p,
 						Src:              files.IndustryProjectBeginnings.UnrealTestingUiElements,

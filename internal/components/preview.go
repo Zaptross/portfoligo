@@ -73,11 +73,10 @@ func Preview(page types.PageDetails) *g.HTMLElement {
 		"padding": "0 0.5rem",
 	})
 
-	link := a.LinkNav(g.Div(g.EB{
-		ClassList: []string{RowClass(), previewClass},
-		Children: []*g.HTMLElement{
+	link := a.LinkNav(
+		a.Row(g.CE{
 			a.ImageRel(fmt.Sprintf("/preview/%s.png", page.Slug), []string{cardImageClass}),
-			Col(g.CE{
+			a.Col(g.CE{
 				g.H2(g.EB{
 					Text:      page.Title,
 					ClassList: []string{titleClass},
@@ -91,8 +90,9 @@ func Preview(page types.PageDetails) *g.HTMLElement {
 					ClassList: []string{},
 				}),
 			}, []string{ch.Margin("auto 0"), ch.PadR("clamp(0.25rem, 1vw, 0.5rem)")}),
-		},
-	}), page.GetRelativeURL())
+		}, []string{previewClass}),
+		page.GetRelativeURL(),
+	)
 
 	if link.Props == nil {
 		link.Props = g.Props{}

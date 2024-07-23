@@ -9,7 +9,6 @@ import (
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/theme"
 )
@@ -133,7 +132,7 @@ func Carousel(props CarouselProps) *g.HTMLElement {
 
 	carouselInnerRef := g.CreateRef("carousel-inner-" + uuid.NewString())
 
-	return c.Row(
+	return a.Row(
 		g.CE{
 			g.Div(g.EB{
 				ClassList: []string{"row"},

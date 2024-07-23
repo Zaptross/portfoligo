@@ -6,7 +6,7 @@ import (
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	c "github.com/zaptross/portfoligo/internal/components"
+	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	t "github.com/zaptross/portfoligo/internal/types"
 )
@@ -20,14 +20,14 @@ func SeriesNav(p t.PageDetails, allPages []t.PageDetails) *g.HTMLElement {
 	}
 
 	if next == nil {
-		return c.Row(g.CE{m.SeriesNavButton(p.Written, *previous)}, nil)
+		return a.Row(g.CE{m.SeriesNavButton(p.Written, *previous)}, nil)
 	}
 
 	if previous == nil {
-		return c.Row(g.CE{m.SeriesNavButton(p.Written, *next)}, []string{ch.JustifyContent(ch.Content.End)})
+		return a.Row(g.CE{m.SeriesNavButton(p.Written, *next)}, []string{ch.JustifyContent(ch.Content.End)})
 	}
 
-	return c.Row(
+	return a.Row(
 		g.CE{
 			m.SeriesNavButton(p.Written, *previous),
 			m.SeriesNavButton(p.Written, *next),

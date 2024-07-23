@@ -44,7 +44,7 @@ var Redesign = types.PageDetails{
 					Text: "The images below show the final state of the project at the end of these two weeks: all proposed user interface elements have been" +
 						" successfully implemented, and a new solution for managing the API calls has been designed.",
 				}),
-				c.Row(g.CE{
+				a.Row(g.CE{
 					m.CaptionedImage(m.CaptionedImageProps{
 						Page:    p,
 						Caption: "All UI Implemented",
@@ -72,7 +72,7 @@ var Redesign = types.PageDetails{
 						" So instead, I constructed my own radio-buttons using check boxes and a surprising amount of blueprinting. The final implementation below will" +
 						" report the user's sentiment in a range of -2 to 2, as depicted by emotive faces in the mock-up.",
 				}),
-				c.Row(g.CE{
+				a.Row(g.CE{
 					m.CaptionedImage(m.CaptionedImageProps{
 						Page:    p,
 						Caption: "Mockup Layout",
@@ -99,7 +99,7 @@ var Redesign = types.PageDetails{
 						" debugging block in the level. I spent a significant amount of time scouring the internet for answers and experimenting with different" +
 						" variations on the blueprints, before finally arriving at the solution.",
 				}),
-				c.Row(g.CE{
+				a.Row(g.CE{
 					m.CaptionedImage(m.CaptionedImageProps{
 						Page:             p,
 						Caption:          "Before Capture",

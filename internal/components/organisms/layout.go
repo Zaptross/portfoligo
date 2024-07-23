@@ -99,10 +99,10 @@ func layoutPageFooter() *g.HTMLElement {
 			"margin-left": "0.25rem",
 		},
 	})
-	return c.Col(
+	return a.Col(
 		g.CE{
 			c.BackToTop(),
-			c.Row(
+			a.Row(
 				g.CE{
 					a.P(g.EB{
 						ClassList: []string{layoutPageFooterClass},
@@ -278,7 +278,7 @@ func absoluteLinks() *g.HTMLElement {
 				[]string{"top", "left"},
 				g.CE{
 					a.LinkNav(
-						c.Row(g.CE{
+						a.Row(g.CE{
 							a.FAS("home", faCSS),
 							g.H3(g.EB{
 								ClassList: []string{nameColorClass},
@@ -287,7 +287,7 @@ func absoluteLinks() *g.HTMLElement {
 						}, nil),
 						"/",
 					),
-					c.Row(g.CE{
+					a.Row(g.CE{
 						a.LinkNav(g.Text("Projects"), "/projects"),
 						a.LinkNav(g.Text("Blog"), "/blog"),
 						a.LinkNav(g.Text("Search"), "/search"),
@@ -298,7 +298,7 @@ func absoluteLinks() *g.HTMLElement {
 			absoluteDiv(
 				[]string{"top", "right"},
 				g.CE{
-					c.Row(g.CE{
+					a.Row(g.CE{
 						a.ThemeSelector(),
 						a.LinkIcon(a.FAS("rss", faCSS), "/public/rss.xml"),
 						a.LinkIcon(a.FAB("github", faCSS), "https://github.com/zaptross"),

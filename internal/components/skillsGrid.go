@@ -112,7 +112,7 @@ func SkillsGrid(pr SkillsGridProps) *g.HTMLElement {
 			}
 
 			return a.LinkNav(
-				Col(
+				a.Col(
 					g.CE{
 						iconFn(icon, g.CSSProps{"font-size": "2rem"}),
 						g.Span(g.EB{Text: skill, ClassList: []string{textClass}}),

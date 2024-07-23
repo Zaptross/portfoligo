@@ -89,8 +89,8 @@ var ExperienceForIndustry = types.PageDetails{
 
 		return g.Div(g.EB{
 			Children: []*g.HTMLElement{
-				c.Row(g.CE{
-					c.Col(g.CE{
+				a.Row(g.CE{
+					a.Col(g.CE{
 						g.Div(g.EB{
 							ClassList: []string{headerClass},
 							Children: g.CE{
@@ -118,8 +118,8 @@ var ExperienceForIndustry = types.PageDetails{
 						}),
 					}, nil),
 				}, nil),
-				c.Row(g.CE{
-					c.Col(g.CE{
+				a.Row(g.CE{
+					a.Col(g.CE{
 						c.SectionHeader(c.SectionHeaderProps{
 							TagKey: "industry",
 							Text:   "The Industry",
@@ -157,8 +157,8 @@ var ExperienceForIndustry = types.PageDetails{
 						}),
 					}, nil),
 				}, nil),
-				c.Row(g.CE{
-					c.Col(g.CE{
+				a.Row(g.CE{
+					a.Col(g.CE{
 						c.SectionHeader(c.SectionHeaderProps{
 							TagKey: "project",
 							Text:   "The Project",
@@ -194,8 +194,8 @@ var ExperienceForIndustry = types.PageDetails{
 						}),
 					}, nil),
 				}, nil),
-				c.Row(g.CE{
-					c.Col(append(g.CE{
+				a.Row(g.CE{
+					a.Col(append(g.CE{
 						c.SectionHeader(c.SectionHeaderProps{
 							TagKey: "references",
 							Text:   "References",

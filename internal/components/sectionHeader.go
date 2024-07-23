@@ -48,7 +48,7 @@ func SectionHeader(pr SectionHeaderProps) *g.HTMLElement {
 	}
 
 	return a.Hashlink(g.CE{
-		Row(g.CE{
+		a.Row(g.CE{
 			pr.Header(g.EB{
 				Children: g.CE{
 					a.FAS("hashtag", g.CSSProps{"padding-right": "0.5rem"}),

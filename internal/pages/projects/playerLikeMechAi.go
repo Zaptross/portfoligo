@@ -6,7 +6,6 @@ import (
 	g "github.com/zaptross/gorgeous"
 	"github.com/zaptross/portfoligo/generated/files"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	"github.com/zaptross/portfoligo/internal/theme"
@@ -47,11 +46,11 @@ var PlayerLikeMechAi = types.PageDetails{
 					Text: "This project was a university assignment I completed wherein I had to design and implement a decision tree for a game AI to emulate a player" +
 						" in a mech battling game.",
 				}),
-				c.Row(g.CE{
-					c.Col(g.CE{
+				a.Row(g.CE{
+					a.Col(g.CE{
 						m.ProjectImage(p, files.PlayerLikeMechAi.BehaviourTree, nil),
 					}, []string{ch.FlexGrow(1), ch.MxW("45%")}),
-					c.Col(g.CE{
+					a.Col(g.CE{
 						a.P(g.EB{
 							Children: g.CE{
 								g.Text("For this project, I implemented behaviour functions in the main AI script and ran all decision logic from the behaviour tree, "),

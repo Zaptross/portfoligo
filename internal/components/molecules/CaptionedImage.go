@@ -3,7 +3,6 @@ package molecules
 import (
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/theme"
 	"github.com/zaptross/portfoligo/internal/types"
@@ -28,7 +27,7 @@ func CaptionedImage(props CaptionedImageProps) *g.HTMLElement {
 			ClassList: props.ContainerClasses,
 			Children: g.CE{
 				a.ClickZoom(
-					c.Col(g.CE{
+					a.Col(g.CE{
 						ProjectImage(props.Page, props.Src, append([]string{ch.W("100%"), ch.H("100%"), ch.MxW("80vw"), ch.MxH("80vh"), ch.Aspect("preserve")}, props.ImgClasses...)),
 						g.CustomElement(
 							"figcaption",
