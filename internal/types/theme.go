@@ -85,7 +85,7 @@ func (t *Theme) Spacing(i int) string {
 }
 
 func (t *Theme) FontSize(i int) string {
-	return fmt.Sprintf("%dpx", i)
+	return fmt.Sprintf("%dpx", i*4)
 }
 
 func (t *Theme) Selector() string {
@@ -95,32 +95,4 @@ func (t *Theme) Selector() string {
 func (t Theme) Setup(selector string) Theme {
 	t.selector = selector
 	return t
-}
-
-var BaseTheme = Theme{
-	Borders: Borders{
-		None:  "none",
-		Thin:  "1px",
-		Thick: "2px",
-		Style: BorderStyle{
-			Default: "solid",
-		},
-	},
-	Radii: Radii{
-		None:    "0",
-		Small:   "4px",
-		Default: "8px",
-		Large:   "16px",
-	},
-	ZIndices: ZIndices{
-		Auto:    "auto",
-		Overlay: "100",
-		Drawers: "200",
-		Modals:  "300",
-	},
-	Weights: FontWeights{
-		Body:    "400",
-		Heading: "600",
-		Bold:    "700",
-	},
 }

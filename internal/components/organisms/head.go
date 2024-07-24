@@ -4,13 +4,27 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
+	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
 func Head(md types.PageDetails) *g.HTMLElement {
 	return g.Head(g.EB{
-		Children: append(append(append(Meta(md), Favicon()...), PrismJS()...), OpenGraph(md)...),
+		Children: lo.Reduce(
+			[]g.CE{
+				Meta(md),
+				Favicon(),
+				a.Fonts(),
+				PrismJS(),
+				OpenGraph(md),
+			},
+			func(col, el g.CE, _ int) g.CE {
+				return append(col, el...)
+			},
+			g.CE{},
+		),
 	})
 }
 
@@ -48,9 +62,6 @@ func Meta(md types.PageDetails) []*g.HTMLElement {
 				"src":         "https://kit.fontawesome.com/653251a210.js",
 				"crossorigin": "anonymous",
 			},
-		}),
-		g.Style(g.EB{
-			Text: "@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');",
 		}),
 	}
 }

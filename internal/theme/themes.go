@@ -15,7 +15,7 @@ var AllThemes = []types.Theme{
 }
 
 func initTheme(selector string, t types.Theme) types.Theme {
-	return Merge(types.BaseTheme, t).Setup(selector)
+	return Merge(BaseTheme, t).Setup(selector)
 }
 
 func SetupTheme(t types.Theme) {

@@ -44,12 +44,13 @@ func ThemeSelector() *g.HTMLElement {
 		ClassList: []string{themeSelectorClass},
 		Props: g.Props{
 			"id":       "theme-selector",
-			"onchange": "localStorage.setItem('theme-selector', document.body.className = event.target.value);",
+			"onchange": fmt.Sprintf("document.body.className = event.target.value + ' %s'; localStorage.setItem('theme-selector', event.target.value);", ROOT_STYLE_CLASS),
 		},
 		Script: g.JavaScript(fmt.Sprintf(`
+		const rootStyle = '%s';
 		if (localStorage.getItem('theme-selector')) {
 			const selectedTheme = localStorage.getItem('theme-selector');
-			document.body.className = selectedTheme;
+			document.body.className = [selectedTheme, rootStyle].join(' ');
 			thisElement.value = selectedTheme;
 			return;
 		}
@@ -57,17 +58,18 @@ func ThemeSelector() *g.HTMLElement {
 		// ensure the theme matches the user's preference
 		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			const selectedTheme = '%s';
-			document.body.className = selectedTheme;
+			document.body.className = [selectedTheme, rootStyle].join(' ');
 			thisElement.value = selectedTheme;
 			localStorage.setItem('theme-selector', selectedTheme);
 		}
 		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
 			const selectedTheme = '%s';
-			document.body.className = selectedTheme;
+			document.body.className = [selectedTheme, rootStyle].join(' ');
 			thisElement.value = selectedTheme;
 			localStorage.setItem('theme-selector', selectedTheme);
 		}
 			`,
+			ROOT_STYLE_CLASS,
 			theme.VSCodeDark.Selector(),
 			theme.VSCodeLight.Selector(),
 		)),

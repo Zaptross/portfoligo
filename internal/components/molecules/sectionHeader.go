@@ -30,7 +30,7 @@ func SectionHeader(pr SectionHeaderProps) *g.HTMLElement {
 			"border":        "0.5rem solid " + t.Colors.Background.Secondary,
 			"border-radius": "1rem",
 			"transition":    "box-shadow 0.25s ease-in-out",
-			"pointer":       "cursor",
+			"cursor":        "copy",
 		},
 	})
 
@@ -39,7 +39,6 @@ func SectionHeader(pr SectionHeaderProps) *g.HTMLElement {
 		Include:  true,
 		Props: g.CSSProps{
 			"text-decoration": "underline !important",
-			"cursor":          "copy !important",
 		},
 	})
 

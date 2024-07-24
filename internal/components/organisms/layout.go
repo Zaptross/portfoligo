@@ -66,7 +66,7 @@ func Layout(page types.PageDetails, allPages []types.PageDetails) *g.HTMLElement
 	}
 
 	return g.Body(g.EB{
-		ClassList: []string{"solarized-dark"},
+		ClassList: []string{a.ROOT_STYLE_CLASS},
 		Children: g.CE{
 			absoluteLinks(),
 			layoutPageHeader(page),
@@ -224,10 +224,10 @@ func layoutPageDateTags(page types.PageDetails) *g.HTMLElement {
 		)
 	}
 
-	return g.Div(g.EB{
-		ClassList: []string{dateTagsContainerClass},
-		Children:  elements,
-	})
+	return a.Row(
+		elements,
+		[]string{dateTagsContainerClass, ch.FlexWrap()},
+	)
 }
 
 func absoluteLinks() *g.HTMLElement {
