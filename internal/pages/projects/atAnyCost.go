@@ -6,7 +6,6 @@ import (
 	g "github.com/zaptross/gorgeous"
 	files "github.com/zaptross/portfoligo/generated/files"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	"github.com/zaptross/portfoligo/internal/theme"
@@ -70,7 +69,7 @@ var AtAnyCost = types.PageDetails{
 					a.Col(g.CE{
 						a.P(g.EB{
 							Children: g.CE{
-								c.Emphasis("At Any Cost"),
+								a.Emphasis("At Any Cost"),
 								g.Text(" is a science-fiction tabletop role-playing game setting built upon the "),
 								a.TextLink("Fate Accelerated", "https://evilhat.com/product/fate-accelerated-edition/"),
 								g.Text(" TTRPG system."),

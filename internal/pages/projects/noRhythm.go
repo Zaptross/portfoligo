@@ -4,7 +4,6 @@ import (
 	"time"
 
 	g "github.com/zaptross/gorgeous"
-	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/types"
 )
@@ -25,10 +24,10 @@ var NoRhythm = types.PageDetails{
 	Content: func(_ types.PageDetails) *g.HTMLElement {
 		return g.Div(g.EB{
 			Children: []*g.HTMLElement{
-				c.YoutubeEmbed("NoRhythm Trailer", "https://www.youtube-nocookie.com/embed/arLUT1Lep3s?si=AlY5vs9L0MEj7vsy"),
+				a.YoutubeEmbed("NoRhythm Trailer", "https://www.youtube-nocookie.com/embed/arLUT1Lep3s?si=AlY5vs9L0MEj7vsy"),
 				a.P(g.EB{
 					Children: g.CE{
-						c.Emphasis("NoRhythm"),
+						a.Emphasis("NoRhythm"),
 						g.Text(" is an arcade rhythm game designed and created in three days by a team of two for "),
 						a.Link(g.Text("Ludum Dare 45"), "https://ldjam.com/events/ludum-dare/45"),
 						g.Text(". This game was inspired by the theme “Start with nothing” and it's design was "),

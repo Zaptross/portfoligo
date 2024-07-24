@@ -4,13 +4,9 @@ import (
 	"time"
 
 	g "github.com/zaptross/gorgeous"
-	// c "github.com/zaptross/portfoligo/internal/components"
 	"github.com/zaptross/portfoligo/generated/files"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
-
-	// o "github.com/zaptross/portfoligo/internal/components/organisms"
-	// "github.com/zaptross/portfoligo/internal/theme"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 

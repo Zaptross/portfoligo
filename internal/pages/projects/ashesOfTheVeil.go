@@ -6,7 +6,6 @@ import (
 	g "github.com/zaptross/gorgeous"
 	"github.com/zaptross/portfoligo/generated/files"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	o "github.com/zaptross/portfoligo/internal/components/organisms"
@@ -29,7 +28,7 @@ var AshesOfTheVeil = types.PageDetails{
 	Content: func(p types.PageDetails) *g.HTMLElement {
 		return g.Div(g.EB{
 			Children: []*g.HTMLElement{
-				c.YoutubeEmbed("Ashes of the Veil Trailer", "https://www.youtube-nocookie.com/embed/9jO1RffzHp4"),
+				a.YoutubeEmbed("Ashes of the Veil Trailer", "https://www.youtube-nocookie.com/embed/9jO1RffzHp4"),
 				a.P(g.EB{Text: p.Description}),
 				a.P(g.EB{Text: "During the course of development, I undertook the roles of technical lead, quality assurance tester, and producer."}),
 				a.Row(g.CE{

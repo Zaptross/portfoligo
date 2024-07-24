@@ -1,4 +1,4 @@
-package components
+package organisms
 
 import (
 	"fmt"
@@ -67,11 +67,11 @@ func OpenGraph(md types.PageDetails) g.CE {
 	}
 
 	relativeImagePath := fmt.Sprintf("/public/preview/%s.png", md.Slug)
-  _, err := os.Stat(fmt.Sprintf(".%s", relativeImagePath))
+	_, err := os.Stat(fmt.Sprintf(".%s", relativeImagePath))
 
-	if (err == nil) {
+	if err == nil {
 		ogElements = append(
-			ogElements, 
+			ogElements,
 			openGraphMeta("og:image", fmt.Sprintf("%s%s", domain, relativeImagePath)),
 			openGraphMeta("og:image:width", "300"),
 			openGraphMeta("og:image:height", "200"),

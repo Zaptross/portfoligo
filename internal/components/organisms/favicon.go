@@ -1,4 +1,4 @@
-package components
+package organisms
 
 import g "github.com/zaptross/gorgeous"
 

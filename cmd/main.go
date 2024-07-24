@@ -7,7 +7,6 @@ import (
 
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
-	c "github.com/zaptross/portfoligo/internal/components"
 	o "github.com/zaptross/portfoligo/internal/components/organisms"
 	"github.com/zaptross/portfoligo/internal/pages"
 	"github.com/zaptross/portfoligo/internal/types"
@@ -48,7 +47,7 @@ func main() {
 			println(fmt.Sprintf("%s%s-> %s", page.Title, strings.Repeat(" ", spacing), page.GetRelativeURL()))
 			rendered := g.RenderStatic(
 				g.Document(
-					c.Head(page),
+					o.Head(page),
 					o.Layout(page, allPages),
 				),
 			)

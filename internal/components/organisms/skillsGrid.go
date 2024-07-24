@@ -1,4 +1,4 @@
-package components
+package organisms
 
 import (
 	"github.com/samber/lo"

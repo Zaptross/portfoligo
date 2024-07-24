@@ -5,7 +5,6 @@ import (
 
 	g "github.com/zaptross/gorgeous"
 	"github.com/zaptross/portfoligo/generated/files"
-	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	industryproject "github.com/zaptross/portfoligo/internal/pages/blogs/industry-project"
@@ -29,7 +28,7 @@ var FlexiFeedbackForUnreal = types.PageDetails{
 	Content: func(p types.PageDetails) *g.HTMLElement {
 		return g.Div(g.EB{
 			Children: []*g.HTMLElement{
-				c.YoutubeEmbed("FlexiFeedback for Unreal Demonstration Video", "https://www.youtube-nocookie.com/embed/br8MqCWPmtk"),
+				a.YoutubeEmbed("FlexiFeedback for Unreal Demonstration Video", "https://www.youtube-nocookie.com/embed/br8MqCWPmtk"),
 				a.P(g.EB{Children: g.CE{
 					g.Text("FlexiFeedback For Unreal is an in-game feedback panel that allows players to send reports of many kinds from the game to the developers "),
 					a.TextLink("GitHub Project Board", "https://help.github.com/en/github/managing-your-work-on-github/about-project-boards"),

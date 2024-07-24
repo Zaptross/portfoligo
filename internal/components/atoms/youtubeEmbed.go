@@ -1,4 +1,4 @@
-package components
+package atoms
 
 import (
 	g "github.com/zaptross/gorgeous"
@@ -19,7 +19,7 @@ func YoutubeEmbed(title string, url string) *g.HTMLElement {
 		Selector: "." + embedClassName,
 		Props: g.CSSProps{
 			"aspect-ratio": "16/9",
-			"width": "100%",
+			"width":        "100%",
 		},
 	})
 

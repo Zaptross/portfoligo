@@ -3,9 +3,9 @@ package pages
 import (
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
+	o "github.com/zaptross/portfoligo/internal/components/organisms"
 	"github.com/zaptross/portfoligo/internal/theme"
 	"github.com/zaptross/portfoligo/internal/types"
 )
@@ -45,13 +45,13 @@ var (
 						Text:      "I have experience with a wide range of languages and tools, including:",
 						ClassList: []string{ch.MarginL("1rem")},
 					}),
-					c.SkillsGrid(c.SkillsGridProps{
+					o.SkillsGrid(o.SkillsGridProps{
 						Skills: []string{
 							types.TAG_LANG_GO, types.TAG_LANG_CSHARP, types.TAG_LANG_TS, types.TAG_LANG_REACT, types.TAG_LANG_RUST,
 							types.TAG_TOOL_AWS, types.TAG_TOOL_DOCKER, types.TAG_TOOL_KUBE, types.TAG_TOOL_DOTNET, types.TAG_TOOL_NODE,
 							types.TAG_TOOL_FIGMA, types.TAG_TOOL_UNITY, types.TAG_TOOL_UNREAL, types.TAG_GAME + " " + types.TAG_DESIGN,
 						},
-						MapIcons: map[string]c.SkillMapping{
+						MapIcons: map[string]o.SkillMapping{
 							types.TAG_TOOL_KUBE:                       {IconFn: a.SimpleIcon, Filter: true},
 							types.TAG_LANG_TS:                         {IconFn: a.SimpleIcon, Filter: true},
 							types.TAG_LANG_CSHARP:                     {IconFn: a.SimpleIcon, Filter: true},
@@ -64,9 +64,9 @@ var (
 						Text:      "And hobbyist experience with:",
 						ClassList: []string{ch.MarginL("1rem")},
 					}),
-					c.SkillsGrid(c.SkillsGridProps{
+					o.SkillsGrid(o.SkillsGridProps{
 						Skills: []string{types.TAG_ELECTRONICS, types.TAG_TOOL_KICAD, types.TAG_TOOL_FREECAD, types.TAG_TOOL_PHOTOSHOP},
-						MapIcons: map[string]c.SkillMapping{
+						MapIcons: map[string]o.SkillMapping{
 							types.TAG_ELECTRONICS:    {IconFn: a.FAS, Icon: "microchip"},
 							types.TAG_TOOL_KICAD:     {IconFn: a.SimpleIcon, Filter: true},
 							types.TAG_TOOL_FREECAD:   {IconFn: a.FAS, Icon: "cog"},

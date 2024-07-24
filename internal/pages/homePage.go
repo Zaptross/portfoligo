@@ -4,7 +4,6 @@ import (
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	"github.com/zaptross/portfoligo/internal/pages/projects"
@@ -39,7 +38,7 @@ var (
 						ClassList: []string{ch.Margin("0.5rem 0 0.5rem 0.5rem")},
 					}),
 					a.Col(lo.Map([]types.PageDetails{projects.NoRhythm, projects.SlayYourDragons}, func(page types.PageDetails, _ int) *g.HTMLElement {
-						pv := c.Preview(page)
+						pv := m.Preview(page)
 						pv.ClassList = append(pv.ClassList, ch.MarginB("0.5rem"))
 						return pv
 					}), []string{}),

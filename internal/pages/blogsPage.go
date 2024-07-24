@@ -5,8 +5,8 @@ import (
 
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
-	c "github.com/zaptross/portfoligo/internal/components"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
+	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
@@ -39,7 +39,7 @@ func getBlogPreviews() g.CE {
 	})
 
 	for _, page := range pages {
-		pv := c.Preview(page)
+		pv := m.Preview(page)
 		pv.ClassList = append(pv.ClassList, ch.MarginB("0.5rem"))
 		previews = append(previews, pv)
 	}
