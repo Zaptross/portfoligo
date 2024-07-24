@@ -3,6 +3,8 @@ package molecules
 import (
 	_ "embed"
 	"fmt"
+	"slices"
+	"strings"
 
 	"github.com/samber/lo"
 	g "github.com/zaptross/gorgeous"
@@ -54,7 +56,19 @@ func (fnc *FootnoteCollection) handleReference(index int) int {
 }
 
 func (fnc *FootnoteCollection) GenerateReferences() []*g.HTMLElement {
-	return lo.Map(fnc.orderedFootnotes, fnc.refFromIndex)
+	notReferenced, _ := lo.Difference(
+		lo.Map(fnc.footnotes, func(_ atoms.ReferenceProps, i int) int { return i }),
+		fnc.orderedFootnotes,
+	)
+
+	slices.SortFunc(notReferenced, func(i, j int) int {
+		return strings.Compare(fnc.footnotes[i].Title, fnc.footnotes[j].Title)
+	})
+
+	return append(
+		lo.Map(fnc.orderedFootnotes, fnc.refFromIndex),
+		lo.Map(notReferenced, func(ref int, _ int) *g.HTMLElement { return atoms.Reference(fnc.footnotes[ref]) })...,
+	)
 }
 
 func (fnc *FootnoteCollection) refFromIndex(index int, order int) *g.HTMLElement {

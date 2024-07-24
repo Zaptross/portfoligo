@@ -6,6 +6,7 @@ import (
 
 	g "github.com/zaptross/gorgeous"
 	"github.com/zaptross/portfoligo/internal/theme"
+	u "github.com/zaptross/portfoligo/internal/utils"
 )
 
 type ReferenceProps struct {
@@ -29,17 +30,11 @@ func Reference(props ReferenceProps) *g.HTMLElement {
 	return P(g.EB{
 		ClassList: []string{referenceClass},
 		Children: g.CE{
-			optional(props.Index > 0, Hashlink(g.CE{g.Span(g.EB{Text: fmt.Sprintf("[%d]", props.Index)})}, fmt.Sprintf("[%d]", props.Index), nil), g.Empty()),
+			u.Tern(props.Index > 0, Hashlink(g.CE{g.Span(g.EB{Text: fmt.Sprintf("[%d]", props.Index)})}, fmt.Sprintf("[%d]", props.Index), nil), g.Empty()),
 			g.Span(g.EB{Text: props.Title}),
 			g.Span(g.EB{Text: fmt.Sprintf("(%s)", props.Date.Format("2006"))}),
-			optional(!props.Retrieved.IsZero(), g.Span(g.EB{Text: fmt.Sprintf("Retrieved %s, from:", props.Retrieved.Format("2006-01-02"))}), g.Empty()),
+			u.Tern(!props.Retrieved.IsZero(), g.Span(g.EB{Text: fmt.Sprintf("Retrieved %s, from:", props.Retrieved.Format("2006-01-02"))}), g.Empty()),
 			TextLink(props.Link, props.Link),
 		},
 	})
-}
-func optional[T any](cond bool, a, b T) T {
-	if cond {
-		return a
-	}
-	return b
 }

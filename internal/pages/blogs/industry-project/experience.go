@@ -60,7 +60,7 @@ var ExperienceForIndustry = types.PageDetails{
 			Title:     "Australian Jobs 2019",
 			Date:      time.Date(2019, 1, 1, 0, 0, 0, 0, time.UTC),
 			Retrieved: time.Date(2024, 7, 15, 0, 0, 0, 0, time.UTC),
-			Link:      "https://www.adzuna.com.au/blog/how-to-get-a-job-in/how-to-get-a-job-in-gaming/",
+			Link:      "https://www.professions.org.au/wp-content/uploads/Australian-Jobs-2019_AustGovt_DJSB.pdf",
 		})
 
 		headerClass := "header-img"
