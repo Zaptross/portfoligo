@@ -6,6 +6,7 @@ import (
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	c "github.com/zaptross/portfoligo/internal/components"
+	m "github.com/zaptross/portfoligo/internal/components/molecules"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
@@ -21,7 +22,7 @@ var (
 				Children:  getSearchableElements(),
 				ClassList: []string{ch.PadB("0.25rem"), ch.FlexCol(), ch.JustifyContent(ch.Content.SpaceBetween)},
 			}))
-			search, searchScript := c.Search(searchableParent, "searchable", []string{ch.FlexGrow(1)})
+			search, searchScript := m.Search(searchableParent, "searchable", []string{ch.FlexGrow(1)})
 
 			return g.Div(g.EB{
 				ClassList: []string{ch.FlexCol(), ch.JustifyContent(ch.Content.SpaceBetween)},
