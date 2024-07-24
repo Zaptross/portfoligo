@@ -28,45 +28,15 @@ var AtAnyCost = types.PageDetails{
 
 		return g.Div(g.EB{
 			Children: []*g.HTMLElement{
-				a.Row(g.CE{
-					a.Col(g.CE{
+				m.R2C(
+					nil, g.CE{
 						m.CaptionedImage(m.CaptionedImageProps{
 							Caption: "At Any Cost",
 							Page:    p,
 							Src:     files.AtAnyCost.Cover,
 						}),
-						m.CaptionedImage(m.CaptionedImageProps{
-							Caption: "The Empyrean Bullion Faction",
-							Page:    p,
-							Src:     files.AtAnyCost.EmpyreanBullion,
-						}),
-						a.Row(g.CE{
-							m.CaptionedImage(m.CaptionedImageProps{
-								Caption:          "Attribution",
-								Page:             p,
-								Src:              files.AtAnyCost.AttributionPage,
-								ContainerClasses: []string{ch.Flex(1), ch.Margin(t.Spacing(2))},
-							}), m.CaptionedImage(m.CaptionedImageProps{
-								Caption:          "Contents Page 1",
-								Page:             p,
-								Src:              files.AtAnyCost.TableOfContents,
-								ContainerClasses: []string{ch.Flex(1), ch.Margin(t.Spacing(2))},
-							}),
-							m.CaptionedImage(m.CaptionedImageProps{
-								Caption:          "Contents Page 2",
-								Page:             p,
-								Src:              files.AtAnyCost.TableOfContents2,
-								ContainerClasses: []string{ch.Flex(1), ch.Margin(t.Spacing(2))},
-							}),
-							m.CaptionedImage(m.CaptionedImageProps{
-								Caption:          "Ship Rules",
-								Page:             p,
-								Src:              files.AtAnyCost.ShipRules,
-								ContainerClasses: []string{ch.Flex(1), ch.Margin(t.Spacing(2))},
-							}),
-						}, []string{ch.Margin(t.Spacing(2))}),
-					}, []string{ch.Flex(1)}),
-					a.Col(g.CE{
+					},
+					nil, g.CE{
 						a.P(g.EB{
 							Children: g.CE{
 								a.Emphasis("At Any Cost"),
@@ -86,12 +56,24 @@ var AtAnyCost = types.PageDetails{
 							[]string{ch.Margin("unset")},
 						),
 						a.P(g.EB{
-							Text: "For the month long duration of the project, I took on the roles of producer, editor, and a writer.",
-						}),
-						a.P(g.EB{
 							Text: "The world of At Any Cost was created from by combining the team's individual world concepts. When filtering down our ideas to their most" +
 								" primitive form we found a unifying theme - humanity. Specifically, how humanity will fare in the face of a new space era, and the political " +
 								"structures underlying a technologically advanced multi-planetary society.",
+						}),
+					},
+					nil,
+				),
+				m.R2C(
+					nil, g.CE{
+						m.CaptionedImage(m.CaptionedImageProps{
+							Caption: "The Empyrean Bullion Faction",
+							Page:    p,
+							Src:     files.AtAnyCost.EmpyreanBullion,
+						}),
+					},
+					nil, g.CE{
+						a.P(g.EB{
+							Text: "For the month long duration of the project, I took on the roles of producer, editor, and a writer.",
 						}),
 						a.P(g.EB{
 							Text: "In my role as a writer, I took on the tasks of designing and writing two of the nine factions in our setting including the Empyrean" +
@@ -107,11 +89,53 @@ var AtAnyCost = types.PageDetails{
 							Text: "The Tyche System is an entirely fictional solar system which is the closest to the Sol System. This system was designed as a mostly" +
 								" uninfluenced solar system to allow a greater variety of stories to be told in At Any Cost.",
 						}),
+					},
+					nil,
+				),
+				m.R2C(
+					nil, g.CE{
+						a.Row(g.CE{
+							m.CaptionedImage(m.CaptionedImageProps{
+								Caption:          "Attribution",
+								Page:             p,
+								Src:              files.AtAnyCost.AttributionPage,
+								ContainerClasses: []string{ch.Flex(1), ch.Margin(t.Spacing(2))},
+							}),
+							m.CaptionedImage(m.CaptionedImageProps{
+								Caption:          "Ship Rules",
+								Page:             p,
+								Src:              files.AtAnyCost.ShipRules,
+								ContainerClasses: []string{ch.Flex(1), ch.Margin(t.Spacing(2))},
+							}),
+						}, []string{ch.Margin(t.Spacing(2))}),
+					},
+					nil, g.CE{
 						a.P(g.EB{
 							Text: "The last of my writing on the book took place in the combat and character advancement sections. Here I altered the Fate Accelerated base" +
 								" combat system to add a combat variant for space ships, and associated character sheets. Secondly, I added a variant character advancement " +
 								"system which drives characters to focus on personal goals more than combat, as is often the case in traditional TTRPG's.",
 						}),
+					},
+					nil,
+				),
+				m.R2C(
+					nil, g.CE{
+						a.Row(g.CE{
+							m.CaptionedImage(m.CaptionedImageProps{
+								Caption:          "Contents Page 1",
+								Page:             p,
+								Src:              files.AtAnyCost.TableOfContents,
+								ContainerClasses: []string{ch.Flex(1), ch.Margin(t.Spacing(2))},
+							}),
+							m.CaptionedImage(m.CaptionedImageProps{
+								Caption:          "Contents Page 2",
+								Page:             p,
+								Src:              files.AtAnyCost.TableOfContents2,
+								ContainerClasses: []string{ch.Flex(1), ch.Margin(t.Spacing(2))},
+							}),
+						}, []string{ch.Margin(t.Spacing(2))}),
+					},
+					nil, g.CE{
 						a.P(g.EB{
 							Text: "Finally in my role as producer and editor, it was my job to manage team meetings, create and maintain the project tracking spreadsheet," +
 								" and to perform the full editing passes of the document.",
@@ -119,8 +143,12 @@ var AtAnyCost = types.PageDetails{
 						a.P(g.EB{
 							Text: "As yet this project is unavailable for public download, but when it does become available, a link will be added here.",
 						}),
-					}, []string{ch.Flex(1)}),
-				}, nil),
+						a.P(g.EB{
+							Text: "Below is a gallery of my work writing the Sol and Tyche systems.",
+						}),
+					},
+					nil,
+				),
 				a.Col(g.CE{
 					a.Row(g.CE{
 						m.CaptionedImage(m.CaptionedImageProps{

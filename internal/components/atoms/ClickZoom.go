@@ -47,6 +47,10 @@ func ClickZoom(element *g.HTMLElement, classList []string) *g.HTMLElement {
 		},
 	})
 
+	ch.MediaPhone(cz+" > *", g.CSSProps{
+		"height": "auto",
+	})
+
 	return g.Div(g.EB{
 		Script: g.JavaScript(fmt.Sprintf(`
 		const clickZoomClass = "%s";
