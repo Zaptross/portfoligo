@@ -8,23 +8,33 @@ import (
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
+	"github.com/zaptross/portfoligo/internal/theme"
 	t "github.com/zaptross/portfoligo/internal/types"
 )
 
 func SeriesNav(p t.PageDetails, allPages []t.PageDetails) *g.HTMLElement {
+	t := theme.UseTheme()
 	series := findSeries(p.Series, allPages)
 	previous, next := findAdjacentInSeries(p, series)
+
+	navClass := "series-nav-styles"
+	ch.MediaPhone(
+		navClass,
+		g.CSSProps{
+			"font-size": t.FontSize(3),
+		},
+	)
 
 	if next == nil && previous == nil || p.Series == "" {
 		return g.Empty()
 	}
 
 	if next == nil {
-		return a.Row(g.CE{m.SeriesNavButton(p.Written, *previous)}, nil)
+		return a.Row(g.CE{m.SeriesNavButton(p.Written, *previous)}, []string{navClass})
 	}
 
 	if previous == nil {
-		return a.Row(g.CE{m.SeriesNavButton(p.Written, *next)}, []string{ch.JustifyContent(ch.Content.End)})
+		return a.Row(g.CE{m.SeriesNavButton(p.Written, *next)}, []string{ch.JustifyContent(ch.Content.End), navClass})
 	}
 
 	return a.Row(
@@ -32,7 +42,7 @@ func SeriesNav(p t.PageDetails, allPages []t.PageDetails) *g.HTMLElement {
 			m.SeriesNavButton(p.Written, *previous),
 			m.SeriesNavButton(p.Written, *next),
 		},
-		[]string{ch.JustifyContent(ch.Content.SpaceBetween)},
+		[]string{ch.JustifyContent(ch.Content.SpaceBetween), navClass},
 	)
 }
 

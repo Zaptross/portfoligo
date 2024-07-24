@@ -40,17 +40,17 @@ var KowloonExigency = types.PageDetails{
 					Header: g.H3,
 				}),
 				m.R2C(
-					[]string{ch.Flex(1), ch.JustifyContent(ch.Align.Center)}, g.CE{
-						a.P(g.EB{Text: "In my role as a level designer, I created four level tiles for the project."}),
-						a.P(g.EB{Text: "These tiles included a slum-like street, a run-down office corridor, a busy office space, and a penthouse balcony where the final boss battle takes place."}),
-						a.P(g.EB{Text: "Below is a gallery of these tiles."}),
-					},
 					nil, g.CE{
 						m.CaptionedImage(m.CaptionedImageProps{
 							Page:    p,
 							Caption: "Four Level Tiles",
 							Src:     files.KowloonExigency.FourTiles,
 						}),
+					},
+					[]string{ch.Flex(1), ch.JustifyContent(ch.Align.Center)}, g.CE{
+						a.P(g.EB{Text: "In my role as a level designer, I created four level tiles for the project."}),
+						a.P(g.EB{Text: "These tiles included a slum-like street, a run-down office corridor, a busy office space, and a penthouse balcony where the final boss battle takes place."}),
+						a.P(g.EB{Text: "Below is a gallery of these tiles."}),
 					},
 					nil),
 				m.R2C(

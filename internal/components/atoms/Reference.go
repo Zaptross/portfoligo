@@ -22,11 +22,17 @@ func Reference(props ReferenceProps) *g.HTMLElement {
 	referenceClass := "footnotes-reference"
 	g.Class(&g.CSSClass{
 		Selector: "." + referenceClass + " > * + *",
-		Include:  true,
 		Props: g.CSSProps{
 			"padding-left": t.Spacing(1),
 		},
 	})
+	g.Class(&g.CSSClass{
+		Selector: "." + referenceClass + " > a",
+		Props: g.CSSProps{
+			"overflow-wrap": "anywhere",
+		},
+	})
+
 	return P(g.EB{
 		ClassList: []string{referenceClass},
 		Children: g.CE{
@@ -34,6 +40,7 @@ func Reference(props ReferenceProps) *g.HTMLElement {
 			g.Span(g.EB{Text: props.Title}),
 			g.Span(g.EB{Text: fmt.Sprintf("(%s)", props.Date.Format("2006"))}),
 			u.Tern(!props.Retrieved.IsZero(), g.Span(g.EB{Text: fmt.Sprintf("Retrieved %s, from:", props.Retrieved.Format("2006-01-02"))}), g.Empty()),
+			g.Br(g.EB{}),
 			TextLink(props.Link, props.Link),
 		},
 	})
