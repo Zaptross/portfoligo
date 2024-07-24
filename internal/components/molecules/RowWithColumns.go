@@ -40,10 +40,15 @@ func RNC(
 ) *g.HTMLElement {
 	vaFlex1 := []string{ch.Flex(1), ch.JustifyContent(ch.Content.Center)}
 
+	rwc := "row-with-columns"
+	ch.MediaPhone(rwc, g.CSSProps{
+		"flex-direction": "column",
+	})
+
 	children := g.CE{}
 	lo.ForEach(cols, func(col g.CE, i int) {
 		children = append(children, a.Col(col, u.Tern(colClasses[i] == nil, vaFlex1, colClasses[i])))
 	})
 
-	return a.Row(children, containerClasses)
+	return a.Row(children, append([]string{rwc}, containerClasses...))
 }

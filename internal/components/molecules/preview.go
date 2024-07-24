@@ -22,8 +22,7 @@ func Preview(page types.PageDetails) *g.HTMLElement {
 			"transition":       "transform 0.3s ease-in-out",
 		},
 	})
-	mediaAspect := "(max-aspect-ratio: 7/9)"
-	g.Media(mediaAspect, "."+previewClass, g.CSSProps{
+	ch.MediaPhone(previewClass, g.CSSProps{
 		"flex-direction": "column",
 	})
 
@@ -36,7 +35,7 @@ func Preview(page types.PageDetails) *g.HTMLElement {
 			"object-fit":    "cover",
 		},
 	})
-	g.Media(mediaAspect, "."+cardImageClass, g.CSSProps{
+	ch.MediaPhone(cardImageClass, g.CSSProps{
 		"height":        "clamp(100px, 15vw, 300px)",
 		"margin-bottom": "0.5rem",
 		"padding-right": "0",
@@ -68,8 +67,7 @@ func Preview(page types.PageDetails) *g.HTMLElement {
 		},
 	})
 
-	mediaColumnClassTarget := "." + previewClass + " > div"
-	g.Media(mediaAspect, mediaColumnClassTarget, g.CSSProps{
+	ch.MediaPhone(previewClass+" > div", g.CSSProps{
 		"padding": "0 0.5rem",
 	})
 

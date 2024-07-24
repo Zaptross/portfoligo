@@ -8,7 +8,6 @@ import (
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	m "github.com/zaptross/portfoligo/internal/components/molecules"
-	"github.com/zaptross/portfoligo/internal/theme"
 	"github.com/zaptross/portfoligo/internal/types"
 )
 
@@ -25,20 +24,6 @@ var PlayerLikeMechAi = types.PageDetails{
 		types.TAG_LANG_CSHARP,
 	},
 	Content: func(p types.PageDetails) *g.HTMLElement {
-		t := theme.UseTheme()
-
-		twoCols := "two-columns"
-		mediaAspect := "(max-aspect-ratio: 7/9)"
-		g.Media(mediaAspect, "."+twoCols, g.CSSProps{
-			"flex-direction": "column-reverse",
-		})
-		g.Media(mediaAspect, "."+twoCols+">.col", g.CSSProps{
-			"max-width": "100%",
-		})
-		g.Media(mediaAspect, "."+twoCols+">.col + .col", g.CSSProps{
-			"margin-left": "0",
-		})
-
 		return g.Div(g.EB{
 			Children: []*g.HTMLElement{
 				m.ProjectImage(p, files.PlayerLikeMechAi.MechAi, []string{ch.W("100%")}),
@@ -46,11 +31,15 @@ var PlayerLikeMechAi = types.PageDetails{
 					Text: "This project was a university assignment I completed wherein I had to design and implement a decision tree for a game AI to emulate a player" +
 						" in a mech battling game.",
 				}),
-				a.Row(g.CE{
-					a.Col(g.CE{
-						m.ProjectImage(p, files.PlayerLikeMechAi.BehaviourTree, nil),
-					}, []string{ch.FlexGrow(1), ch.MxW("45%")}),
-					a.Col(g.CE{
+				m.R2C(
+					nil, g.CE{
+						m.CaptionedImage(m.CaptionedImageProps{
+							Page:    p,
+							Src:     files.PlayerLikeMechAi.BehaviourTree,
+							Caption: "Behaviour Tree",
+						}),
+					},
+					[]string{ch.Flex(2)}, g.CE{
 						a.P(g.EB{
 							Children: g.CE{
 								g.Text("For this project, I implemented behaviour functions in the main AI script and ran all decision logic from the behaviour tree, "),
@@ -63,7 +52,7 @@ var PlayerLikeMechAi = types.PageDetails{
 								" sight to enemies, guessing where enemies were going when leaving line of sight, and only attempting to gather pickups that they had seen before.",
 						}),
 						a.P(g.EB{
-							Text: "The AI used it’s current ammunition, health, and number of known opponents to determine how aggressive to be. When running low on" +
+							Text: "The AI used it's current ammunition, health, and number of known opponents to determine how aggressive to be. When running low on" +
 								" ammunition and health, the need for pickups greatly increases. Players also tend to try and disengage when being targeted by multiple" +
 								" aggressors, which this AI does also.",
 						}),
@@ -77,8 +66,9 @@ var PlayerLikeMechAi = types.PageDetails{
 								g.Text(" on my GitHub."),
 							},
 						}),
-					}, []string{ch.MarginL(t.Spacing(4)), ch.FlexGrow(2)}),
-				}, []string{twoCols}),
+					},
+					nil,
+				),
 			}},
 		)
 	},
