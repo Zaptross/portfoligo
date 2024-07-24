@@ -36,6 +36,13 @@ var FlexiFeedbackForUnreal = types.PageDetails{
 				}}),
 				m.R2C(
 					nil, g.CE{
+						m.CaptionedImage(m.CaptionedImageProps{
+							Page:    industryproject.Redesign,
+							Caption: "Feedback Panel Layout",
+							Src:     files.IndustryProjectRedesign.UnrealAllUiImplemented,
+						}),
+					},
+					nil, g.CE{
 						a.P(g.EB{
 							Text: "FlexiFeedback is comprised of three major parts: the in-game feedback panel, an administrative web page, and a back-end server which" +
 								" runs the page and handles feedback reports.",
@@ -45,16 +52,16 @@ var FlexiFeedbackForUnreal = types.PageDetails{
 								" the issue, any comments they have, and optionally information about their gaming system.",
 						}),
 					},
-					nil, g.CE{
-						m.CaptionedImage(m.CaptionedImageProps{
-							Page:    industryproject.Redesign,
-							Caption: "Feedback Panel Layout",
-							Src:     files.IndustryProjectRedesign.UnrealAllUiImplemented,
-						}),
-					},
 					nil,
 				),
 				m.R2C(
+					nil, g.CE{
+						m.CaptionedImage(m.CaptionedImageProps{
+							Page:    p,
+							Caption: "Submit Warning Dialog",
+							Src:     files.FlexiFeedbackForUnreal.SubmitWarningDialog,
+						}),
+					},
 					nil, g.CE{
 						a.P(g.EB{
 							Text: "When players attempt to send partially complete information, or if an error occurs while attempting to send that information, the " +
@@ -64,16 +71,16 @@ var FlexiFeedbackForUnreal = types.PageDetails{
 							Text: "When feedback is completed it is then sent to the back-end server for processing.",
 						}),
 					},
-					nil, g.CE{
-						m.CaptionedImage(m.CaptionedImageProps{
-							Page:    p,
-							Caption: "Submit Warning Dialog",
-							Src:     files.FlexiFeedbackForUnreal.SubmitWarningDialog,
-						}),
-					},
 					nil,
 				),
 				m.R2C(
+					nil, g.CE{
+						m.CaptionedImage(m.CaptionedImageProps{
+							Page:    industryproject.Recap,
+							Caption: "Blueprint Node of HTTP Request",
+							Src:     files.IndustryProjectRecap.UnrealBlueprintHttpNode,
+						}),
+					},
 					nil, g.CE{
 						a.P(g.EB{
 							Children: g.CE{
@@ -88,27 +95,20 @@ var FlexiFeedbackForUnreal = types.PageDetails{
 							Text: "Finally, these reports are posted to the appropriate columns on a GitHub’s Project Board, alongside regularly updated summaries of each column.",
 						}),
 					},
-					nil, g.CE{
-						m.CaptionedImage(m.CaptionedImageProps{
-							Page:    industryproject.Recap,
-							Caption: "Blueprint Node of HTTP Request",
-							Src:     files.IndustryProjectRecap.UnrealBlueprintHttpNode,
-						}),
-					},
 					nil,
 				),
 				m.R2C(
-					nil, g.CE{
-						a.P(g.EB{
-							Text: "The last part of FlexiFeedback is an administrator's page hosted on the back-end server which regularly retrieves summary information " +
-								"from the server, and provides them with an easy automated way to set-up their project board for FlexiFeedback use.",
-						}),
-					},
 					nil, g.CE{
 						m.CaptionedImage(m.CaptionedImageProps{
 							Page:    industryproject.Recap,
 							Caption: "Admin Page",
 							Src:     files.IndustryProjectRecap.AdminPage,
+						}),
+					},
+					nil, g.CE{
+						a.P(g.EB{
+							Text: "The last part of FlexiFeedback is an administrator's page hosted on the back-end server which regularly retrieves summary information " +
+								"from the server, and provides them with an easy automated way to set-up their project board for FlexiFeedback use.",
 						}),
 					},
 					nil,
