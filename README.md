@@ -10,10 +10,26 @@ To run Portfoligo locally, clone this repository and ensure Go is installed, bef
 # install dependencies
 go mod download
 
+# run the code generation
+cd ./gen/
+go run ./
+
 # build the static site
 cd ./cmd/
 go run ./
 ```
+
+## Watched Builds
+
+To watch for changes and rebuild the site automatically, run the following commands:
+
+```bash
+./watch.sh
+```
+
+This will watch for changes in the `./internal` directory and rebuild the site automatically using `inotifywait`.
+
+To automatically reload the browser on changes, the 'Live Server' extension for Visual Studio Code is recommended.
 
 ## File Structure
 
