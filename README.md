@@ -57,3 +57,11 @@ page := types.PageDetails{
 ```
 
 Will result in a page being generated at `dist/blog/index.html`.
+
+For organisation, the `./internal/pages` directory is split into subdirectories for each page type, eg: `blog`, `projects`
+
+## Patterns
+
+The `internal/components` directory contains reusable components in the style of [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/), which can be used to build up pages in `internal/pages`.
+
+The `internal/theme` directory contains [Theme UI](https://theme-ui.com/) inspired tokenised theme definitions, which can be used to style the site.
