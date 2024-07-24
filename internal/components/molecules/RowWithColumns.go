@@ -38,11 +38,11 @@ func RNC(
 	cols []g.CE,
 	containerClasses []string,
 ) *g.HTMLElement {
-	flex1 := []string{ch.Flex(1)}
+	vaFlex1 := []string{ch.Flex(1), ch.JustifyContent(ch.Content.Center)}
 
 	children := g.CE{}
 	lo.ForEach(cols, func(col g.CE, i int) {
-		children = append(children, a.Col(col, u.Tern(colClasses[i] == nil, flex1, colClasses[i])))
+		children = append(children, a.Col(col, u.Tern(colClasses[i] == nil, vaFlex1, colClasses[i])))
 	})
 
 	return a.Row(children, containerClasses)
