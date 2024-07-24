@@ -11,6 +11,7 @@ var _ = registerPage(industryproject.Beginnings)
 var _ = registerPage(industryproject.Redesign)
 var _ = registerPage(industryproject.Server)
 var _ = registerPage(industryproject.Backburner)
+var _ = registerPage(industryproject.Recap)
 
 // Projects
 var _ = registerPage(projects.NoRhythm)
