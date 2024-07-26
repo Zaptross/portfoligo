@@ -35,8 +35,9 @@ func ArticleHeader(page types.PageDetails) *g.HTMLElement {
 		},
 	})
 	ch.MediaPhone(titleClass, g.CSSProps{
-		"max-width": "95vw",
-		"font-size": fmt.Sprintf("clamp(6vw, %dvw, 8vw)", int(math.Ceil(95.0/float64(len(page.Title))))),
+		"max-width":  "95vw",
+		"margin-top": "1rem",
+		"font-size":  fmt.Sprintf("clamp(6vw, %dvw, 8vw)", int(math.Ceil(95.0/float64(len(page.Title))))),
 	})
 
 	return g.Div(g.EB{
