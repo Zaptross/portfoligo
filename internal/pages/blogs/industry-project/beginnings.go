@@ -25,6 +25,14 @@ var Beginnings = types.PageDetails{
 		types.TAG_DESIGN,
 	},
 	Content: func(p types.PageDetails) *g.HTMLElement {
+		mobileCol := "mobile-col"
+		ch.MediaPhone(
+			mobileCol,
+			g.CSSProps{
+				"flex-direction": "column",
+			},
+		)
+
 		return g.Div(g.EB{
 			Children: []*g.HTMLElement{
 				m.CaptionedImage(m.CaptionedImageProps{
@@ -64,28 +72,35 @@ var Beginnings = types.PageDetails{
 						g.Text(", which guided me through all the elements of the editor."),
 					},
 				}),
-				a.Row(g.CE{
-					m.CaptionedImage(m.CaptionedImageProps{
-						Page:             p,
-						Caption:          "Pulsing Darkness",
-						Src:              files.IndustryProjectBeginnings.UnrealShaderWiggle,
-						ContainerClasses: []string{ch.Flex(1)},
-					}),
-					m.CaptionedImage(m.CaptionedImageProps{
-						Page:             p,
-						Caption:          "Black Hole Shader",
-						Src:              files.IndustryProjectBeginnings.UnrealShaderBlackHole,
-						ContainerClasses: []string{ch.Flex(1)},
-					}),
-					a.P(g.EB{
-						ClassList: []string{ch.Flex(2)},
-						Children: g.CE{
-							g.Text("During this process, I found myself experimenting with the material editor borne of my familiarity with Unity's "),
-							a.TextLink("new rendering pipelines", "https://unity.com/srp/universal-render-pipeline"),
-							g.Text(",  and made a couple of cool effects."),
-						},
-					}),
-				}, nil),
+				m.R2C(
+					nil, g.CE{
+						a.Row(g.CE{
+							m.CaptionedImage(m.CaptionedImageProps{
+								Page:             p,
+								Caption:          "Pulsing Darkness",
+								Src:              files.IndustryProjectBeginnings.UnrealShaderWiggle,
+								ContainerClasses: []string{ch.Flex(1)},
+							}),
+							m.CaptionedImage(m.CaptionedImageProps{
+								Page:             p,
+								Caption:          "Black Hole Shader",
+								Src:              files.IndustryProjectBeginnings.UnrealShaderBlackHole,
+								ContainerClasses: []string{ch.Flex(1)},
+							}),
+						}, []string{mobileCol}),
+					},
+					nil, g.CE{
+						a.P(g.EB{
+							ClassList: []string{ch.Flex(2)},
+							Children: g.CE{
+								g.Text("During this process, I found myself experimenting with the material editor borne of my familiarity with Unity's "),
+								a.TextLink("new rendering pipelines", "https://unity.com/srp/universal-render-pipeline"),
+								g.Text(",  and made a couple of cool effects."),
+							},
+						}),
+					},
+					nil,
+				),
 				m.CaptionedImage(m.CaptionedImageProps{
 					Page:    p,
 					Caption: "Unreal Engine Shader Graph Editor",
@@ -94,24 +109,32 @@ var Beginnings = types.PageDetails{
 						ch.MxH("fit-content"),
 					},
 				}),
-				a.Row(g.CE{
-					m.CaptionedImage(m.CaptionedImageProps{
-						Page:             p,
-						Caption:          "Bouncy Chair",
-						Src:              files.IndustryProjectBeginnings.UnrealChairBounce,
-						ContainerClasses: []string{ch.Flex(1)},
-					}),
-					m.CaptionedImage(m.CaptionedImageProps{
-						Page:             p,
-						Caption:          "Bouncy Chair Blueprint",
-						Src:              files.IndustryProjectBeginnings.UnrealChairBounceBlueprint,
-						ContainerClasses: []string{ch.Flex(1)},
-					}),
-					a.P(g.EB{
-						ClassList: []string{ch.Flex(2)},
-						Text:      "I then began to experiment with scene objects and blueprints, deciding to make an object interact with the world in unintuitive ways.",
-					}),
-				}, nil),
+				m.R2C(
+					nil, g.CE{
+						a.Row(g.CE{
+							m.CaptionedImage(m.CaptionedImageProps{
+								Page:             p,
+								Caption:          "Bouncy Chair",
+								Src:              files.IndustryProjectBeginnings.UnrealChairBounce,
+								ContainerClasses: []string{ch.Flex(1)},
+							}),
+							m.CaptionedImage(m.CaptionedImageProps{
+								Page:             p,
+								Caption:          "Bouncy Chair Blueprint",
+								Src:              files.IndustryProjectBeginnings.UnrealChairBounceBlueprint,
+								ContainerClasses: []string{ch.Flex(1)},
+							}),
+						}, []string{mobileCol}),
+					},
+					nil, g.CE{
+						a.P(g.EB{
+							ClassList: []string{ch.Flex(2)},
+							Text:      "I then began to experiment with scene objects and blueprints, deciding to make an object interact with the world in unintuitive ways.",
+						}),
+					},
+					nil,
+				),
+				a.Row(g.CE{}, nil),
 				m.SectionHeader(m.SectionHeaderProps{
 					TagKey: "prototyping-ui",
 					Text:   "Building the Prototype UI",
