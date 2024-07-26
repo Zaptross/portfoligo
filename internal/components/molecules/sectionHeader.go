@@ -46,9 +46,16 @@ func SectionHeader(pr SectionHeaderProps) *g.HTMLElement {
 		pr.Color = t.Colors.Text.Heading
 	}
 
+	class := "section-header"
+	ch.MediaPhone(class, g.CSSProps{
+		"margin-top":    t.Spacing(1),
+		"margin-bottom": t.Spacing(1),
+	})
+
 	return a.Hashlink(g.CE{
 		a.Row(g.CE{
 			pr.Header(g.EB{
+				ClassList: []string{class},
 				Children: g.CE{
 					a.FAS("hashtag", g.CSSProps{"padding-right": "0.5rem"}),
 					g.Text(pr.Text),
