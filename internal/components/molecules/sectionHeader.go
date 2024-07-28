@@ -24,7 +24,6 @@ func SectionHeader(pr SectionHeaderProps) *g.HTMLElement {
 		Selector: "." + borderClass,
 		Props: g.CSSProps{
 			"padding-left":  "1rem",
-			"margin-right":  "1rem",
 			"margin-top":    "0.5rem",
 			"background":    t.Colors.Background.Secondary,
 			"border":        "0.5rem solid " + t.Colors.Background.Secondary,

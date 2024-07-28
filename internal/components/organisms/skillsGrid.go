@@ -6,6 +6,7 @@ import (
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	a "github.com/zaptross/portfoligo/internal/components/atoms"
 	"github.com/zaptross/portfoligo/internal/theme"
+	"github.com/zaptross/portfoligo/internal/types"
 )
 
 type SkillMapping struct {
@@ -20,6 +21,9 @@ type SkillsGridProps struct {
 	// For skills that aren't directly related to an icon, we can use this map to
 	// map the skill to an icon name.
 	MapIcons map[string]SkillMapping
+
+	// Allow style overrides
+	Style g.CSSProps
 }
 
 func SkillsGrid(pr SkillsGridProps) *g.HTMLElement {
@@ -92,6 +96,7 @@ func SkillsGrid(pr SkillsGridProps) *g.HTMLElement {
 	})
 
 	return g.Div(g.EB{
+		Style:     pr.Style,
 		ClassList: []string{skillGridClass},
 		Children: lo.Map(pr.Skills, func(skill string, _ int) *g.HTMLElement {
 			icon := skill
@@ -121,4 +126,16 @@ func SkillsGrid(pr SkillsGridProps) *g.HTMLElement {
 				), "/search/?q="+skill)
 		}),
 	})
+}
+
+func SkillsMappingDefaults() map[string]SkillMapping {
+	return map[string]SkillMapping{
+		types.TAG_TOOL_KUBE:                       {IconFn: a.SimpleIcon, Filter: true},
+		types.TAG_LANG_TS:                         {IconFn: a.SimpleIcon, Filter: true},
+		types.TAG_LANG_CSHARP:                     {IconFn: a.SimpleIcon, Filter: true},
+		types.TAG_TOOL_UNREAL:                     {IconFn: a.SimpleIcon, Filter: true},
+		types.TAG_TOOL_DOTNET:                     {IconFn: a.SimpleIcon, Filter: true},
+		types.TAG_TOOL_DATADOG:                    {IconFn: a.SimpleIcon, Filter: true},
+		(types.TAG_GAME + " " + types.TAG_DESIGN): {IconFn: a.FAS, Icon: "gamepad"},
+	}
 }

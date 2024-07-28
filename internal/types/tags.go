@@ -27,6 +27,7 @@ const (
 	TAG_TOOL_AWS       = "aws"
 	TAG_TOOL_DOCKER    = "docker"
 	TAG_TOOL_DOTNET    = "dotnet"
+	TAG_TOOL_DATADOG   = "datadog"
 	TAG_TOOL_FIGMA     = "figma"
 	TAG_TOOL_FREECAD   = "freecad"
 	TAG_TOOL_JAVA      = "java"
@@ -34,7 +35,7 @@ const (
 	TAG_TOOL_KUBE      = "kubernetes"
 	TAG_TOOL_NODE      = "node-js"
 	TAG_TOOL_PHOTOSHOP = "photoshop"
-	TAG_TOOL_PYTHON    = "PYTHON"
+	TAG_TOOL_PYTHON    = "python"
 	TAG_TOOL_UNITY     = "unity"
 	TAG_TOOL_UNREAL    = "unrealengine"
 

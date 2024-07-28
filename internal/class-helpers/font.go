@@ -17,3 +17,15 @@ func FontColor(color string) string {
 
 	return className
 }
+
+func FontColorI(color string) string {
+	className := ClassNameSanitiser(fmt.Sprintf("fci-%s", color))
+	g.Class(&g.CSSClass{
+		Selector: "." + className,
+		Props: g.CSSProps{
+			"color": color + " !important",
+		},
+	})
+
+	return className
+}

@@ -38,7 +38,7 @@ var SolarizedDark = initTheme(
 				Primary:   sdp.Base02,
 				Secondary: sdp.Base03,
 				Button:    sdp.Blue,
-				Accent:    sdp.Violet,
+				Accent:    sdp.Base1,
 				Hover:     sdp.Cyan,
 			},
 			Error:   sdp.Red,

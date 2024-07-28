@@ -19,7 +19,15 @@ func SimpleIcon(icon string, css g.CSSProps) *g.HTMLElement {
 		Style:     css,
 		ClassList: []string{"filter", className},
 		Props: g.Props{
-			"src": fmt.Sprintf("https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/%s.svg", icon),
+			"src": simpleIconCDNUrl(icon),
 		},
 	})
+}
+
+func simpleIconCDNUrl(icon string) string {
+	if icon == "csharp" {
+		return "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/csharp.svg"
+	}
+
+	return fmt.Sprintf("https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/%s.svg", icon)
 }

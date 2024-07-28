@@ -1,9 +1,6 @@
 package atoms
 
 import (
-	"fmt"
-	"time"
-
 	g "github.com/zaptross/gorgeous"
 	ch "github.com/zaptross/portfoligo/internal/class-helpers"
 	"github.com/zaptross/portfoligo/internal/theme"
@@ -19,7 +16,7 @@ func PageFooter() *g.HTMLElement {
 			"display":        "flex",
 			"flex-direction": "row",
 			"flex-wrap":      "wrap",
-			"color":          t.Colors.Text.Secondary,
+			"color":          t.Colors.Text.Secondary + " !important",
 		},
 	})
 	g.Class(&g.CSSClass{
@@ -54,7 +51,8 @@ func PageFooter() *g.HTMLElement {
 								},
 							}),
 							g.Span(g.EB{
-								Text: fmt.Sprintf(" © %s Matthew Price", time.Now().Format("2006")),
+								Text:   " © %s Matthew Price",
+								Script: "thisElement.textContent = thisElement.textContent.replace('%s', new Date().getFullYear());",
 							}),
 						},
 					}),
