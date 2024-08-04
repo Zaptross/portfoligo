@@ -67,8 +67,7 @@ func Meta(md types.PageDetails) []*g.HTMLElement {
 }
 
 func OpenGraph(md types.PageDetails) g.CE {
-	// TODO - update to correct domain
-	domain := "https://portfolio.zaptross.com"
+	domain := "https://matthewprice.dev"
 	ogElements := g.CE{
 		openGraphMeta("og:title", md.Title),
 		openGraphMeta("description", md.Description),
